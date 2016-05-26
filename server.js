@@ -33,18 +33,18 @@ app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
  * API Routes
  */
 
-var postsCtrl = controllers.posts;
-app.get('/api/posts', postsCtrl.index);
-app.post('/api/posts', auth.ensureAuthenticated, postsCtrl.create);
-app.get('/api/posts/:id', postsCtrl.show);
-app.put('/api/posts/:id', auth.ensureAuthenticated, postsCtrl.update);
-app.delete('/api/posts/:id', auth.ensureAuthenticated, postsCtrl.destroy);
+var reviewsCtrl = controllers.reviews;
+app.get('/api/reviews', reviewsCtrl.index);
+app.post('/api/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
+app.get('/api/reviews/:id', reviewsCtrl.show);
+app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
+app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 
 /*
  * Catch All Route
  */
-app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/reviews*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -52,7 +52,7 @@ app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (
 /*
  * Listen on localhost:9000
  */
-var port = process.env.PORT || 9000;
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('server started on port ', port);
 });

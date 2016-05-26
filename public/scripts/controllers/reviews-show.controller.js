@@ -1,22 +1,22 @@
-PostsShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
-function PostsShowController ($location, $http, $routeParams) {
+ReviewsShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
+function ReviewsShowController ($location, $http, $routeParams) {
   var vm = this;
   vm.destroy = destroy;
-  vm.post = {};
+  vm.review = {};
 
   get();
 
   function get(){
     $http
-      .get('/api/posts/' + $routeParams.id)
+      .get('/api/reviews/' + $routeParams.id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
-      vm.post = response.data;
+      vm.review = response.data;
     }
 
     function onGetError(response){
-      console.log("Error in getting posts", response);
+      console.log("Error in getting reviews", response);
       $location.path('/');
     }
   }
@@ -24,7 +24,7 @@ function PostsShowController ($location, $http, $routeParams) {
   function destroy(){
     $http ({
       method: 'DELETE',
-      url: '/api/posts/' + $routeParams.id
+      url: '/api/reviews/' + $routeParams.id
     }).then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(response) {

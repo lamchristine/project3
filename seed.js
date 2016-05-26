@@ -6,7 +6,7 @@ var user_a = {
   displayName: "Alan Perlis"
 }
 
-var posts = [
+var reviews = [
   {
     title: "The early bird",
     content: "In software systems, it is often the early bird that makes the worm."
@@ -22,13 +22,13 @@ var posts = [
 ]
 
 db.User.remove({}, function(){
-  db.Post.remove({}, function(){
+  db.Review.remove({}, function(){
     db.User.create(user_a, function(err, user){
       if (err || !user) { return console.log(err); }
-      var user_a_posts = posts.map(function(p){p.user = user._id; return p;})
-      db.Post.create(user_a_posts, function(err, posts){
+      var user_a_reviews = reviews.map(function(r){r.user = user._id; return r;})
+      db.Review.create(user_a_reviews, function(err, reviews){
           if (err) { return console.log(err); }
-          console.log("Created", posts.length, "posts")
+          console.log("Created", reviews.length, "reviews")
           process.exit()
         }
       )

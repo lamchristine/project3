@@ -1,0 +1,15 @@
+<h2>Microblog</h2>
+<hr>
+
+
+<p ng-if="!home.reviews.length">No reviews yet.</p>
+
+<div ng-if="home.reviews.length">
+  <div ng-repeat="review in home.reviews">
+    <p>
+      <strong><a ng-href="/reviews/{{review._id}}">{{review.title}}</a></strong> - {{review.content}} -- {{review.user.displayName}}
+    </p>
+  </div>
+</div>
+
+<a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/reviews/new">Add New Review</a>
