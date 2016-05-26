@@ -1,0 +1,15 @@
+<h2>Microblog</h2>
+<hr>
+
+
+<p ng-if="!home.posts.length">No posts yet.</p>
+
+<div ng-if="home.posts.length">
+  <div ng-repeat="post in home.posts">
+    <p>
+      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong> - {{post.content}} -- {{post.user.displayName}}
+    </p>
+  </div>
+</div>
+
+<a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/posts/new">Add New Post</a>
