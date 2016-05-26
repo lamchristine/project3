@@ -2,7 +2,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var categorySchema = new Schema({
-  place: { type: Schema.Types.ObjectId, ref: 'Place' },
+  places: [{ type: Schema.Types.ObjectId, ref: 'Place' }],
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
   name: String
 });
 

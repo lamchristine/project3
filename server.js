@@ -41,6 +41,16 @@ app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
 app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 
+var categoriesCtrl = controllers.categories;
+app.get('/api/categories', categoriesCtrl.index);
+
+var placesCtrl = controllers.places;
+app.get('/api/places', placesCtrl.index);
+
+
+
+
+
 /*
  * Catch All Route
  */
@@ -50,7 +60,7 @@ app.get(['/', '/signup', '/login', '/logout', '/profile', '/reviews*'], function
 
 
 /*
- * Listen on localhost:9000
+ * Listen on localhost:3000
  */
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

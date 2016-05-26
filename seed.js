@@ -6,16 +6,48 @@ var user_a = {
   username: "Alan Perlis"
 }
 
-var place = {
-  address: "245 Bush Street",
-  name: "Zanzes Cheesecake",
-  website: "wwww.zanzacheese.com"
-};
+// var place = [
+//   {
+//     address: "245 Bush Street",
+//     name: "Zanzes Cheesecake",
+//     website: "wwww.zanzacheese.com"
+//   },
+  // {
+  //   address: "111 26th Street",
+  //   name: "Hog and Pie",
+  //   website: "wwww.hogpie.com"
+  // },
+  // {
+  //   address: "45 Market Street",
+  //   name: "Alexanders Steakhouse",
+  //   website: "wwww.asteak.com"
+  // }
+// ];
 
-var category = {
-  name: "Cheesecake"
-};
+// var category = [
+//   {
+//     name: "Cheesecake"
+//   },
+//   {
+//     name: "Lamp Chops"
+//   },
+//   {
+//     name: "Poutine"
+//   }
+// ];
 
+
+var places =
+  {
+    address: "245 Bush Street",
+    name: "Zanzes Cheesecake",
+    website: "wwww.zanzacheese.com"
+  };
+
+  var categories =
+    {
+      name: "Cheesecake"
+    };
 
 var reviews = [
   {
@@ -38,10 +70,10 @@ var reviews = [
   }
 ];
 
-db.User.remove({}, function(){
-  db.Place.remove({}, function(){
-    db.Category.remove({}, function(){
-      db.Review.remove({}, function(){
+db.Review.remove({}, function(){
+  db.Category.remove({}, function(){
+    db.Place.remove({}, function(){
+      db.User.remove({}, function(){
         db.User.create(user_a, function(err, user){
           db.Place.create(place, function(err, place){
             db.Category.create(category, function(err, category){
@@ -62,3 +94,16 @@ db.User.remove({}, function(){
     });
   });
 });
+
+//creating categories with reference to place
+
+    db.Place.create(places, function(err, places){
+      if (err || !places) { return console.log(err); }
+      var place_a = categories.map(function(c){c.place = place._id; return c;})
+      db.Category.create(place_a, function(err, categories){
+          if (err) { return console.log(err); }
+          console.log("Created", categories.length, "categories")
+          process.exit()
+        }
+      )
+    })

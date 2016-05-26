@@ -13,11 +13,19 @@ function configRoutes($routeProvider, $locationProvider) {
     //   controller: 'ReviewsIndexController',
     //   controllerAs: 'home'
     // })
+    .when('/', {
+      templateUrl: 'templates/categories/index.html',
+      controller: 'CategoriesIndexController',
+      controllerAs: 'home'
+    })
+
     // .when('/', {
     //   templateUrl: 'templates/categories/index.html',
-    //   controller: 'CategoriesIndexController',
-    //   controllerAs: 'home'
+    //   controller: 'PlacesIndexController',
+    //   controllerAs: 'plceesIndexCtrl'
     // })
+
+
 
     .when('/signup', {
       templateUrl: 'templates/user/signup.html',

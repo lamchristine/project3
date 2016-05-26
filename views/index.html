@@ -35,6 +35,8 @@
   <script type="text/javascript" src="scripts/controllers/reviews-edit.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/user-profile.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/user-signup.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/categories-index.controller.js"></script>
+  <!-- <script type="text/javascript" src="scripts/controllers/places-index.controller.js"></script> -->
   <script type="text/javascript" src="scripts/services/user.service.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
@@ -68,18 +70,22 @@
     </div>
   </nav>
   <!--end of nav bar-->
-  <!--start of jumbotron-->
-  <div class="jumbotron">
-    <div class="container">
-      <h1>CRAVINGS</h1>
-      <p>A place to satisfy all your food cravings</p>
-    </div>
-  </div>
 
+  <!--start of ng-view-->
   <div class="container">
     <div class="row">
-      <div ng-view class="col-md-6 col-md-offset-3"></div>
+      <div ng-view></div>
+  </div>
+  <!--start of ng-view-->
+
+  <!--start of footer-->
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2016 - Built By
+           <a href="#" target="_blank" >Christine Lam</a>
+      </p>
     </div>
   </div>
+  <!--end of footer-->
 </body>
 </html>

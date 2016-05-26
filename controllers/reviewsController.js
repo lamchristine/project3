@@ -9,7 +9,7 @@ function index(req, res) {
     .populate('user')
     .exec(function(err, reviews){
       if (err || !reviews || !reviews.length) {
-        return res.status(404).send({message: 'Reviews not found.'})
+        return res.status(404).send({message: 'Reviews not found.'});
       }
       res.send(reviews);
     })

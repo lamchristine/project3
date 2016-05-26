@@ -13,5 +13,9 @@ angular
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
   .service('UserService', UserService)
+  .controller('CategoriesIndexController', CategoriesIndexController)
+  // .controller('PlacesIndexController', PlacesIndexController)
+
   .config(configRoutes)
+
   ;
