@@ -1,40 +1,40 @@
-PostsEditController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
-function PostsEditController ($location, $http, $routeParams) {
+ReviewsEditController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
+function ReviewsEditController ($location, $http, $routeParams) {
   var vm = this;
   vm.update = update;
   vm.destroy = destroy;
-  vm.post = {}; // form data
+  vm.review = {}; // form data
 
   get();
 
 
     function get() {
       $http
-        .get('/api/posts/' + $routeParams.id)
+        .get('/api/reviews/' + $routeParams.id)
         .then(onGetSuccess, onGetError);
 
       function onGetSuccess(response){
-        vm.post = response.data;
+        vm.review = response.data;
       }
 
       function onGetError(response){
-        console.log("error getting post", response);
+        console.log("error getting review", response);
         $location.path('/');
       }
     }
 
     function update(){
       $http
-        .put('/api/posts/' + $routeParams.id, vm.post)
+        .put('/api/reviews/' + $routeParams.id, vm.review)
         .then(onUpdateSuccess, onUpdateError);
 
       function onUpdateSuccess(response){
         // $location.path('/');
-        $location.path('/posts/' + $routeParams.id);
+        $location.path('/reviews/' + $routeParams.id);
       }
 
       function onUpdateError(response){
-        console.log("Failed in upating post", response);
+        console.log("Failed in upating review", response);
       }
     }
 
@@ -42,7 +42,7 @@ function PostsEditController ($location, $http, $routeParams) {
     function destroy(){
       $http ({
         method: 'DELETE',
-        url: '/api/posts/' + $routeParams.id
+        url: '/api/reviews/' + $routeParams.id
       }).then(onDeleteSuccess, onDeleteError);
 
       function onDeleteSuccess(response) {

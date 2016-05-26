@@ -8,11 +8,25 @@ function configRoutes($routeProvider, $locationProvider) {
   });
 
   $routeProvider
+    // .when('/', {
+    //   templateUrl: 'templates/reviews/index.html',
+    //   controller: 'ReviewsIndexController',
+    //   controllerAs: 'home'
+    // })
     .when('/', {
-      templateUrl: 'templates/posts/index.html',
-      controller: 'PostsIndexController',
+      templateUrl: 'templates/categories/index.html',
+      controller: 'CategoriesIndexController',
       controllerAs: 'home'
     })
+
+    // .when('/', {
+    //   templateUrl: 'templates/categories/index.html',
+    //   controller: 'PlacesIndexController',
+    //   controllerAs: 'plceesIndexCtrl'
+    // })
+
+
+
     .when('/signup', {
       templateUrl: 'templates/user/signup.html',
       controller: 'SignupController',
@@ -44,28 +58,28 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .when('/posts', {
-      templateUrl: 'templates/posts/index.html',
-      controller: 'PostsIndexController',
+    .when('/reviews', {
+      templateUrl: 'templates/reviews/index.html',
+      controller: 'ReviewsIndexController',
       controllerAs: 'home'
     })
-    .when('/posts/new', {
-      templateUrl: 'templates/posts/new.html',
-      controller: 'PostsNewController',
-      controllerAs: 'postsNewCtrl',
+    .when('/reviews/new', {
+      templateUrl: 'templates/reviews/new.html',
+      controller: 'ReviewsNewController',
+      controllerAs: 'reviewsNewCtrl',
       resolve: {
         loginRequired: loginRequired
       }
     })
-    .when('/posts/:id', {
-      templateUrl: 'templates/posts/show.html',
-      controller: 'PostsShowController',
-      controllerAs: 'postsShowCtrl'
+    .when('/reviews/:id', {
+      templateUrl: 'templates/reviews/show.html',
+      controller: 'ReviewsShowController',
+      controllerAs: 'reviewsShowCtrl'
     })
-    .when('/posts/:id/edit', {
-      templateUrl: 'templates/posts/edit.html',
-      controller: 'PostsEditController',
-      controllerAs: 'postsEditCtrl',
+    .when('/reviews/:id/edit', {
+      templateUrl: 'templates/reviews/edit.html',
+      controller: 'ReviewsEditController',
+      controllerAs: 'reviewsEditCtrl',
       resolve: {
         loginRequired: loginRequired
       }

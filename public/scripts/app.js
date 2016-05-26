@@ -1,18 +1,21 @@
 angular
-  .module('AuthSampleApp', [
+  .module('Project3App', [
     'ngRoute',
     'satellizer'
   ])
   .controller('MainController', MainController)
-  .controller('PostsIndexController', PostsIndexController)
-  .controller('PostsNewController', PostsNewController)
-  .controller('PostsShowController', PostsShowController)
-  .controller('PostsEditController', PostsEditController)
+  .controller('ReviewsIndexController', ReviewsIndexController)
+  .controller('ReviewsNewController', ReviewsNewController)
+  .controller('ReviewsShowController', ReviewsShowController)
+  .controller('ReviewsEditController', ReviewsEditController)
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
   .service('UserService', UserService)
-  .config(configRoutes)
-  ;
+  .controller('CategoriesIndexController', CategoriesIndexController)
+  // .controller('PlacesIndexController', PlacesIndexController)
 
+  .config(configRoutes)
+
+  ;

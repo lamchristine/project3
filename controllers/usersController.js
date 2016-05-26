@@ -22,7 +22,7 @@ function signup(req, res) {
       return res.status(409).send({ message: 'Email is already taken.' });
     }
     var user = new User({
-      displayName: req.body.displayName,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
       created: new Date()
@@ -41,7 +41,7 @@ function updateCurrentUser(req, res) {
     if (!user) {
       return res.status(400).send({ message: 'User not found.' });
     }
-    user.displayName = req.body.displayName || user.displayName;
+    user.username = req.body.username || user.username;
     user.username = req.body.username || user.username;
     user.email = req.body.email || user.email;
     user.save(function(err, result) {

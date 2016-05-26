@@ -3,12 +3,15 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs');
 
 var userSchema = new Schema({
+  first_name: String,
+  last_name: String,
   created: { type: Date, default: Date.now },
   updated: { type: Date },
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
-  displayName: String,
-  picture: String
+  username: String,
+  avatar: String,
+  favorite_reviews: [ {review:{ type: Schema.Types.ObjectId, ref: 'Review'}} ]//double check!!!!
 });
 
 userSchema.pre('save', function (next) {

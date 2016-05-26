@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="AuthSampleApp">
+<html lang="en" ng-app="Project3App">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,19 +29,22 @@
   <script type="text/javascript" src="scripts/controllers/auth-login.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/auth-logout.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/main.controller.js"></script>
-  <script type="text/javascript" src="scripts/controllers/posts-index.controller.js"></script>
-  <script type="text/javascript" src="scripts/controllers/posts-new.controller.js"></script>
-  <script type="text/javascript" src="scripts/controllers/posts-show.controller.js"></script>
-  <script type="text/javascript" src="scripts/controllers/posts-edit.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/reviews-index.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/reviews-new.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/reviews-show.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/reviews-edit.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/user-profile.controller.js"></script>
   <script type="text/javascript" src="scripts/controllers/user-signup.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/categories-index.controller.js"></script>
+  <!-- <script type="text/javascript" src="scripts/controllers/places-index.controller.js"></script> -->
   <script type="text/javascript" src="scripts/services/user.service.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 
-  <title>Angular Auth</title>
+  <title>Cravings</title>
 </head>
 <body ng-controller="MainController as main">
+  <!--start of nav bar-->
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -51,25 +54,38 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">AngularAuth</a>
+        <a class="navbar-brand" href="/">Cravings!</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
+          <li><a href="/">Browse</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.username}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
         </ul>
       </div>
     </div>
   </nav>
+  <!--end of nav bar-->
+
+  <!--start of ng-view-->
   <div class="container">
     <div class="row">
-      <div ng-view class="col-md-6 col-md-offset-3"></div>
+      <div ng-view></div>
+  </div>
+  <!--start of ng-view-->
+
+  <!--start of footer-->
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2016 - Built By
+           <a href="#" target="_blank" >Christine Lam</a>
+      </p>
     </div>
   </div>
+  <!--end of footer-->
 </body>
 </html>

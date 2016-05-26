@@ -31,7 +31,7 @@ function ensureAuthenticated(req, res, next) { //next is a function, it's all go
 function createJWT(user) {
   var payload = {
     user_id: user._id, // required by satellizer
-    displayName: user.displayName, //options
+    username: user.username, //options
     email: user.email, //options
     iat: moment().unix(), //current time
     exp: moment().add(14, 'days').unix() //expiration date

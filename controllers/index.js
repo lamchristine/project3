@@ -1,4 +1,6 @@
 module.exports = {
   users: require('./usersController'),
-  posts: require('./postsController')
+  reviews: require('./reviewsController'),
+  categories: require('./categoriesController'),
+  places: require('./placesController')
 }

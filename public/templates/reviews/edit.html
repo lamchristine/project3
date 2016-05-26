@@ -1,0 +1,15 @@
+<!-- ReviewsNewController as reviewsNewCtrl -->
+<div class="pull-right col-xl-4">
+  <a class="btn btn-warning col-xl-2" href="/">Discard Changes</a>
+  <a class="btn btn-danger col-xl-2" ng-click="reivewsEditCtrl.destroy(review)">Delete Review</a>
+  <hr>
+</div>
+<form ng-submit="reviewsEditCtrl.update()">
+  <div class="form-group">
+    <input type="text" class="form-control" value="title" placeholder="Title" ng-model="reviewsEditCtrl.review.title" required="true">
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" value="content" placeholder="Content" ng-model="reviewsEditCtrl.review.content" required="true"></textarea>
+  </div>
+  <input type="submit" value="Update Review" class="btn btn-block btn-info">
+</form>

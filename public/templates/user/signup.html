@@ -2,7 +2,13 @@
 <hr>
 <form ng-submit="sc.signup()">
 	<div class="form-group">
-	  <input type="text" ng-model="sc.new_user.displayName" class="form-control" placeholder="Full Name">
+	  <input type="text" ng-model="sc.new_user.first_name" class="form-control" placeholder="First Name">
+	</div>
+	<div class="form-group">
+	  <input type="text" ng-model="sc.new_user.last_name" class="form-control" placeholder="Last Name">
+	</div>
+	<div class="form-group">
+	  <input type="text" ng-model="sc.new_user.username" class="form-control" placeholder="Full Name">
 	</div>
   <div class="form-group">
     <input type="text" ng-model="sc.new_user.email" class="form-control" placeholder="Email">
