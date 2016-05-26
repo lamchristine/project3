@@ -7,7 +7,7 @@
 <div ng-if="home.reviews.length">
   <div ng-repeat="review in home.reviews">
     <p>
-      <strong><a ng-href="/reviews/{{review._id}}">{{review.title}}</a></strong> - {{review.content}} -- {{review.user.displayName}}
+      <strong><a ng-href="/reviews/{{review._id}}">{{review.title}}</a></strong> -- {{review.user.username}}
     </p>
   </div>
 </div>

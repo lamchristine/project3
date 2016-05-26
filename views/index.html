@@ -39,9 +39,10 @@
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 
-  <title>Angular Auth</title>
+  <title>Cravings</title>
 </head>
 <body ng-controller="MainController as main">
+  <!--start of nav bar-->
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -51,21 +52,30 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">AngularAuth</a>
+        <a class="navbar-brand" href="/">Cravings!</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
+          <li><a href="/">Browse</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.username}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
         </ul>
       </div>
     </div>
   </nav>
+  <!--end of nav bar-->
+  <!--start of jumbotron-->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>CRAVINGS</h1>
+      <p>A place to satisfy all your food cravings</p>
+    </div>
+  </div>
+
   <div class="container">
     <div class="row">
       <div ng-view class="col-md-6 col-md-offset-3"></div>

@@ -1,6 +1,6 @@
-<h3>{{main.currentUser.displayName}}</h3>
+<h3>{{main.currentUser.username}}</h3>
 <hr>
-<p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
+<p><strong>Username:</strong> {{main.currentUser.username}}</p>
 <p><strong>Email:</strong> {{main.currentUser.email}}</p>
 <p><strong>Joined:</strong> {{main.currentUser.created | date:format:timezone}}</p>
 <p><strong>Reviews:</strong> {{main.currentUser.reviews.length || 0}}</p>
@@ -10,7 +10,7 @@
 
 <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
   <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.displayName" class="form-control" placeholder="Username">
+    <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
   </div>
   <div class="form-group">
     <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">

@@ -4,7 +4,7 @@ function UserService($http, $q, $auth){
 
   var empty_user = {
     user_id: null,
-    displayName: null,
+    username: null,
     email: null,
     // created: null
   }
@@ -37,7 +37,7 @@ function UserService($http, $q, $auth){
       $auth
        .signup (user_data)
         //  user_id: user_data.user_id,
-        //  displayName: user_data.displayName,
+        //  username: user_data.username,
         //  email: user_data.email,
         //  created: new Date()
         // signup (https://github.com/sahat/satellizer#authsignupuser-options)

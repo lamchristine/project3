@@ -8,11 +8,17 @@ function configRoutes($routeProvider, $locationProvider) {
   });
 
   $routeProvider
-    .when('/', {
-      templateUrl: 'templates/reviews/index.html',
-      controller: 'ReviewsIndexController',
-      controllerAs: 'home'
-    })
+    // .when('/', {
+    //   templateUrl: 'templates/reviews/index.html',
+    //   controller: 'ReviewsIndexController',
+    //   controllerAs: 'home'
+    // })
+    // .when('/', {
+    //   templateUrl: 'templates/categories/index.html',
+    //   controller: 'CategoriesIndexController',
+    //   controllerAs: 'home'
+    // })
+
     .when('/signup', {
       templateUrl: 'templates/user/signup.html',
       controller: 'SignupController',
