@@ -1,18 +1,18 @@
-CategoriesShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
-function CategoriesShowController ($location, $http, $routeParams) {
+ItemsShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
+function ItemsShowController ($location, $http, $routeParams) {
   var vm = this;
   vm.destroy = destroy;
-  vm.category = {};
+  vm.item = {};
 
   get();
 
   function get(){
     $http
-      .get('/api/categories/' + $routeParams.id)
+      .get('/api/items/' + $routeParams.id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
-      vm.category = response.data;
+      vm.item = response.data;
     }
 
     function onGetError(response){

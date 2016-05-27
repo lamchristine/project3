@@ -8,5 +8,5 @@ module.exports = {
   User: require('./user'),
   Review: require('./review'),
   Place: require('./place'),
-  Category: require('./category'),
+  Item: require('./item'),
 };
