@@ -36,12 +36,14 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "john@smith.com",
+      item: "Cheesecake"
     },
     {
       title: "So buttery!",
       rating: 4.5,
       likes_counter: 61,
       email: "sarah@jackson.com",
+      item: "Cheesecake"
       // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
     },
     {
@@ -49,6 +51,7 @@ var users_list = [
       rating: 4.5,
       likes_counter: 121,
       email: "sarah@jackson.com",
+      item: "Lamb Chops"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -56,6 +59,7 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "jimmy@choo.com",
+      item: "Poutine"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -63,6 +67,7 @@ var users_list = [
       rating: 3.0,
       likes_counter: 11,
       email: "sarah@jackson.com",
+      item: "Poutine"
       // content: "One man's constant is another man's variable."
     }
   ];
@@ -101,11 +106,11 @@ var items_list = [
     place: "Alexanders Steakhouse"
   },
   {
-    name: "Lamp Chops",
+    name: "Lamb Chops",
     place: "Alexanders Steakhouse"
   },
   {
-    name: "Lamp Chops",
+    name: "Lamb Chops",
     place: "State Bird Provision"
   },
   {
@@ -134,6 +139,9 @@ db.Place.remove({}, function(err, places) {
         var item = new db.Item({
           name: itemData.name
         });
+
+        // db.Review.findOne({item:itemData.name, place: })
+
         db.Place.findOne({name: itemData.place}, function (err, foundPlace) {
           console.log('found place ' + foundPlace.name + ' for item ' + item.name);
           if (err) {
@@ -172,6 +180,7 @@ db.User.remove({}, function(err, users) {
           rating: reviewData.rating,
           likes_counter: reviewData.likes_counter,
         });
+
         db.User.findOne({email: reviewData.email}, function (err, foundUser) {
           console.log('found user ' + foundUser.email + ' for review ' + review.title);
           if (err) {
@@ -190,6 +199,20 @@ db.User.remove({}, function(err, users) {
     });
   });
 });
+
+// reviews_list.forEach(function (reviewData) {
+//
+//   review = db.Review.findOne({title: reviewData.title},function (err, review) {
+//     console.log('hi');
+//      if (err) {
+//        console.log(err);
+//        return;
+//      }
+//    });
+//   item = db.Item.findOne({name: reviewData.item});
+//   console.log('>>>>>>>>>>>>>' + review.title);
+//   console.log('>>>>>>>>>>>>>>' + db.Item.count);
+// });
 
 
 
