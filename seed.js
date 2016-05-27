@@ -1,40 +1,40 @@
 var db = require("./models");
 
-var user_a = {
+var john = {
   email: "a",
   password: "a",
   username: "Alan Perlis"
 }
 
-// var place = [
-//   {
-//     address: "245 Bush Street",
-//     name: "Zanzes Cheesecake",
-//     website: "wwww.zanzacheese.com"
-//   },
-  // {
-  //   address: "111 26th Street",
-  //   name: "Hog and Pie",
-  //   website: "wwww.hogpie.com"
-  // },
-  // {
-  //   address: "45 Market Street",
-  //   name: "Alexanders Steakhouse",
-  //   website: "wwww.asteak.com"
-  // }
-// ];
+var place = [
+  {
+    address: "245 Bush Street",
+    name: "Zanzes Cheesecake",
+    website: "wwww.zanzacheese.com"
+  },
+  {
+    address: "111 26th Street",
+    name: "Hog and Pie",
+    website: "wwww.hogpie.com"
+  },
+  {
+    address: "45 Market Street",
+    name: "Alexanders Steakhouse",
+    website: "wwww.asteak.com"
+  }
+];
 
-// var category = [
-//   {
-//     name: "Cheesecake"
-//   },
-//   {
-//     name: "Lamp Chops"
-//   },
-//   {
-//     name: "Poutine"
-//   }
-// ];
+var category = [
+  {
+    name: "Cheesecake"
+  },
+  {
+    name: "Lamp Chops"
+  },
+  {
+    name: "Poutine"
+  }
+];
 
 
 var places =
@@ -107,3 +107,8 @@ db.Review.remove({}, function(){
         }
       )
     })
+
+
+db.User.create({first_name: "John", last_name: "Smith", username: "jsmith" })
+
+db.Review.create({'title': 'taco', user: john});

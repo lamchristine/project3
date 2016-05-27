@@ -14,6 +14,8 @@ angular
   .controller('ProfileController', ProfileController)
   .service('UserService', UserService)
   .controller('CategoriesIndexController', CategoriesIndexController)
+  .controller('CategoriesShowController', CategoriesShowController)
+
   // .controller('PlacesIndexController', PlacesIndexController)
 
   .config(configRoutes)

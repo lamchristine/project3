@@ -16,8 +16,23 @@ function index(req, res) {
     });
 }
 
+function show(req, res){
+  Category
+    .findById(req.params.id)
+    .populate('review')
+    .populate('place')
+    .exec(function(err, found_post){
+      if (err || !found_post) {
+        return res.status(404).send({message: 'Post not found.'})
+      }
+
+      res.send(found_post);
+    })
+}
+
 
 
 module.exports = {
   index: index,
+  show: show, 
 };

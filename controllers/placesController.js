@@ -7,6 +7,8 @@ var db = require('../models'),
 function index(req, res) {
   Place
     .find({})
+    .populate('category')
+    .populate('review')
     .exec(function(err, places){
       if (err || !places || !places.length) {
         return res.status(404).send({message: 'Places not found.'});

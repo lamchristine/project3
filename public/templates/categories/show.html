@@ -1,0 +1,29 @@
+<div id='map'>
+
+</div>
+<div class="container">
+  <div class="col-md-6">
+    <div class="row">
+      <h2>CHEESECAKE</H2>
+    </div>
+    <div class="row">
+      <p>filter by:</p>
+    </div>
+    <!--insert reviews-->
+    {{category}}
+  </div>
+</div>
+
+
+
+
+
+
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhbTA2IiwiYSI6ImNpb294d25xMzAwMXJ1eG0zdXdtaGtqMmwifQ.baGJ8eoCmGvgnMptSrTGyw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v8'
+    });
+</script>

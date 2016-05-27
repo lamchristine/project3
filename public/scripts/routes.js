@@ -19,13 +19,11 @@ function configRoutes($routeProvider, $locationProvider) {
       controllerAs: 'home'
     })
 
-    // .when('/', {
-    //   templateUrl: 'templates/categories/index.html',
-    //   controller: 'PlacesIndexController',
-    //   controllerAs: 'plceesIndexCtrl'
-    // })
-
-
+    .when('/categories/:id', {
+      templateUrl: 'templates/categories/show.html',
+      controller: 'CategoriesShowController',
+      controllerAs: 'categoriesShowCtrl'
+    })
 
     .when('/signup', {
       templateUrl: 'templates/user/signup.html',
