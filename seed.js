@@ -36,14 +36,16 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "john@smith.com",
-      item: "Cheesecake"
+      item: "Cheesecake",
+      place: "Zanzes Cheesecake",
     },
     {
       title: "So buttery!",
       rating: 4.5,
       likes_counter: 61,
       email: "sarah@jackson.com",
-      item: "Cheesecake"
+      item: "Cheesecake",
+      place: "Alexanders Steakhouse"
       // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
     },
     {
@@ -51,7 +53,8 @@ var users_list = [
       rating: 4.5,
       likes_counter: 121,
       email: "sarah@jackson.com",
-      item: "Lamb Chops"
+      item: "Lamb Chops",
+      place: "Alexanders Steakhouse"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -59,7 +62,8 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "jimmy@choo.com",
-      item: "Poutine"
+      item: "Poutine",
+      place: "Alexanders Steakhouse"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -67,7 +71,8 @@ var users_list = [
       rating: 3.0,
       likes_counter: 11,
       email: "sarah@jackson.com",
-      item: "Poutine"
+      item: "Poutine",
+      place: "Hog & Pie"
       // content: "One man's constant is another man's variable."
     }
   ];

@@ -2,7 +2,6 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcryptjs');
 
-var Review = require('./review');
 
 var userSchema = new Schema({
   first_name: String,
@@ -13,8 +12,6 @@ var userSchema = new Schema({
   password: { type: String, select: false },
   username: String,
   avatar: String,
-  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }],
-
   // favorite_reviews: [ {review:{ type: Schema.Types.ObjectId, ref: 'Review'}} ]//double check!!!!
 });
 

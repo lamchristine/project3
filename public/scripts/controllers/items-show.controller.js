@@ -1,7 +1,6 @@
 ItemsShowController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
 function ItemsShowController ($location, $http, $routeParams) {
   var vm = this;
-  vm.destroy = destroy;
   vm.item = {};
 
   get();

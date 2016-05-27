@@ -19,7 +19,7 @@ function configRoutes($routeProvider, $locationProvider) {
       controllerAs: 'home'
     })
 
-    .when('/items/:id', {
+    .when('/item', {
       templateUrl: 'templates/items/show.html',
       controller: 'ItemsShowController',
       controllerAs: 'itemsShowCtrl'

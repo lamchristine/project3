@@ -7,6 +7,7 @@ var db = require('../models'),
 function index(req, res) {
   Item
     .find({})
+    .populate('reviews')
     .populate('place')
     .exec(function(err, items){
       if (err || !items || !items.length) {
@@ -18,16 +19,15 @@ function index(req, res) {
 
 function show(req, res){
   Item
-    .findById(req.params.id)
-    .populate('review')
+    .find(req.params.id)
+    .populate('reviews')
     .populate('place')
     .exec(function(err, found_item){
       if (err || !found_item) {
-        return res.status(404).send({message: 'Item not found.'})
+        return res.status(404).send({message: 'Item not found.'});
       }
-
       res.send(found_item);
-    })
+    });
 }
 
 

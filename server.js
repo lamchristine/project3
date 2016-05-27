@@ -43,13 +43,13 @@ app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 var itemsCtrl = controllers.items;
 app.get('/api/items', itemsCtrl.index);
-app.get('/api/items/:id', itemsCtrl.show);
+app.get('/api/item', itemsCtrl.show);
 
 
-var placesCtrl = controllers.places;
-app.get('/api/places', placesCtrl.index);
-
-
+// var placesCtrl = controllers.places;
+// app.get('/api/places', placesCtrl.index);
+//
+//
 
 
 
