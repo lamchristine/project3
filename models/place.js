@@ -1,8 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-// var Item = require('./item');
-// var Review = require('./review');
+
 
 
 var placeSchema = new Schema({
@@ -10,14 +9,7 @@ var placeSchema = new Schema({
   address: String,
   website: String,
   phone_num: String,
-  price: String 
-  // items: [Item.schema],
-  // reviews: [Review.schema],
-  // items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
-  // reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
-
-  // longitude: Number,
-  // latitude: Number,
+  price: String,
 });
 
 var Place = mongoose.model('Place', placeSchema);

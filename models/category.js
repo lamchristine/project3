@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 var categorySchema = new Schema({
   name: String,
   reviews: [ { type: Schema.Types.ObjectId, ref: 'Review' } ],
-  image: String
+  image: String,
+  places: [ { type: Schema.Types.ObjectId, ref: 'Place' } ]
 });
 
 var Category = mongoose.model('Category', categorySchema);

@@ -7,30 +7,19 @@
     <div class="row">
       <h2>{{categoriesShowCtrl.category.name}}</H2>
 
-        <input ng-model="categoriesShowCtrl.newReview.title" placeholder="Title" type="text" class="form-control input-md">
-        <input ng-model="categoriesShowCtrl.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
-        <button type="button" class="btn btn-success" ng-click="categoriesShowCtrl.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button>
+      <!--review form-->
+      <input ng-model="categoriesShowCtrl.newReview.title" placeholder="Title" type="text" class="form-control input-md">
+      <input ng-model="categoriesShowCtrl.newReview.place" placeholder="Place" type="text" class="form-control input-md">
 
-        <!-- <form ng-submit="reviewsNewCtrl.create()">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Title" ng-model="reviewsNewCtrl.review.title" required="true">
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" placeholder="Rating" ng-model="reviewsNewCtrl.review.rating" required="true">
-          </div>
-          <input type="submit" value="Create Review" class="btn btn-block btn-info">
-        </form> -->
-
-
-      <!-- <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/reviews/new?category={{categoriesShowCtrl.category._id}}">Add New Review</a> -->
+      <input ng-model="categoriesShowCtrl.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
+      <button type="button" class="btn btn-success" ng-click="categoriesShowCtrl.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button>
 
     </div>
     <div class="row">
       <p>filter by:</p>
     </div>
-    <!--insert reviews-->
 
-
+    <!--display all reviews for single category-->
     <div ng-repeat="review in categoriesShowCtrl.category.reviews">
       <div id="review" class="row">
         Review Title: {{review.title}}<br>

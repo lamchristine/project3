@@ -1,7 +1,10 @@
 var auth = require('../middleware/auth');
 var db = require('../models'),
     User = db.User,
-    Review = db.Review;
+    Review = db.Review,
+    Place = db.Place,
+    Category = db.Category,
+    Item = db.Item;
 
 function index(req, res) {
   Review

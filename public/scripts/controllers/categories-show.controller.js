@@ -13,7 +13,6 @@ function CategoriesShowController ($location, $http, $routeParams) {
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
-      console.log(response);
       vm.category = response.data;
     }
 
