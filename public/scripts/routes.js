@@ -14,15 +14,15 @@ function configRoutes($routeProvider, $locationProvider) {
     //   controllerAs: 'home'
     // })
     .when('/', {
-      templateUrl: 'templates/items/index.html',
-      controller: 'ItemsIndexController',
+      templateUrl: 'templates/categories/index.html',
+      controller: 'CategoriesIndexController',
       controllerAs: 'home'
     })
 
-    .when('/item', {
-      templateUrl: 'templates/items/show.html',
-      controller: 'ItemsShowController',
-      controllerAs: 'itemsShowCtrl'
+    .when('/categories/:id', {
+      templateUrl: 'templates/categories/show.html',
+      controller: 'CategoriesShowController',
+      controllerAs: 'categoriesShowCtrl'
     })
 
     .when('/signup', {

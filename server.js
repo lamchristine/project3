@@ -41,9 +41,9 @@ app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
 app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 
-var itemsCtrl = controllers.items;
-app.get('/api/items', itemsCtrl.index);
-app.get('/api/item', itemsCtrl.show);
+var categoriesCtrl = controllers.categories;
+app.get('/api/categories', categoriesCtrl.index);
+app.get('/api/categories/:id', categoriesCtrl.show);
 
 
 // var placesCtrl = controllers.places;

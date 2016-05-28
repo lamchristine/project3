@@ -1,21 +1,23 @@
 <!-- as 'itemsShowCtrl' -->
-<!-- <div id='map'>
+<div id='map'>
 
 </div>
 <div class="container">
   <div class="col-md-6">
     <div class="row">
-      <h2>{{itemsShowCtrl.item.name}}</H2>
+      <h2>{{categoriesShowCtrl.category.name}}</H2>
     </div>
     <div class="row">
       <p>filter by:</p>
-    </div> -->
+    </div>
     <!--insert reviews-->
 
-    <!-- <div ng-repeat="review in itemsShowCtrl.item.reviews">
+    <div ng-repeat="review in categoriesShowCtrl.category.reviews">
       Review Title: {{review.title}}<br>
-      Place Name: {{itemsShowCtrl.item.place.name}}<br>
-      Review Rating: {{review.rating}}<br> -->
+      <!-- Place Name: {{itemsShowCtrl.item.place.name}}<br> -->
+      Review Rating: {{review.rating}}<br>
+      Place: {{review.place}}<br>
+
 
 
     <!-- <div ng-repeat="review in itemsShowCtrl.item.reviews">
@@ -51,11 +53,11 @@
 
 
 
-<!-- 
+
 <script>
-  mapboxgl.accessToken = process.env.TOKEN_MAP;
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhbTA2IiwiYSI6ImNpb294d25xMzAwMXJ1eG0zdXdtaGtqMmwifQ.baGJ8eoCmGvgnMptSrTGyw';
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v8'
     });
-</script> -->
+</script>

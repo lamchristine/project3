@@ -13,8 +13,8 @@ angular
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
   .service('UserService', UserService)
-  .controller('ItemsIndexController', ItemsIndexController)
-  .controller('ItemsShowController', ItemsShowController)
+  .controller('CategoriesIndexController', CategoriesIndexController)
+  .controller('CategoriesShowController', CategoriesShowController)
 
   // .controller('PlacesIndexController', PlacesIndexController)
 

@@ -12,7 +12,6 @@ var userSchema = new Schema({
   password: { type: String, select: false },
   username: String,
   avatar: String,
-  // favorite_reviews: [ {review:{ type: Schema.Types.ObjectId, ref: 'Review'}} ]//double check!!!!
 });
 
 userSchema.pre('save', function (next) {

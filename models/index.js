@@ -9,4 +9,5 @@ module.exports = {
   Review: require('./review'),
   Place: require('./place'),
   Item: require('./item'),
+  Category: require('./category')
 };

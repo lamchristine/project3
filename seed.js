@@ -36,6 +36,7 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "john@smith.com",
+      image: "",
       item: "Cheesecake",
       place: "Zanzes Cheesecake",
     },
@@ -44,6 +45,7 @@ var users_list = [
       rating: 4.5,
       likes_counter: 61,
       email: "sarah@jackson.com",
+      image: "",
       item: "Cheesecake",
       place: "Alexanders Steakhouse"
       // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
@@ -53,6 +55,7 @@ var users_list = [
       rating: 4.5,
       likes_counter: 121,
       email: "sarah@jackson.com",
+      image: "",
       item: "Lamb Chops",
       place: "Alexanders Steakhouse"
       // content: "One man's constant is another man's variable."
@@ -62,6 +65,7 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "jimmy@choo.com",
+      image: "",
       item: "Poutine",
       place: "Alexanders Steakhouse"
       // content: "One man's constant is another man's variable."
@@ -71,6 +75,7 @@ var users_list = [
       rating: 3.0,
       likes_counter: 11,
       email: "sarah@jackson.com",
+      image: "",
       item: "Poutine",
       place: "Hog & Pie"
       // content: "One man's constant is another man's variable."
@@ -97,6 +102,18 @@ var places_list = [
     address: "45 Market Street",
     name: "State Bird Provision",
     website: "wwww.statebird.com"
+  }
+];
+
+var category_list = [
+  {
+    name: "Cheesecake"
+  },
+  {
+    name: "Poutine"
+  },
+  {
+    name: "Lamb Chops"
   }
 ];
 
@@ -138,33 +155,68 @@ db.Place.remove({}, function(err, places) {
     console.log('recreated all places');
     console.log("created", places.length, "places");
 
-    db.Item.remove({}, function(err, items){
-      console.log('removed all items');
-      items_list.forEach(function (itemData) {
-        var item = new db.Item({
-          name: itemData.name
-        });
+    db.Category.remove({}, function(err, categories){
+      db.Category.create(category_list, function(err, categories){
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log('recreated all places');
+        console.log("created", places.length, "places");
 
-        // db.Review.findOne({item:itemData.name, place: })
+          db.Item.remove({}, function(err, items){
+            console.log('removed all items');
+            items_list.forEach(function (itemData) {
+              var item = new db.Item({
+                name: itemData.name
+              });
 
-        db.Place.findOne({name: itemData.place}, function (err, foundPlace) {
-          console.log('found place ' + foundPlace.name + ' for item ' + item.name);
-          if (err) {
-            console.log(err);
-            return;
-          }
-          item.place = foundPlace;
-          item.save(function(err, savedItem){
-            if (err) {
-              return console.log(err);
-            }
-            console.log('saved ' + savedItem.name + ' from ' + foundPlace.name);
+              // db.Review.findOne({item:itemData.name, place: })
+
+              db.Place.findOne({name: itemData.place}, function (err, foundPlace) {
+                console.log('found place ' + foundPlace.name + ' for item ' + item.name);
+                if (err) {
+                  console.log(err);
+                  return;
+                }
+                item.place = foundPlace;
+                item.save(function(err, savedItem){
+                  if (err) {
+                    return console.log(err);
+                  }
+                  console.log('saved ' + savedItem.name + ' from ' + foundPlace.name);
+                });
+              });
+
+              db.Category.findOne({name: itemData.name}, function (err, foundCategory) {
+                console.log('found category ' + foundCategory.name + ' for item ' + item.name);
+                if (err) {
+                  console.log(err);
+                  return;
+                }
+                item.category = foundCategory;
+                item.save(function(err, savedItem){
+                  if (err) {
+                    return console.log(err);
+                  }
+                  console.log('saved ' + savedItem.name + ' from ' + foundCategory.name);
+                });
+              });
+            });
           });
         });
       });
     });
   });
-});
+
+
+// db.Category.remove({}, function(err, categories){
+//   db.Category.create(category_list, function(err, categories){
+//     if (err) { return console.log('ERROR', err); }
+//     console.log("all categories:", categories);
+//     console.log("created", categories.length, "categories");
+//   });
+// });
 
 
 db.User.remove({}, function(err, users) {
@@ -204,6 +256,9 @@ db.User.remove({}, function(err, users) {
     });
   });
 });
+
+
+
 
 // reviews_list.forEach(function (reviewData) {
 //
