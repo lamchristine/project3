@@ -16,15 +16,15 @@
     <div ng-if="home.categories.length">
       <div ng-repeat="category in home.categories">
         <div class="col-md-4">
-          <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/categories/{{category._id}}">Add New Review</a>
           <p>
             <strong><a ng-href="/categories/{{category._id}}">{{category.name}}</a></strong>
+            <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-info btn-xs pull-right" href="/categories/{{category._id}}"><span class="glyphicon glyphicon-plus"></span></a>
           </p>
           <p>
             <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 31 restaurants{{item.places.length}}
           </p>
-          <div class="col-md-12 col-xs-12 thumbnail">
-            <img src="images/800x800.png" alt="item image">
+          <div id="category_img" class="col-md-12 col-xs-12 thumbnail">
+            <img ng-src="images/{{category.image}}" alt="category image">
           </div>
         </div>
       </div>

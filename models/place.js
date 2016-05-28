@@ -9,6 +9,8 @@ var placeSchema = new Schema({
   name: String,
   address: String,
   website: String,
+  phone_num: String,
+  price: String 
   // items: [Item.schema],
   // reviews: [Review.schema],
   // items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],

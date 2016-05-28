@@ -9,6 +9,10 @@
   height: 350px;
 }
 
+#category_img img{
+  height: 200px;
+}
+
 #map {
   min-height: 90%;
   min-width: 1024px;

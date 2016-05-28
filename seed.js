@@ -7,7 +7,7 @@ var users_list = [
     username: "jsmith",
     password: "abc",
     email: "john@smith.com",
-    avatar: "",
+    avatar: "userprofile.png",
   },
   {
     first_name: "Sarah",
@@ -15,7 +15,7 @@ var users_list = [
     username: "sjackson",
     password: "abc",
     email: "sarah@jackson.com",
-    avatar: "",
+    avatar: "userprofile.png",
   },
   {
     first_name: "Jimmy",
@@ -23,11 +23,9 @@ var users_list = [
     username: "jchoo",
     password: "abc",
     email: "jimmy@choo.com",
-    avatar: "",
+    avatar: "userprofile.png",
   }
 ];
-
-
 
 
   var reviews_list = [
@@ -36,7 +34,7 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "john@smith.com",
-      image: "",
+      image: "zanze_cheesecake1.jpg",
       item: "Cheesecake",
       place: "Zanzes Cheesecake",
     },
@@ -45,9 +43,9 @@ var users_list = [
       rating: 4.5,
       likes_counter: 61,
       email: "sarah@jackson.com",
-      image: "",
+      image: "viva_cheesecake2.jpg",
       item: "Cheesecake",
-      place: "Alexanders Steakhouse"
+      place: "Viva La Tarte"
       // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
     },
     {
@@ -55,9 +53,19 @@ var users_list = [
       rating: 4.5,
       likes_counter: 121,
       email: "sarah@jackson.com",
-      image: "",
+      image: "lafolie_lambchop1.jpg",
       item: "Lamb Chops",
-      place: "Alexanders Steakhouse"
+      place: "La Folie"
+      // content: "One man's constant is another man's variable."
+    },
+    {
+      title: "Decent, but not worth the price",
+      rating: 4.5,
+      likes_counter: 121,
+      email: "sarah@jackson.com",
+      image: "lafolie_lambchop2.jpg",
+      item: "Lamb Chops",
+      place: "Wayfare Tavern"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -65,9 +73,9 @@ var users_list = [
       rating: 5.0,
       likes_counter: 21,
       email: "jimmy@choo.com",
-      image: "",
+      image: "smokes_poutine1.jpg",
       item: "Poutine",
-      place: "Alexanders Steakhouse"
+      place: "Zoes"
       // content: "One man's constant is another man's variable."
     },
     {
@@ -75,45 +83,91 @@ var users_list = [
       rating: 3.0,
       likes_counter: 11,
       email: "sarah@jackson.com",
-      image: "",
+      image: "smokes_poutine2.jpg",
       item: "Poutine",
-      place: "Hog & Pie"
+      place: "Smokes Poutinerie"
       // content: "One man's constant is another man's variable."
     }
   ];
 
 var places_list = [
   {
-    address: "245 Bush Street",
     name: "Zanzes Cheesecake",
-    website: "wwww.zanzacheese.com"
+    address: "2405 Ocean Ave, San Francisco, CA 94127",
+    phone_num: "(415) 334-2264",
+    website: "https://www.yelp.com/biz/zanzes-cheesecake-san-francisco",
+    price: "$$"
   },
   {
-    address: "111 26th Street",
-    name: "Hog & Pie",
-    website: "wwww.hogpie.com"
+    name: "Viva La Tarte",
+    address: "1160 Howard St, San Francisco, CA 94103",
+    phone_num: "(415) 891-9743",
+    website: "http://vivelatarte.com",
+    price: "$$"
   },
   {
-    address: "45 Market Street",
-    name: "Alexanders Steakhouse",
-    website: "wwww.asteak.com"
+    name: "Genki Crepes",
+    address: "330 Clement St, San Francisco, CA 94118",
+    phone_num: "(415) 379-6414",
+    website: "http://www.genkicrepes.com",
+    price: "$"
   },
   {
-    address: "45 Market Street",
-    name: "State Bird Provision",
-    website: "wwww.statebird.com"
+    name: "Zoes",
+    address: "3088 24th St, San Francisco, CA 94110",
+    phone_num: "(415) 817-1972",
+    website: "http://www.zoessf.com",
+    price: "$"
+  },
+  {
+    name: "Wayfare Tavern",
+    address: "558 Sacramento St, San Francisco, CA 94111",
+    phone_num: "(415) 772-9060",
+    website: "http://www.wayfaretavern.com",
+    price: "$$"
+  },
+  {
+    name: "Smokes Poutinerie",
+    address: "2518 Durant Ave, Unit A, Berkeley, CA 94704",
+    phone_num: "(510) 540-7500",
+    website: "http://smokespoutinerie.com",
+    price: "$"
+  },
+  {
+    name: "La Folie",
+    address: "2316 Polk St, San Francisco, CA 94109",
+    phone_num: "(415) 776-5577",
+    website: "http://lafolie.com",
+    price: "$$$$"
+  },
+  {
+    name: "Nopa",
+    address: "560 Divisadero St, San Francisco, CA 94117",
+    phone_num: "(415) 864-8643",
+    website: "http://nopasf.com",
+    price: "$$$"
+  },
+  {
+    name: "Boulevard",
+    address: "1 Mission St, San Francisco, CA 94105",
+    phone_num: "(415) 543-6084",
+    website: "http://www.boulevardrestaurant.com",
+    price: "$$$$"
   }
 ];
 
 var category_list = [
   {
-    name: "Cheesecake"
+    name: "Cheesecake",
+    image: "category_cheesecake.jpeg"
   },
   {
-    name: "Poutine"
+    name: "Poutine",
+    image: "category_poutine.jpg"
   },
   {
-    name: "Lamb Chops"
+    name: "Lamb Chops",
+    image: "category_lambchop.jpg"
   }
 ];
 
@@ -125,23 +179,35 @@ var items_list = [
   },
   {
     name: "Cheesecake",
-    place: "Alexanders Steakhouse"
+    place: "Viva La Tarte"
+  },
+  {
+    name: "Cheesecake",
+    place: "Genki Crepes"
   },
   {
     name: "Lamb Chops",
-    place: "Alexanders Steakhouse"
+    place: "La Folie"
   },
   {
     name: "Lamb Chops",
-    place: "State Bird Provision"
+    place: "Nopa"
+  },
+  {
+    name: "Lamb Chops",
+    place: "Boulevard"
   },
   {
     name: "Poutine",
-    place: "Alexanders Steakhouse"
+    place: "Zoes"
   },
   {
     name: "Poutine",
-    place: "Hog & Pie"
+    place: "Wayfare Tavern"
+  },
+  {
+    name: "Poutine",
+    place: "Wayfare Tavern"
   }
 ];
 
@@ -237,7 +303,7 @@ db.User.remove({}, function(err, users) {
           rating: reviewData.rating,
           likes_counter: reviewData.likes_counter,
         });
-        // 
+        //
         // db.Item.findOne({name: reviewData.item}, function (err, foundItem) {
         //   console.log('found item ' + foundItem.name + ' for review ' + review.item);
         //
