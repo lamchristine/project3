@@ -56,32 +56,32 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .when('/reviews', {
-      templateUrl: 'templates/reviews/index.html',
-      controller: 'ReviewsIndexController',
-      controllerAs: 'home'
-    })
-    .when('/reviews/new', {
-      templateUrl: 'templates/reviews/new.html',
-      controller: 'ReviewsNewController',
-      controllerAs: 'reviewsNewCtrl',
-      resolve: {
-        loginRequired: loginRequired
-      }
-    })
-    .when('/reviews/:id', {
-      templateUrl: 'templates/reviews/show.html',
-      controller: 'ReviewsShowController',
-      controllerAs: 'reviewsShowCtrl'
-    })
-    .when('/reviews/:id/edit', {
-      templateUrl: 'templates/reviews/edit.html',
-      controller: 'ReviewsEditController',
-      controllerAs: 'reviewsEditCtrl',
-      resolve: {
-        loginRequired: loginRequired
-      }
-    })
+    // .when('/reviews', {
+    //   templateUrl: 'templates/reviews/index.html',
+    //   controller: 'ReviewsIndexController',
+    //   controllerAs: 'home'
+    // })
+    // .when('/reviews/new', {
+    //   templateUrl: 'templates/reviews/new.html',
+    //   controller: 'ReviewsNewController',
+    //   controllerAs: 'reviewsNewCtrl',
+    //   resolve: {
+    //     loginRequired: loginRequired
+    //   }
+    // })
+    // .when('/reviews/:id', {
+    //   templateUrl: 'templates/reviews/show.html',
+    //   controller: 'ReviewsShowController',
+    //   controllerAs: 'reviewsShowCtrl'
+    // })
+    // .when('/reviews/:id/edit', {
+    //   templateUrl: 'templates/reviews/edit.html',
+    //   controller: 'ReviewsEditController',
+    //   controllerAs: 'reviewsEditCtrl',
+    //   resolve: {
+    //     loginRequired: loginRequired
+    //   }
+    // })
 
     .otherwise({redirectTo: '/'});
 

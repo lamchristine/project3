@@ -35,10 +35,10 @@ app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
 
 var reviewsCtrl = controllers.reviews;
 app.get('/api/reviews', reviewsCtrl.index);
-app.post('/api/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
-app.get('/api/reviews/:id', reviewsCtrl.show);
-app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
-app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
+// app.post('/api/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
+// app.get('/api/reviews/:id', reviewsCtrl.show);
+// app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
+// app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 
 var categoriesCtrl = controllers.categories;
@@ -57,7 +57,7 @@ app.post('/api/categories/:categoryId/reviews', auth.ensureAuthenticated, review
 /*
  * Catch All Route
  */
-app.get(['/', '/signup', '/login', '/logout', '/profile', '/reviews*'], function (req, res) {
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/reviews*', '/categories*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 

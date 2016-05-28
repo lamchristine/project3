@@ -40,18 +40,4 @@ function ItemsIndexController ($http) {
       });
   }
 
-
-
-  //user sign up
-// $('#signUpBtn').on('click', function(){
-//   $("#signUpForm input").val('');
-//   $('#signUpModal').modal('show');
-// });
-//
-// $('#sign').on('click', function () {
-//   console.log("signed up!");
-//   console.log ( $("input[name = 'username']").val() );
-//   $('#signUpModal').modal('hide');
-// });
-
 }
