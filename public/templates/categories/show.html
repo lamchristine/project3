@@ -12,44 +12,18 @@
     </div>
     <!--insert reviews-->
 
+
     <div ng-repeat="review in categoriesShowCtrl.category.reviews">
-      Review Title: {{review.title}}<br>
-      <!-- Place Name: {{itemsShowCtrl.item.place.name}}<br> -->
-      Review Rating: {{review.rating}}<br>
-      Place: {{review.place}}<br>
-
-
-
-    <!-- <div ng-repeat="review in itemsShowCtrl.item.reviews">
-      <p><strong>Review Title: </strong>{{review.title}}</p>
-      <p><strong>Rating: </strong>{{review.rating}}</p>
-    </div> -->
-    <!-- Place Name: {{itemsShowCtrl.item.place.name}}<br>
-    Review Title: {{itemsShowCtrl.item.reviews.title}}<br> -->
-
-  <!-- </div>
-</div> -->
-
-
-
-
-
-
-<!-- <div ng-if="itemsShowCtrl.items.length">
-  <div ng-repeat="item in home.items">
-    <div class="col-md-4">
-      <p>
-        <strong><a ng-href="/items/{{item._id}}">{{item.name}}</a></strong>
-      </p>
-      <p>
-        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 31 restaurants{{item.places.length}}
-      </p>
-      <div class="col-md-12 col-xs-12 thumbnail">
-        <img src="images/800x800.png" alt="item image">
+      <div id="review" class="row">
+        Review Title: {{review.title}}<br>
+        Review Rating: {{review.rating}}<br>
+        Place: {{review.place}}<br>
       </div>
     </div>
   </div>
-</div> -->
+</div>
+
+
 
 
 

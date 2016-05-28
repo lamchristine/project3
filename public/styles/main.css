@@ -18,3 +18,11 @@
   bottom:0;
   left:0;
 }
+
+#review {
+  background-color: #ccd6dd;
+  opacity: .8;
+  margin-bottom: 20px;
+  padding: 20px
+
+}

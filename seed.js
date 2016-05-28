@@ -237,6 +237,24 @@ db.User.remove({}, function(err, users) {
           rating: reviewData.rating,
           likes_counter: reviewData.likes_counter,
         });
+        // 
+        // db.Item.findOne({name: reviewData.item}, function (err, foundItem) {
+        //   console.log('found item ' + foundItem.name + ' for review ' + review.item);
+        //
+        //   if (err) {
+        //     console.log(err);
+        //     return;
+        //   }
+        //   review.item = foundItem;
+        //   review.save(function(err, savedItem){
+        //     if (err) {
+        //       return console.log(err);
+        //     }
+        //     console.log('saved ' + savedItem.name + ' from ' + foundItem.item);
+        //
+        //   });
+        // });
+
 
         db.User.findOne({email: reviewData.email}, function (err, foundUser) {
           console.log('found user ' + foundUser.email + ' for review ' + review.title);
