@@ -44,6 +44,7 @@ app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 var categoriesCtrl = controllers.categories;
 app.get('/api/categories', categoriesCtrl.index);
 app.get('/api/categories/:id', categoriesCtrl.show);
+app.post('/api/categories/:categoryId/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
 
 
 // var placesCtrl = controllers.places;

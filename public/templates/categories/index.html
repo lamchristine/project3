@@ -16,6 +16,7 @@
     <div ng-if="home.categories.length">
       <div ng-repeat="category in home.categories">
         <div class="col-md-4">
+          <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/reviews/new">Add New Review</a>
           <p>
             <strong><a ng-href="/categories/{{category._id}}">{{category.name}}</a></strong>
           </p>

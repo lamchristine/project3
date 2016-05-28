@@ -3,7 +3,25 @@
     <input type="text" class="form-control" placeholder="Title" ng-model="reviewsNewCtrl.review.title" required="true">
   </div>
   <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="reviewsNewCtrl.review.content" required="true"></textarea>
+    <input type="text" class="form-control" placeholder="Rating" ng-model="reviewsNewCtrl.review.rating" required="true">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Likes Counter" ng-model="reviewsNewCtrl.review.likes_counter" required="true">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Image" ng-model="reviewsNewCtrl.review.image" required="true">
   </div>
   <input type="submit" value="Create Review" class="btn btn-block btn-info">
 </form>
+
+<!-- <h2>{{categoriesShowCtrl.category.name}}</H2>
+{{category}} -->
+
+<div ng-controller="CategoriesShowController">
+  {{categoryIndexCtrl}}
+</div>
+
+
+
+{{reviewsNewCtrl}}
+asdfasfsd

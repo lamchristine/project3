@@ -1,19 +1,21 @@
-ReviewsNewController.$inject = ["$location", "$http"]; // minification protection
-function ReviewsNewController ($location, $http) {
+ReviewsNewController.$inject = ["$location", "$http", "$routeParams"]; // minification protection
+function ReviewsNewController ($location, $http, $routeParams) {
   var vm = this;
 
-  vm.create = create;
+  // vm.create = create;
   vm.review = {}; // form data
+  vm.category={}
 
+  // console.log(vm.review);
 
-  function create() {
+  function createReview() {
+    alert("yo")
     $http
-      .post('/api/reviews', vm.review) //.method(url, data)
+      .post('/api/categories/' + $routeParams.id + '/reviews', vm.review) //.method(url, data)
       .then(onCreateSuccess, onCreateError);
-
       function onCreateSuccess(response) {
         console.log("creating new review",response)
-        $location.path('/reviews/' + response.data._id);
+        $location.path('/');
         // $location.path('/reviews/')
       }
 
