@@ -28,6 +28,8 @@ function CategoriesShowController ($location, $http, $routeParams) {
       .then(onCreateSuccess, onCreateError);
       function onCreateSuccess(response) {
         console.log("creating new review",response);
+        vm.category.reviews.push(response.data);
+        vm.newReview = {};
         $location.path('/categories/' + $routeParams.id);
         // $location.path('/reviews/')
       }

@@ -18,24 +18,19 @@ function index(req, res) {
 function create(req, res){
   db.Category.findById(req.params.categoryId, function(err, foundCategory){
     var new_review = new Review(req.body);
-    // console.log("****", new_review)
-    foundCategory.reviews.push(new_review._id)
-    foundCategory.save(function(err, savedCategory) {
-      res.send(savedCategory);  // responding with just the song, some APIs may respond with the parent object (Album in this case)
-    });
+    //saving the review id in Category
+    foundCategory.reviews.push(new_review._id);
+    foundCategory.save();
 
+    //saving the new review in reviews and assigning reference to user id and category id
     new_review.user = req.user_id;
     new_review.category = req.params.categoryId;
     new_review.save(function(err, new_review){
-      // console.log(new_review);
       res.send(new_review);
     });
-  })
-  // console.log(req.body);
-  // // console.log(req.body);
-
-  // })
+  });
 }
+
 
 function show(req, res){
   Review
