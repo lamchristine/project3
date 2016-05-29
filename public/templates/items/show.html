@@ -11,10 +11,10 @@
 
   <div class="row">
     <div ng-repeat= "review in itemsShowCtrl.item.reviews">
-      <div class=col-md-4>
+      <div id = "item_review" class=col-md-4>
         <p> Review Title: {{review.title}} </p>
         <p> Review Rating: {{review.rating}} </p>
-        <p> Reviewed By: {{review.user.name}} </p>
+        <p> Reviewed By: {{review.user}} </p>
         <img ng-src="images/{{review.image}}" alt="category image">
       </div>
     </div>

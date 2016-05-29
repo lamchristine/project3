@@ -14,7 +14,7 @@ function CategoriesShowController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.category = response.data;
-      console.log("*****", response.data)
+      // console.log("*****", response.data)
     }
 
     function onGetError(response){

@@ -12,6 +12,7 @@ var userSchema = new Schema({
   password: { type: String, select: false },
   username: String,
   avatar: String,
+  reviews:[ { type: Schema.Types.ObjectId, ref: 'Review' } ]
 });
 
 userSchema.pre('save', function (next) {

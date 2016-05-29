@@ -25,6 +25,7 @@ function create(req, res){
   db.Item.findById(req.params.itemId, function (err, foundItem) {
     // saving the new review in reviews and assigning reference to user id and item id
     var new_review = new Review(req.body);
+    console.log("**requser_id**", req)
     new_review.item = req.params.itemId;
     new_review.user = req.user_id;
     new_review.save(function(err, new_review){
