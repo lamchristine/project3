@@ -6,22 +6,6 @@
   <div class="col-md-6">
     <div class="row">
       <h2>{{categoriesShowCtrl.category.name}}</H2>
-      <!--review form-->
-      <!-- <form>
-        <input ng-model="categoriesShowCtrl.newReview.title" placeholder="Title" type="text" class="form-control input-md">
-        <input ng-model="categoriesShowCtrl.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
-
-        <div ng-repeat="place in categoriesShowCtrl.category.places">
-            <label class="radio-inline">
-              <input ng-model="categoriesShowCtrl.newReview.place" placeholder="Place" type="radio" value="{{place.name}}">{{place.name}}
-            </label>
-        </div>
-      </form> -->
-
-
-
-      <!-- <button type="button" class="btn btn-success" ng-click="categoriesShowCtrl.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button> -->
-
     </div>
     <div class="row">
       <p>filter by:</p>
@@ -32,12 +16,11 @@
       <div id="review" class="row">
         Review Title: {{review.title}}<br>
         Review Rating: {{review.rating}}<br>
-        Place: {{review.place}}<br>
+        Place: <a ng-href="/places/{{review.place}}">{{review.place}}</a><br>
       </div>
     </div>
   </div>
 </div>
-
 
 
 

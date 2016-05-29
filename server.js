@@ -47,8 +47,8 @@ app.get('/api/categories/:id', categoriesCtrl.show);
 app.post('/api/categories/:categoryId/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
 
 
-// var placesCtrl = controllers.places;
-// app.get('/api/places', placesCtrl.index);
+var placesCtrl = controllers.places;
+app.get('/api/places/:id', placesCtrl.show);
 //
 //
 

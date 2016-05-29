@@ -36,24 +36,13 @@
     <hr>
   </div>
 
-  <!-- <form>
-    <input ng-model="categoriesShowCtrl.newReview.title" placeholder="Title" type="text" class="form-control input-md">
-    <input ng-model="categoriesShowCtrl.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
-
-    <div ng-repeat="place in categoriesShowCtrl.category.places">
-        <label class="radio-inline">
-          <input ng-model="categoriesShowCtrl.newReview.place" placeholder="Place" type="radio" value="{{place.name}}">{{place.name}}
-        </label>
-    </div>
-  </form> -->
-
-
   <!--review form-->
   <form ng-show="showform" role="form">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <input ng-model="home.newReview.title" placeholder="Title" type="text" class="form-control input-md">
         <input ng-model="home.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
+        <input ng-model="home.newReview.item" placeholder="Item" type="text" class="form-control input-md">
         <div ng-repeat="category in home.categories">
           <label class="radio-inline">
             <input  type="radio" ng-model="home.newReview.category" placeholder="Category" name="category" value="{{category._id}}">{{category.name}}

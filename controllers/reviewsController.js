@@ -20,15 +20,27 @@ function index(req, res) {
 
 function create(req, res){
   db.Category.findById(req.params.categoryId, function(err, foundCategory){
+
+    var new_item = new Item(req.body);
+      new_item.place = req.body.place;
+      new_item.category = req.body.category;
+      new_item.save();
+    console.log("**new_item***", new_item);
+
     var new_review = new Review(req.body);
+
     //saving the review id in Category
     foundCategory.reviews.push(new_review._id);
     foundCategory.save();
+    console.log("**foundCategory***", foundCategory);
+
 
     //saving the new review in reviews and assigning reference to user id and category id
+    new_review.item = new_item.id;
     new_review.user = req.user_id;
     new_review.category = req.params.categoryId;
     new_review.save(function(err, new_review){
+
       res.send(new_review);
     });
   });
