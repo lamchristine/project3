@@ -26,10 +26,8 @@
       <!-- <div ng-repeat="review in item.reviews"> -->
       <div id="review" class="row">
         Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br>
-        <!-- {{review.item}} -->
         Review Rating: {{review.rating}}<br>
-        Place: {{review.place.name}}<br>
-        {{review.item}}
+        Place: {{review.item.place.name}}<br>
       </div>
     </div>
 

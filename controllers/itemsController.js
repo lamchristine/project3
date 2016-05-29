@@ -22,7 +22,11 @@ function index(req, res) {
 function show(req, res){
   Item
     .findById(req.params.id)
-    .populate('reviews')
+    // .populate('reviews')
+    .populate({
+      path: 'reviews',
+      populate: {path: 'user'}
+    })
     .populate('place')
     .populate('category')
     .exec(function(err, found_item){

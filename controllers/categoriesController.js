@@ -24,10 +24,20 @@ function show(req, res){
     .findById(req.params.id)
     .populate({
       path: 'reviews',
-      populate: {path: 'place'}
+      populate: {path: 'item',
+        populate: {path: 'place'}
+      }
+    })
+
+    .populate({
+      path: 'reviews',
+      populate: {path: 'user'}
     })
     // .populate('places')
-    .populate('items')
+    .populate({
+      path: 'items',
+      populate: {path: 'place'}
+    })
     .exec(function(err, found_category){
       if (err || !found_category) {
         return res.status(404).send({message: 'Category not found.'})

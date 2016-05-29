@@ -1,3 +1,4 @@
+// var deepPopulate = require('mongoose-deep-populate')(mongoose);
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 

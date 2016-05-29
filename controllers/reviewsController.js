@@ -20,13 +20,42 @@ function index(req, res) {
       res.send(reviews);
     });
 }
+//
+// function create(req, res){
+//   Item
+//     .findById(req.params.itemId)
+//     .populate({
+//       path: 'reviews',
+//       populate: {path: 'user'}
+//     })
+//     .exec(function (err, foundItem) {
+//       // saving the new review in reviews and assigning reference to user id and item id
+//       var new_review = new Review(req.body);
+//       console.log("**req_user**", req.user_id);
+//       new_review.item = foundItem;
+//       new_review.user = req.user_id;
+//       new_review.save(function(err, new_review){
+//         res.send(new_review);
+//       });
+//       //pushing new_review_id to array of reviews in category
+//       var cat_id = foundItem.category;
+//       db.Category.findById(cat_id, function (err, foundCat) {
+//         foundCat.reviews.push(new_review);
+//         foundCat.save();
+//       });
+//       //pushing new_review_id to array of reviews in item
+//       foundItem.reviews.push(new_review);
+//       foundItem.save();
+//     });
+//   }
+
 
 function create(req, res){
   db.Item.findById(req.params.itemId, function (err, foundItem) {
     // saving the new review in reviews and assigning reference to user id and item id
     var new_review = new Review(req.body);
-    console.log("**requser_id**", req)
-    new_review.item = req.params.itemId;
+    console.log("**req_user**", req.user_id);
+    new_review.item = foundItem;
     new_review.user = req.user_id;
     new_review.save(function(err, new_review){
       res.send(new_review);
@@ -41,9 +70,13 @@ function create(req, res){
     foundItem.reviews.push(new_review);
     foundItem.save();
   });
+  //finding newly created review and populating with user and item
+  // db.Review.findById(new_review.id, function (err, foundReview) {
+  //   console.log("roundReview", foundReview) })
+  //   .populate('user' 'item')
 }
-
-//   db.Category.findById(req.params.itemId, function(err, foundCategory){
+//
+// //   db.Category.findById(req.params.itemId, function(err, foundCategory){
 //
 //     var new_item = new Item(req.body);
 //       new_item.place = req.body.place;
