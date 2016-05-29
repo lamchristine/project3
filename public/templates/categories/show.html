@@ -12,14 +12,26 @@
     </div>
 
     <!--display all reviews for single category-->
-    <div ng-repeat="review in categoriesShowCtrl.category.reviews">
+    <!-- <div ng-repeat="review in categoriesShowCtrl.category.reviews">
       <div id="review" class="row">
-        Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br>
-        {{review.item}}
-        Review Rating: {{review.rating}}<br>
+        Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br> -->
+        <!-- {{review.item}} -->
+        <!-- Review Rating: {{review.rating}}<br>
         Place: {{review.place}}<br>
       </div>
+    </div> -->
+
+
+    <div ng-repeat="review in categoriesShowCtrl.category.reviews">
+      <!-- <div ng-repeat="review in item.reviews"> -->
+      <div id="review" class="row">
+        Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br>
+        <!-- {{review.item}} -->
+        Review Rating: {{review.rating}}<br>
+        Place: {{review.item.place}}<br>
+      </div>
     </div>
+
   </div>
 </div>
 
