@@ -42,13 +42,21 @@
       <div class="col-md-6 col-md-offset-3">
         <input ng-model="home.newReview.title" placeholder="Title" type="text" class="form-control input-md">
         <input ng-model="home.newReview.rating" placeholder="Rating" type="number" class="form-control input-md">
-        <input ng-model="home.newReview.item" placeholder="Item" type="text" class="form-control input-md">
+
+        <!-- <input ng-model="home.newReview.item" placeholder="Item" type="text" class="form-control input-md"> -->
         <div ng-repeat="category in home.categories">
+
+          <!-- <select ng-model="home.newReview.item">
+            <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}}</option>
+          </select> -->
+
+          <!--
           <label class="radio-inline">
             <input  type="radio" ng-model="home.newReview.category" placeholder="Category" name="category" value="{{category._id}}">{{category.name}}
-          </label>
-          <select ng-model="home.newReview.place" ng-disabled='home.newReview.category !== "{{category._id}}"'>
-            <option value="{{place._id}}" ng-repeat="place in category.places">{{place.name}}</option>
+          </label>-->
+          <!-- {{category.items}} -->
+          <select ng-model="home.newReview.item">
+            <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place}}</option>
           </select>
         </div>
         <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button>

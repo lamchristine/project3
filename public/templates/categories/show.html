@@ -14,9 +14,10 @@
     <!--display all reviews for single category-->
     <div ng-repeat="review in categoriesShowCtrl.category.reviews">
       <div id="review" class="row">
-        Review Title: {{review.title}}<br>
+        Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br>
+        {{review.item}}
         Review Rating: {{review.rating}}<br>
-        Place: <a ng-href="/places/{{review.place}}">{{review.place}}</a><br>
+        Place: {{review.place}}<br>
       </div>
     </div>
   </div>

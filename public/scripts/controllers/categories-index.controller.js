@@ -1,5 +1,5 @@
-CategoriesIndexController.$inject = ["$http", "$location"]; // minification protection
-function CategoriesIndexController ($http, $location) {
+CategoriesIndexController.$inject = ["$http", "$location", "$routeParams"]; // minification protection
+function CategoriesIndexController ($http, $location, $routeParams) {
   var vm = this;
   vm.categories = [];
   vm.newReview = {};
@@ -13,20 +13,21 @@ function CategoriesIndexController ($http, $location) {
     $http
       .get('/api/categories')
       .then(function onSuccess(response) {
-        // console.log(response);
+        // console.log("*****", response);
         vm.categories = response.data;
       });
   }
 
   function createReview() {
+    // console.log("*****", vm.newReview.item)
     $http
-      .post('/api/categories/' + vm.newReview.category + '/reviews', vm.newReview) //.method(url, data)
+      .post('/api/items/' + vm.newReview.item + '/reviews',  vm.newReview) //.method(url, data)
       .then(onCreateSuccess, onCreateError);
       function onCreateSuccess(response) {
         // console.log("creating new review",response);
         // vm.category.reviews.push(response.data);
         // vm.newReview = {};
-        // console.log("*******", response.data.item);
+        console.log("*******", response.data);
         $location.path('/items/' + response.data.item);
         // $location.path('/reviews/')
       }

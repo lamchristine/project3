@@ -35,7 +35,7 @@ var users_list = [
       likes_counter: 21,
       email: "john@smith.com",
       image: "zanze_cheesecake1.jpg",
-      item: "Cheesecake",
+      item: "New York Cheesecake",
       place: "Zanzes Cheesecake",
     },
     {
@@ -44,7 +44,7 @@ var users_list = [
       likes_counter: 61,
       email: "sarah@jackson.com",
       image: "viva_cheesecake2.jpg",
-      item: "Cheesecake",
+      item: "Blueberry Cheesecake",
       place: "Viva La Tarte"
       // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
     },
@@ -54,7 +54,7 @@ var users_list = [
       likes_counter: 121,
       email: "sarah@jackson.com",
       image: "lafolie_lambchop1.jpg",
-      item: "Lamb Chops",
+      item: "Grilled Lamb Chops",
       place: "La Folie"
       // content: "One man's constant is another man's variable."
     },
@@ -64,7 +64,7 @@ var users_list = [
       likes_counter: 121,
       email: "sarah@jackson.com",
       image: "lafolie_lambchop2.jpg",
-      item: "Lamb Chops",
+      item: "Rosemary Lamb Chops",
       place: "Wayfare Tavern"
       // content: "One man's constant is another man's variable."
     },
@@ -74,7 +74,7 @@ var users_list = [
       likes_counter: 21,
       email: "jimmy@choo.com",
       image: "smokes_poutine1.jpg",
-      item: "Poutine",
+      item: "Original Poutine",
       place: "Smokes Poutinerie"
       // content: "One man's constant is another man's variable."
     },
@@ -84,7 +84,7 @@ var users_list = [
       likes_counter: 11,
       email: "sarah@jackson.com",
       image: "smokes_poutine2.jpg",
-      item: "Poutine",
+      item: "Smoked Meat Poutine",
       place: "Zoes"
       // content: "One man's constant is another man's variable."
     }
@@ -183,40 +183,49 @@ var category_list = [
 
 var items_list = [
   {
-    name: "Cheesecake",
-    place: "Zanzes Cheesecake"
+    name: "Blueberry Cheesecake",
+    place: "Zanzes Cheesecake",
+    category: "Cheesecake"
   },
   {
-    name: "Cheesecake",
-    place: "Viva La Tarte"
+    name: "New York Cheesecake",
+    place: "Viva La Tarte",
+    category: "Cheesecake"
   },
   {
-    name: "Cheesecake",
-    place: "Genki Crepes"
+    name: "Strawberry Cheesecake",
+    place: "Genki Crepes",
+    category: "Cheesecake"
   },
   {
-    name: "Lamb Chops",
-    place: "La Folie"
+    name: "Grilled Lamb Chops",
+    place: "La Folie",
+    category: "Lamb Chops"
   },
   {
-    name: "Lamb Chops",
-    place: "Nopa"
+    name: "Rosemary Lamb Chops",
+    place: "Nopa",
+    category: "Lamb Chops"
   },
   {
-    name: "Lamb Chops",
-    place: "Boulevard"
+    name: "Herb Roasted Lamb Chops",
+    place: "Boulevard",
+    category: "Lamb Chops"
   },
   {
-    name: "Poutine",
-    place: "Zoes"
+    name: "Chili Cheese Bacon Poutine",
+    place: "Zoes",
+    category: "Poutine"
   },
   {
-    name: "Poutine",
-    place: "Wayfare Tavern"
+    name: "Original Poutine",
+    place: "Wayfare Tavern",
+    category: "Poutine"
   },
   {
-    name: "Poutine",
-    place: "Wayfare Tavern"
+    name: "Smoked Meat Poutine",
+    place: "Wayfare Tavern",
+    category: "Poutine"
   }
 ];
 
@@ -267,7 +276,7 @@ db.Place.remove({}, function(err, places) {
                 });
               });
 
-              db.Category.findOne({name: itemData.name}, function (err, foundCategory) {
+              db.Category.findOne({name: itemData.category}, function (err, foundCategory) {
                 console.log('found category ' + foundCategory.name + ' for item ' + item.name);
                 if (err) {
                   console.log(err);
@@ -326,10 +335,8 @@ db.User.remove({}, function(err, users) {
   });
 });
 
-
-
-//**************************************************************************//
-// ************************************************
+//
+//
 // mongo
 // show dbs
 // use Project3App
@@ -449,8 +456,8 @@ db.User.remove({}, function(err, users) {
 //
 //
 // r = db.reviews.findOne({title:"The creamiest cheesecake ever!"})
-// r.place=zanze._id
-// r.category=cheesecake._id
+// r.place=zanze
+// r.category=cheesecake
 // db.reviews.save(r)
 //
 //
@@ -483,10 +490,86 @@ db.User.remove({}, function(err, users) {
 // r.category=poutine._id
 // db.reviews.save(r)
 //
+//
 // ////////////////////////
 //
 //
+// bc = db.items.findOne({name: "Blueberry Cheesecake"})
+// cheesecake.items.push(bc._id)
+// db.categories.save(cheesecake)
+//
+//
+// ny = db.items.findOne({name: "New York Cheesecake"})
+// cheesecake.items.push(ny._id)
+// db.categories.save(cheesecake)
+//
+//
+// sc = db.items.findOne({name: "Strawberry Cheesecake"})
+// cheesecake.items.push(sc._id)
+// db.categories.save(cheesecake)
+//
+//
+// grilled = db.items.findOne({name: "Grilled Lamb Chops"})
+// lamb.items.push(grilled._id)
+// db.categories.save(lamb)
+//
+//
+// rosemary= db.items.findOne({name: "Rosemary Lamb Chops"})
+// lamb.items.push(rosemary._id)
+// db.categories.save(lamb)
+//
+//
+// herb = db.items.findOne({name: "Herb Roasted Lamb Chops"})
+// lamb.items.push(herb._id)
+// db.categories.save(lamb)
 //
 //
 //
-// ***************************************
+// chili = db.items.findOne({name: "Chili Cheese Bacon Poutine"})
+// poutine.items.push(chili._id)
+// db.categories.save(poutine)
+//
+//
+// original = db.items.findOne({name: "Original Poutine"})
+// poutine.items.push(original._id)
+// db.categories.save(poutine)
+//
+//
+// smoked=db.items.findOne({name: "Smoked Meat Poutine"})
+// poutine.items.push(smoked._id)
+// db.categories.save(poutine)
+//
+//
+//
+// //////////////////////////////////////////
+//
+// r = db.reviews.findOne({title:"The creamiest cheesecake ever!"})
+// r.item = ny._id
+// db.reviews.save(r)
+//
+//
+//
+// r = db.reviews.findOne({title: "So buttery!"})
+// r.item = bc._id
+// db.reviews.save(r)
+//
+//
+// r = db.reviews.findOne({title: "AMAZING!"})
+// r.item = grilled._id
+// db.reviews.save(r)
+//
+//
+// r = db.reviews.findOne({title: "Decent, but not worth the price"})
+// r.item = rosemary._id
+// db.reviews.save(r)
+//
+// r = db.reviews.findOne({title: "Mind-blown!"})
+// r.item = original._id
+// db.reviews.save(r)
+//
+//
+// r = db.reviews.findOne({title: "Unremarkable!"})
+// r.item = smoked._id
+// db.reviews.save(r)
+//
+//

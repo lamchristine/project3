@@ -2,13 +2,15 @@ var auth = require('../middleware/auth');
 var db = require('../models'),
     Place = db.Place,
     Review = db.Review,
-    Item = db.Item;
+    Item = db.Item,
+    Category = db.Category;
 
 function index(req, res) {
   Item
     .find({})
     .populate('reviews')
     .populate('place')
+    .populate('category')
     .exec(function(err, items){
       if (err || !items || !items.length) {
         return res.status(404).send({message: 'Items not found.'});
@@ -22,6 +24,7 @@ function show(req, res){
     .find(req.params.item)
     .populate('reviews')
     .populate('place')
+    .populate('category')
     .exec(function(err, found_item){
       if (err || !found_item) {
         return res.status(404).send({message: 'Item not found.'});
