@@ -313,6 +313,7 @@ db.User.remove({}, function(err, users) {
         var review = new db.Review({
           title: reviewData.title,
           rating: reviewData.rating,
+          image: reviewData.image,
           likes_counter: reviewData.likes_counter,
         });
 

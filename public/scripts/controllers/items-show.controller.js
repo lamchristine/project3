@@ -11,6 +11,7 @@ function ItemsShowController ($location, $http, $routeParams) {
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
+
       vm.item = response.data;
       console.log("****responsedata", response.data);
     }
