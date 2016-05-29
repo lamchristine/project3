@@ -21,7 +21,7 @@ function index(req, res) {
 
 function show(req, res){
   Item
-    .find(req.params.item)
+    .findById(req.params.id)
     .populate('reviews')
     .populate('place')
     .populate('category')

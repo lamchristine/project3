@@ -12,6 +12,7 @@ function ItemsShowController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.item = response.data;
+      console.log("****responsedata", response.data);
     }
 
     function onGetError(response){

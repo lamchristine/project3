@@ -1,5 +1,24 @@
 <!-- as 'itemsShowCtrl' -->
-<h2>item show page</h2>
+<div class="container">
+  <div class="row">
+    <h2><strong>Reviews for {{itemsShowCtrl.item.name}} </strong><span><h4>from</h4></span> {{itemsShowCtrl.item.place.name}}</h2>
+    <!-- <p>Category: {{itemsShowCtrl.item.category.name}} -->
+    <p> Address: {{itemsShowCtrl.item.place.address}} </p>
+    <p> Website: {{itemsShowCtrl.item.place.website}} </p>
+    <p> Phone Number: {{itemsShowCtrl.item.place.phone_num}} </p>
+    <p> Item Price: {{itemsShowCtrl.item.place.price}} </p>
+  </div>
+
+  <div class="row">
+    <div ng-repeat= "review in itemsShowCtrl.item.reviews">
+      <div class=col-md-4>
+        <p> Review Title: {{review.title}} </p>
+        <p> Review Rating: {{review.rating}} </p>
+        <p> Reviewed By: {{review.user.name}} </p>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- <div id='map'>
 
 </div>
