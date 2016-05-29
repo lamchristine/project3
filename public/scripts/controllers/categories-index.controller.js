@@ -19,7 +19,7 @@ function CategoriesIndexController ($http, $location, $routeParams) {
   }
 
   function createReview() {
-    // console.log("*****", vm.newReview.item)
+    // console.log("*****", vm.newReview)
     $http
       .post('/api/items/' + vm.newReview.item + '/reviews',  vm.newReview) //.method(url, data)
       .then(onCreateSuccess, onCreateError);
@@ -27,7 +27,7 @@ function CategoriesIndexController ($http, $location, $routeParams) {
         // console.log("creating new review",response);
         // vm.category.reviews.push(response.data);
         // vm.newReview = {};
-        console.log("*******", response.data);
+        // console.log("*******", response.data);
         $location.path('/items/' + response.data.item._id);
         // $location.path('/reviews/')
       }

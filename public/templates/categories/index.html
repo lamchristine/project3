@@ -56,7 +56,7 @@
           </label>-->
           <!-- {{category.items}} -->
           <select ng-model="home.newReview.item">
-            <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place}}</option>
+            <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place.name}}</option>
           </select>
         </div>
         <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button>

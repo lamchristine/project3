@@ -10,7 +10,10 @@ function index(req, res) {
     .find({})
     .populate('reviews')
     .populate('places')
-    .populate('items')
+    .populate({
+      path: 'items',
+      populate: {path: 'place'}
+    })
     .exec(function(err, categories){
       if (err || !categories || !categories.length) {
         return res.status(404).send({message: 'Categories not found.'});
@@ -28,7 +31,6 @@ function show(req, res){
         populate: {path: 'place'}
       }
     })
-
     .populate({
       path: 'reviews',
       populate: {path: 'user'}

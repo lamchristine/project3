@@ -25,7 +25,8 @@
     <div ng-repeat="review in categoriesShowCtrl.category.reviews">
       <!-- <div ng-repeat="review in item.reviews"> -->
       <div id="review" class="row">
-        Review Title: <a ng-href="/items/{{review.item}}">{{review.title}}</a><br>
+        Review Item:  <a ng-href="/items/{{review.item._id}}">{{review.item.name}}</a><br>
+        Review Title: {{review.title}}<br>
         Review Rating: {{review.rating}}<br>
         Place: {{review.item.place.name}}<br>
       </div>
