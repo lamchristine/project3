@@ -15,7 +15,7 @@ angular
   .service('UserService', UserService)
   .controller('CategoriesIndexController', CategoriesIndexController)
   .controller('CategoriesShowController', CategoriesShowController)
-  .controller('PlacesShowController', PlacesShowController)
+  .controller('ItemsShowController', ItemsShowController)
 
   // .controller('PlacesIndexController', PlacesIndexController)
 

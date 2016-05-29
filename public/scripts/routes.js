@@ -25,10 +25,10 @@ function configRoutes($routeProvider, $locationProvider) {
       controllerAs: 'categoriesShowCtrl'
     })
 
-    .when('/places/:id', {
-      templateUrl: 'templates/places/show.html',
-      controller: 'PlacesShowController',
-      controllerAs: 'placesShowCtrl'
+    .when('/items/:id', {
+      templateUrl: 'templates/items/show.html',
+      controller: 'ItemsShowController',
+      controllerAs: 'itemsShowCtrl'
     })
 
     .when('/signup', {

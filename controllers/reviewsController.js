@@ -32,8 +32,6 @@ function create(req, res){
     //saving the review id in Category
     foundCategory.reviews.push(new_review._id);
     foundCategory.save();
-    console.log("**foundCategory***", foundCategory);
-
 
     //saving the new review in reviews and assigning reference to user id and category id
     new_review.item = new_item.id;

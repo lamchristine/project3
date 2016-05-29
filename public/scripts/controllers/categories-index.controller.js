@@ -26,8 +26,8 @@ function CategoriesIndexController ($http, $location) {
         // console.log("creating new review",response);
         // vm.category.reviews.push(response.data);
         // vm.newReview = {};
-        console.log(vm.newReview.category);
-        $location.path('/categories/' + vm.newReview.category);
+        // console.log("*******", response.data.item);
+        $location.path('/items/' + response.data.item);
         // $location.path('/reviews/')
       }
 
