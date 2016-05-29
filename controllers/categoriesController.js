@@ -22,14 +22,16 @@ function index(req, res) {
 function show(req, res){
   Category
     .findById(req.params.id)
-    .populate('reviews')
-    .populate('places')
+    .populate({
+      path: 'reviews',
+      populate: {path: 'place'}
+    })
+    // .populate('places')
     .populate('items')
     .exec(function(err, found_category){
       if (err || !found_category) {
         return res.status(404).send({message: 'Category not found.'})
       }
-
       res.send(found_category);
     })
 }
