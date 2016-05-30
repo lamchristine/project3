@@ -17,6 +17,10 @@
   height: 200px;
 }
 
+#user_review img{
+  height: 200px;
+}
+
 #map {
   min-height: 90%;
   min-width: 1024px;

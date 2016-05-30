@@ -57,9 +57,28 @@ function showCurrentUser (req, res) {
   });
 }
 
+function showUserProfile (req, res) {
+  User.findById(req.user_id, function(err, foundUser) {
+    res.send(foundUser);
+  })
+  .populate({
+    path: 'reviews',
+    populate: {path: 'item',
+      populate: {path: 'place'}
+    }
+  })
+  .populate({
+    path: 'reviews',
+    populate: {path: 'item',
+      populate: {path: 'category'}
+    }
+  });
+}
+
 module.exports = {
   signup: signup,
   login: login,
   updateCurrentUser: updateCurrentUser,
-  showCurrentUser: showCurrentUser
+  showCurrentUser: showCurrentUser,
+  showUserProfile: showUserProfile
 };

@@ -337,8 +337,6 @@ db.User.remove({}, function(err, users) {
   });
 });
 
-//
-//
 // mongo
 // show dbs
 // use Project3App
@@ -543,35 +541,73 @@ db.User.remove({}, function(err, users) {
 //
 //
 //
+//
 // //////////////////////////////////////////
 //
 // r = db.reviews.findOne({title:"The creamiest cheesecake ever!"})
+// ny = db.items.findOne({name: "New York Cheesecake"})
+// sarah=db.users.findOne({first_name: "Sarah"})
+// sarah.reviews.push(r._id)
+// ny.reviews.push(r._id)
 // r.item = ny._id
 // db.reviews.save(r)
-//
+// db.items.save(ny)
+// db.users.save(sarah)
 //
 //
 // r = db.reviews.findOne({title: "So buttery!"})
+// bc = db.items.findOne({name: "Blueberry Cheesecake"})
+// john=db.users.findOne({first_name: "John"})
+// john.reviews.push(r._id)
+// bc.reviews.push(r._id)
 // r.item = bc._id
 // db.reviews.save(r)
+// db.items.save(bc)
+// db.users.save(john)
 //
 //
 // r = db.reviews.findOne({title: "AMAZING!"})
+// grilled = db.items.findOne({name: "Grilled Lamb Chops"})
+// jimmy=db.users.findOne({first_name: "Jimmy"})
+// jimmy.reviews.push(r._id)
+// grilled.reviews.push(r._id)
 // r.item = grilled._id
 // db.reviews.save(r)
+// db.items.save(grilled)
+// db.users.save(jimmy)
 //
 //
 // r = db.reviews.findOne({title: "Decent, but not worth the price"})
+// rosemary= db.items.findOne({name: "Rosemary Lamb Chops"})
+// john=db.users.findOne({first_name: "John"})
+// john.reviews.push(r._id)
+// rosemary.reviews.push(r._id)
 // r.item = rosemary._id
 // db.reviews.save(r)
+// db.items.save(rosemary)
+// db.users.save(john)
+//
 //
 // r = db.reviews.findOne({title: "Mind-blown!"})
+// original = db.items.findOne({name: "Original Poutine"})
+// jimmy=db.users.findOne({first_name: "Jimmy"})
+// jimmy.reviews.push(r._id)
+// original.reviews.push(r._id)
 // r.item = original._id
 // db.reviews.save(r)
+// db.items.save(original)
+// db.users.save(jimmy)
+//
 //
 //
 // r = db.reviews.findOne({title: "Unremarkable!"})
+// smoked=db.items.findOne({name: "Smoked Meat Poutine"})
+// sarah=db.users.findOne({first_name: "Sarah"})
+// sarah.reviews.push(r._id)
+// smoked.reviews.push(r._id)
 // r.item = smoked._id
 // db.reviews.save(r)
+// db.items.save(smoked)
+// db.users.save(sarah)
 //
 //
