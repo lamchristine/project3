@@ -19,19 +19,27 @@
     <input type="submit" value="Save Profile" class="btn btn-block btn-info">
   </form>
   <!--end profile form ends-->
-
+{{profileCtrl.user.reviews}}
   <!--user reviews-->
   <div class="row">
     <div ng-repeat="review in profileCtrl.user.reviews">
       <div id="user_review" class="col-md-4">
-        <h3>{{review.title}}</h3>
+        <!-- <h3>{{review.title}}</h3> -->
+        <h3>
+          <span ng-hide="editing">{{review.title}}</span>
+          <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
+        </h3>
         <p>Category: {{review.item.category.name}}</p>
         <p>Rating: {{review.rating}}</p>
         <p>Item: {{review.item.name}}</p>
         <p>from: {{review.item.place.name}}</p>
         <img ng-src="images/{{review.image}}" alt="category image">
-        <!-- <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a> -->
-        <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-danger" ng-click="profileCtrl.destroy(review)">Delete Post</a>
+
+
+
+        <a class="btn btn-danger" ng-click="profileCtrl.destroy(review)">Delete Post</a>
+        <a ng-click="editing=true" ng-hide="editing" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+        <a class='btn btn-success' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
 
       </div>
     </div>

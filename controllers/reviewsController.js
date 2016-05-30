@@ -123,26 +123,26 @@ function show(req, res){
     });
 }
 
-// function update(req, res){
-//   var query = {
-//     _id: req.params.id
-//   };
-//
-//   if (req.user_id) {
-//     query.user = req.user_id; //if user id has been attached to request,
-//   }
-//
-//   Review
-//     .findOneAndUpdate(query, req.body)
-//     .exec(function(err, review){
-//       if (err || !review) {
-//         console.log(review)
-//         return res.status(404).send({messsage: 'Failed to update review.'})
-//       }
-//       res.status(204).send();
-//     })
-// }
-//
+function update(req, res){
+  var query = {
+    _id: req.params.id
+  };
+
+  if (req.user_id) {
+    query.user = req.user_id; //if user id has been attached to request,
+  }
+
+  Review
+    .findOneAndUpdate(query, req.body)
+    .exec(function(err, review){
+      if (err || !review) {
+        console.log(review);
+        return res.status(404).send({messsage: 'Failed to update review.'});
+      }
+         res.status(404).send();
+    });
+}
+
 function destroy(req, res){
   var query = {
     _id: req.params.id
@@ -151,21 +151,89 @@ function destroy(req, res){
   if (req.user_id) {
     query.user = req.user_id;
   }
+  //find user
+  User
+    .findById(query.user)
+    // .populate('reviews')
+    .exec( function (err, foundUser) {
+    // console.log("found USER", foundUser.reviews);
+    // console.log("foundUser0", foundUser.reviews[0]._id);
 
-  Review
-    .findOneAndRemove(query)
-    .exec(function(err, review){
-      if (err || !review) {
-        return res.status(404).send({messsage: 'Failed to delete review.'});
+    //find the review within the User array of reviews and remove
+      for (var i in foundUser.reviews) {
+        if(foundUser.reviews[i] === query._id ) {
+        // console.log("***foundreview", foundUser.reviews[i]);
+          //remove review from array of reviews
+          foundUser.reviews.slice(i);
+          //save user
+          foundUser.save();
+          //send back the deleted review
+          // res.send(foundUser.reviews[i]);
+          // console.log("removed", foundUser);
+        }
       }
-      res.send(review);
     });
-}
+    //find review in Review model and remove
+    Review
+      .findOneAndRemove(query)
+      .exec(function(err, review){
+        if (err || !review) {
+          return res.status(404).send({messsage: 'Failed to delete review.'});
+        }
+        res.send(review);
+      });
+   }
+
+  //  foundUser.reviews
+  //     .findOneAndRemove(query)
+  //     .exec(function(err, review){
+  //       if (err || !review) {
+  //         return res.status(404).send({messsage: 'Failed to delete review.'});
+  //       }
+  //       foundUser.save();
+  //      //  res.send(review);
+  //     });
+
+    //   }
+    //   // foundUser.save();
+    // });
+  // }
+
+    // var deleteReview = foundUser.reviews.id(query._id).remove();
+    // foundUser.save(function (err) {
+    //   if (err) {
+    //     return res.status(404).send({messsage: 'Failed to delete review'});
+    //   }
+    //   res.send(deleteReview);
+    // });
+
+    // var correctReview = foundUser.reviews.id(query._id);
+  //   if (correctReview) {
+  //     correctReview.remove();
+  //     //resave the user now that the review is gone
+  //     foundUser.save(function(err, saved) {
+  //       res.send(correctReview);
+  //     });
+  //   } else {
+  //     res.send(404);
+  //   }
+
+  //   Review
+  //     .findOneAndRemove(query)
+  //     .exec(function(err, review){
+  //       if (err || !review) {
+  //         return res.status(404).send({messsage: 'Failed to delete review.'});
+  //       }
+  //       res.send(review);
+  //     });
+  // console.log("*****", foundUser)
+  // foundUser.save();
+  // });
 
 module.exports = {
   index: index,
   create: create,
   show: show,
-  // update: update,
+  update: update,
   destroy: destroy
 };

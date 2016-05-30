@@ -2,6 +2,7 @@ ProfileController.$inject = ["$location", "UserService", "$http"]; // minificati
 function ProfileController ($location, UserService, $http) {
   var vm = this;
   vm.destroy = destroy;
+  vm.edit = edit;
   vm.new_profile = {}; // form data
 
   vm.updateProfile = function() {
@@ -31,6 +32,7 @@ function ProfileController ($location, UserService, $http) {
   }
 
   function destroy(review){
+    console.log("***review", review)
     $http ({
       method: 'DELETE',
       url: '/api/reviews/' + review._id
@@ -43,6 +45,18 @@ function ProfileController ($location, UserService, $http) {
     function onDeleteError(response) {
       console.log("Error in deleting review", response);
     }
+  }
+
+  function edit(review){
+    $http ({
+      method: 'PUT',
+      url: '/api/reviews/'+ review._id,
+      data: review
+    }).then(function successCallback(json) {
+      // don't need to do anything!
+    }, function errorCallback(response) {
+      console.log('There was an error editing the data', response);
+    });
   }
 
 

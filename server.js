@@ -38,7 +38,7 @@ var reviewsCtrl = controllers.reviews;
 app.get('/api/reviews', reviewsCtrl.index);
 // app.post('/api/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
 // app.get('/api/reviews/:id', reviewsCtrl.show);
-// app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
+app.put('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.update);
 app.delete('/api/reviews/:id', auth.ensureAuthenticated, reviewsCtrl.destroy);
 
 
