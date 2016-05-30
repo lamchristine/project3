@@ -96,63 +96,72 @@ var places_list = [
     address: "2405 Ocean Ave, San Francisco, CA 94127",
     phone_num: "(415) 334-2264",
     website: "https://www.yelp.com/biz/zanzes-cheesecake-san-francisco",
-    image: "zanze.jpg"
+    image: "zanze.jpg",
+    coord_arr: [-122.469546, 37.730098]
   },
   {
     name: "Viva La Tarte",
     address: "1160 Howard St, San Francisco, CA 94103",
     phone_num: "(415) 891-9743",
     website: "http://vivelatarte.com",
-    image:"viva.jpg"
+    image:"viva.jpg",
+    coord_arr: [-122.410523, 37.776990]
   },
   {
     name: "Genki Crepes",
     address: "330 Clement St, San Francisco, CA 94118",
     phone_num: "(415) 379-6414",
     website: "http://www.genkicrepes.com",
-    image: "genki.jpg"
+    image: "genki.jpg",
+    coord_arr: [-122.462439, 37.783156]
   },
   {
     name: "Zoes",
     address: "3088 24th St, San Francisco, CA 94110",
     phone_num: "(415) 817-1972",
     website: "http://www.zoessf.com",
-    image: "zoe.png"
+    image: "zoe.png",
+    coord_arr: [-122.413385, 37.752640]
   },
   {
     name: "Wayfare Tavern",
     address: "558 Sacramento St, San Francisco, CA 94111",
     phone_num: "(415) 772-9060",
     website: "http://www.wayfaretavern.com",
-    image: "wayfare.jpg"
+    image: "wayfare.jpg",
+    coord_arr: [-122.401893, 37.793980]
   },
   {
     name: "Smokes Poutinerie",
     address: "2518 Durant Ave, Unit A, Berkeley, CA 94704",
     phone_num: "(510) 540-7500",
     website: "http://smokespoutinerie.com",
-    image: "smokes.jpeg"
+    image: "smokes.jpeg",
+    coord_arr: [-122.257365, 37.867777]
   },
   {
     name: "La Folie",
     address: "2316 Polk St, San Francisco, CA 94109",
     phone_num: "(415) 776-5577",
     website: "http://lafolie.com",
-    image: "folie.jpg"
+    image: "folie.jpg",
+    coord_arr: [-122.421676, 37.798102]
   },
   {
     name: "Nopa",
     address: "560 Divisadero St, San Francisco, CA 94117",
     phone_num: "(415) 864-8643",
     website: "http://nopasf.com",
-    image: "nopa.jpg"
+    image: "nopa.jpg",
+    coord_arr: [-122.437173, 37.774953]
   },
   {
     name: "Boulevard",
     address: "1 Mission St, San Francisco, CA 94105",
     phone_num: "(415) 543-6084",
     website: "http://www.boulevardrestaurant.com",
-    image: "boulevard.jpg"
+    image: "boulevard.jpg",
+    coord_arr: [-122.392439, 37.793388]
   }
 ];
 

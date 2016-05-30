@@ -11,7 +11,8 @@ var placeSchema = new Schema({
   address: String,
   website: String,
   phone_num: String,
-  image: String
+  image: String,
+  coord_arr: [ Number ]
 });
 
 var Place = mongoose.model('Place', placeSchema);
