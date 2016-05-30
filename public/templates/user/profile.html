@@ -30,7 +30,8 @@
         <p>Item: {{review.item.name}}</p>
         <p>from: {{review.item.place.name}}</p>
         <img ng-src="images/{{review.image}}" alt="category image">
-        <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+        <!-- <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a> -->
+        <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-danger" ng-click="profileCtrl.destroy(review)">Delete Post</a>
 
       </div>
     </div>

@@ -21,19 +21,21 @@ function ReviewsShowController ($location, $http, $routeParams) {
     }
   }
 
-  function destroy(){
-    $http ({
-      method: 'DELETE',
-      url: '/api/reviews/' + $routeParams.id
-    }).then(onDeleteSuccess, onDeleteError);
-
-    function onDeleteSuccess(response) {
-      $location.path('/');
-    }
-    function onDeleteError(response) {
-      console.log("Error in deleting post", response);
-    }
-  }
+  // function destroy(){
+  //   alert("hi");
+  //   console.log("****route**", $routeParams.id)
+  //   $http ({
+  //     method: 'DELETE',
+  //     url: '/api/reviews/' + $routeParams.id
+  //   }).then(onDeleteSuccess, onDeleteError);
+  //
+  //   function onDeleteSuccess(response) {
+  //     $location.path('/');
+  //   }
+  //   function onDeleteError(response) {
+  //     console.log("Error in deleting post", response);
+  //   }
+  // }
 
 
 }

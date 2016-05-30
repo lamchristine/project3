@@ -143,29 +143,29 @@ function show(req, res){
 //     })
 // }
 //
-// function destroy(req, res){
-//   var query = {
-//     _id: req.params.id
-//   };
-//
-//   if (req.user_id) {
-//     query.user = req.user_id;
-//   }
-//
-//   Review
-//     .findOneAndRemove(query)
-//     .exec(function(err, review){
-//       if (err || !review) {
-//         return res.status(404).send({messsage: 'Failed to delete review.'});
-//       }
-//       res.status(204).send();
-//     });
-// }
+function destroy(req, res){
+  var query = {
+    _id: req.params.id
+  };
+
+  if (req.user_id) {
+    query.user = req.user_id;
+  }
+
+  Review
+    .findOneAndRemove(query)
+    .exec(function(err, review){
+      if (err || !review) {
+        return res.status(404).send({messsage: 'Failed to delete review.'});
+      }
+      res.send(review);
+    });
+}
 
 module.exports = {
   index: index,
   create: create,
   show: show,
   // update: update,
-  // destroy: destroy
+  destroy: destroy
 };

@@ -62,7 +62,7 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    
+
 
     // .when('/reviews', {
     //   templateUrl: 'templates/reviews/index.html',

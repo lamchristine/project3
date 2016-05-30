@@ -6,7 +6,7 @@ angular
   .controller('MainController', MainController)
   // .controller('ReviewsIndexController', ReviewsIndexController)
   // .controller('ReviewsNewController', ReviewsNewController)
-  // .controller('ReviewsShowController', ReviewsShowController)
+  .controller('ReviewsShowController', ReviewsShowController)
   // .controller('ReviewsEditController', ReviewsEditController)
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)

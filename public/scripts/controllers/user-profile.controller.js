@@ -1,6 +1,7 @@
 ProfileController.$inject = ["$location", "UserService", "$http"]; // minification protection
 function ProfileController ($location, UserService, $http) {
   var vm = this;
+  vm.destroy = destroy;
   vm.new_profile = {}; // form data
 
   vm.updateProfile = function() {
@@ -26,6 +27,21 @@ function ProfileController ($location, UserService, $http) {
     function onGetError(response){
       console.log("Error in getting reviews", response);
       $location.path('/');
+    }
+  }
+
+  function destroy(review){
+    $http ({
+      method: 'DELETE',
+      url: '/api/reviews/' + review._id
+    }).then(onDeleteSuccess, onDeleteError);
+
+    function onDeleteSuccess(response) {
+      var index = vm.user.reviews.indexOf(response);
+      vm.user.reviews.splice(index,1);
+    }
+    function onDeleteError(response) {
+      console.log("Error in deleting review", response);
     }
   }
 
