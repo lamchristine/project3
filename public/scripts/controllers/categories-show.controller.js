@@ -20,7 +20,8 @@ function CategoriesShowController ($location, $http, $routeParams) {
       // console.log(response.data)
       var chapters = {};
 
-      var item_arr = response.data.items
+      var item_arr = response.data.items;
+
       for (var i in item_arr) {
         var coord_arr = item_arr[i].place.coord_arr; //gives you coord_arr = [222, 333]
         var loc = item_arr[i].place.name;
@@ -65,10 +66,6 @@ function CategoriesShowController ($location, $http, $routeParams) {
           var bounds = element.getBoundingClientRect();
           return bounds.top < window.innerHeight && bounds.bottom > 0;
       }
-
-
-
-
     } //closes onGetSuccess
 
     function onGetError(response){
