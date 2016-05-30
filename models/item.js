@@ -3,6 +3,8 @@ var mongoose = require('mongoose'),
 
 
 var itemSchema = new Schema({
+  created: { type: Date, default: Date.now },
+  updated: { type: Date },
   place: { type: Schema.Types.ObjectId, ref: 'Place' },
   category: { type: Schema.Types.ObjectId, ref: 'Category' },
   name: String,

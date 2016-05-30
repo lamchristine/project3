@@ -17,3 +17,10 @@
   </div>
   <input type="submit" value="Save Profile" class="btn btn-block btn-info">
 </form>
+
+
+{{main.currentUser}}
+<div ng-repeat="review in main.currentUser.reviews">
+
+{{review}}
+</div>

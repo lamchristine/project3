@@ -3,6 +3,8 @@ var mongoose = require('mongoose'),
 
 
 var reviewSchema = new Schema({
+  created: { type: Date, default: Date.now },
+  updated: { type: Date },
   rating: Number,
   title: String,
   likes_counter: Number,

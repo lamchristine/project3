@@ -5,6 +5,8 @@ var mongoose = require('mongoose'),
 
 
 var placeSchema = new Schema({
+  created: { type: Date, default: Date.now },
+  updated: { type: Date },
   name: String,
   address: String,
   website: String,

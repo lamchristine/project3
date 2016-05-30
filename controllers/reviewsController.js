@@ -54,7 +54,7 @@ function create(req, res){
   db.Item.findById(req.params.itemId, function (err, foundItem) {
     // saving the new review in reviews and assigning reference to user id and item id
     var new_review = new Review(req.body);
-    console.log("**req_user**", req.user_id);
+    // console.log("**req_user**", req.user_id);
     new_review.item = foundItem;
     new_review.user = req.user_id;
     new_review.save(function(err, new_review){
@@ -69,11 +69,16 @@ function create(req, res){
     //pushing new_review_id to array of reviews in item
     foundItem.reviews.push(new_review);
     foundItem.save();
+
+    //finding newly created review and populating with user and item
+    db.User.findById(req.user_id, function (err, foundUser) {
+      // console.log("roundReview", foundUser);
+      foundUser.reviews.push(new_review);
+      foundUser.save()
+      console.log("foundUser****", foundUser);
+    });
   });
-  //finding newly created review and populating with user and item
-  // db.Review.findById(new_review.id, function (err, foundReview) {
-  //   console.log("roundReview", foundReview) })
-  //   .populate('user' 'item')
+
 }
 //
 // //   db.Category.findById(req.params.itemId, function(err, foundCategory){

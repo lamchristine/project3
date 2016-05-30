@@ -9,8 +9,12 @@
     <p> Item Price: {{itemsShowCtrl.item.price}} </p>
   </div>
 
+
+
   <div class="row">
-    <div ng-repeat= "review in itemsShowCtrl.item.reviews">
+    <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+
+    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: 'name' | filter: searchText">
       <div id = "item_review" class=col-md-4>
         <p> Review Title: {{review.title}} </p>
         <p> Review Rating: {{review.rating}} </p>
