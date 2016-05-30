@@ -22,15 +22,22 @@
     </div> -->
 
 
-    <div ng-repeat="review in categoriesShowCtrl.category.reviews">
-      <!-- <div ng-repeat="review in item.reviews"> -->
+
+    <div ng-repeat="item in categoriesShowCtrl.category.items">
       <div id="review" class="row">
+        Item: {{item.name}}<br>
+        From: {{item.place.name}}<br>
+        <a ng-href="/items/{{item._id}}">See all reviews</a>
+
+      </div>
+      <!-- <div ng-repeat="review in item.reviews"> -->
+      <!-- <div id="review" class="row">
         Review Item:  <a ng-href="/items/{{review.item._id}}">{{review.item.name}}</a><br>
         Review Title: {{review.title}}<br>
         Review Rating: {{review.rating}}<br>
         Place: {{review.item.place.name}}<br>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>
