@@ -25,8 +25,12 @@
 
     <div ng-repeat="item in categoriesShowCtrl.category.items">
       <div id="review" class="row">
-        Item: {{item.name}}<br>
-        From: {{item.place.name}}<br>
+        <h3>{{item.name}}, {{item.price}}</h3>
+        <h4>{{item.place.name}}</h4>
+        <h5>{{item.place.address}}</h5>
+        <h5>{{item.place.website}}</h5>
+        <img ng-src="images/{{item.place.image}}" alt="place image" height="150px"><br>
+
         <a ng-href="/items/{{item._id}}">See all reviews</a>
 
       </div>

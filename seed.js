@@ -96,72 +96,63 @@ var places_list = [
     address: "2405 Ocean Ave, San Francisco, CA 94127",
     phone_num: "(415) 334-2264",
     website: "https://www.yelp.com/biz/zanzes-cheesecake-san-francisco",
-    price: "$$",
-    // category: "Cheesecake"
+    image: "zanze.jpg"
   },
   {
     name: "Viva La Tarte",
     address: "1160 Howard St, San Francisco, CA 94103",
     phone_num: "(415) 891-9743",
     website: "http://vivelatarte.com",
-    price: "$$",
-    // category: "Cheesecake"
+    image:"viva.jpg"
   },
   {
     name: "Genki Crepes",
     address: "330 Clement St, San Francisco, CA 94118",
     phone_num: "(415) 379-6414",
     website: "http://www.genkicrepes.com",
-    price: "$",
-    // category: "Cheesecake"
+    image: "genki.jpg"
   },
   {
     name: "Zoes",
     address: "3088 24th St, San Francisco, CA 94110",
     phone_num: "(415) 817-1972",
     website: "http://www.zoessf.com",
-    price: "$",
-    // category: "Poutine"
+    image: "zoe.png"
   },
   {
     name: "Wayfare Tavern",
     address: "558 Sacramento St, San Francisco, CA 94111",
     phone_num: "(415) 772-9060",
     website: "http://www.wayfaretavern.com",
-    price: "$$",
-    // category: "Poutine"
+    image: "wayfare.jpg"
   },
   {
     name: "Smokes Poutinerie",
     address: "2518 Durant Ave, Unit A, Berkeley, CA 94704",
     phone_num: "(510) 540-7500",
     website: "http://smokespoutinerie.com",
-    price: "$",
-    // category: "Poutine"
+    image: "smokes.jpeg"
   },
   {
     name: "La Folie",
     address: "2316 Polk St, San Francisco, CA 94109",
     phone_num: "(415) 776-5577",
     website: "http://lafolie.com",
-    price: "$$$$",
-    // category: "Lamb Chops"
+    image: "folie.jpg"
   },
   {
     name: "Nopa",
     address: "560 Divisadero St, San Francisco, CA 94117",
     phone_num: "(415) 864-8643",
     website: "http://nopasf.com",
-    price: "$$$",
-    // category: "Lamb Chops"
+    image: "nopa.jpg"
   },
   {
     name: "Boulevard",
     address: "1 Mission St, San Francisco, CA 94105",
     phone_num: "(415) 543-6084",
     website: "http://www.boulevardrestaurant.com",
-    price: "$$$$",
-    // category: "Lamb Chops"
+    image: "boulevard.jpg"
   }
 ];
 
@@ -185,47 +176,56 @@ var items_list = [
   {
     name: "Blueberry Cheesecake",
     place: "Zanzes Cheesecake",
-    category: "Cheesecake"
+    category: "Cheesecake",
+    price: "$18"
   },
   {
     name: "New York Cheesecake",
     place: "Viva La Tarte",
-    category: "Cheesecake"
+    category: "Cheesecake",
+    price: "$6"
   },
   {
     name: "Strawberry Cheesecake",
     place: "Genki Crepes",
-    category: "Cheesecake"
+    category: "Cheesecake",
+    price: "$5"
   },
   {
     name: "Grilled Lamb Chops",
     place: "La Folie",
-    category: "Lamb Chops"
+    category: "Lamb Chops",
+    price: "$38"
   },
   {
     name: "Rosemary Lamb Chops",
     place: "Nopa",
-    category: "Lamb Chops"
+    category: "Lamb Chops",
+    price: "$28"
   },
   {
     name: "Herb Roasted Lamb Chops",
     place: "Boulevard",
-    category: "Lamb Chops"
+    category: "Lamb Chops",
+    price: "$43"
   },
   {
     name: "Chili Cheese Bacon Poutine",
     place: "Zoes",
-    category: "Poutine"
+    category: "Poutine",
+    price: "$8"
   },
   {
     name: "Original Poutine",
     place: "Wayfare Tavern",
-    category: "Poutine"
+    category: "Poutine",
+    price: "$10"
   },
   {
     name: "Smoked Meat Poutine",
     place: "Wayfare Tavern",
-    category: "Poutine"
+    category: "Poutine",
+    price: "$6"
   }
 ];
 
@@ -256,7 +256,8 @@ db.Place.remove({}, function(err, places) {
             console.log('removed all items');
             items_list.forEach(function (itemData) {
               var item = new db.Item({
-                name: itemData.name
+                name: itemData.name,
+                price: itemData.price
               });
 
               // db.Review.findOne({item:itemData.name, place: })

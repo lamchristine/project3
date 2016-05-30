@@ -9,7 +9,7 @@ var placeSchema = new Schema({
   address: String,
   website: String,
   phone_num: String,
-  price: String,
+  image: String
 });
 
 var Place = mongoose.model('Place', placeSchema);
