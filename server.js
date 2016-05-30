@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public')); //uses middleware 'static'?
+app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 // log api requests
 app.use(logger('dev'));

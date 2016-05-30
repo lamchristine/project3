@@ -1,7 +1,8 @@
 angular
   .module('Project3App', [
     'ngRoute',
-    'satellizer'
+    'satellizer',
+    'ngRaty',
   ])
   .controller('MainController', MainController)
   // .controller('ReviewsIndexController', ReviewsIndexController)
