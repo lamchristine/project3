@@ -23,7 +23,7 @@
 
 
 
-    <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created_at'| filter: searchText">
+    <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
       <div id="review" class="row">
         <h3>{{item.name}}, {{item.price}}</h3>
         <h4>{{item.place.name}}</h4>
