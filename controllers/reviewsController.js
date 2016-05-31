@@ -51,7 +51,10 @@ function index(req, res) {
 
 
 function create(req, res){
-  db.Item.findById(req.params.itemId, function (err, foundItem) {
+  Item
+    .findById(req.params.itemId)
+    .populate('category')
+    .exec(function (err, foundItem) {
     // saving the new review in reviews and assigning reference to user id and item id
     var new_review = new Review(req.body);
     // console.log("**req_user**", req.user_id);
@@ -62,7 +65,11 @@ function create(req, res){
     });
     //pushing new_review_id to array of reviews in category
     var cat_id = foundItem.category;
-    db.Category.findById(cat_id, function (err, foundCat) {
+    Category
+      .findById(cat_id)
+      .populate('reviews')
+      .exec(function (err, foundCat) {
+        console.log("***",foundCat)
       foundCat.reviews.push(new_review);
       foundCat.save();
     });
@@ -71,14 +78,16 @@ function create(req, res){
     foundItem.save();
 
     //finding newly created review and populating with user and item
-    db.User.findById(req.user_id, function (err, foundUser) {
-      // console.log("roundReview", foundUser);
-      foundUser.reviews.push(new_review);
-      foundUser.save()
-      console.log("foundUser****", foundUser);
-    });
+    User
+        .findById(req.user_id)
+        .populate('reviews')
+        .exec(function (err, foundUser) {
+          // console.log("roundreq", req.user_id);
+          foundUser.reviews.push(new_review);
+          foundUser.save()
+          // console.log("foundUser****", foundUser);
+        });
   });
-
 }
 //
 // //   db.Category.findById(req.params.itemId, function(err, foundCategory){
