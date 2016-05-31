@@ -13,33 +13,49 @@
     left:0;
     bottom:0;
 }
-#features {
+/*#features {
     width: 50%;
     margin-left: 50%;
     font-family: sans-serif;
     overflow-y: scroll;
     background-color: #fafafa;
     margin-top: 52px;
-}
+}*/
 #title {
   position: fixed;
   top:52px;
+}
 
-}
+article {
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0px;
+  left:0;
+  overflow:auto;
+  }
+.quiet {
+  color:rgba(0,0,0,0.5);
+  }
+.scroll {
+  display:block;
+  text-align:center;
+  }
+.sections {
+  background:rgba(255,255,255,0.5);
+  width:240px;
+  }
 section {
-    padding:  25px 50px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 13px;
-}
+  right:0px;
+  padding:20px;
+  color:rgba(0,0,0,0.5);
+  -webkit-transition:background 500ms, color 500ms;
+          transition:background 500ms, color 500ms;
+  }
 section.active {
-    opacity: 1;
-}
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 200px;
-}
+  background:#fff;
+  color:#404040;
+  }
 </style>
 
 
@@ -48,7 +64,7 @@ section:last-child {
 <div class="container">
   <div id="title" class="col-md-3">
     <div class="row">
-      <h2>{{categoriesShowCtrl.category.name}}</H2>
+      <h2>Top Places for {{categoriesShowCtrl.category.name}}</h2>
     </div>
     <!--search bar-->
     <div class="row">
@@ -56,18 +72,21 @@ section:last-child {
     </div>
   </div>
   <!--items-->
-  <div id="features">
-    <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
-      <section id="baker" class="active">
+  <article id="narrative">
+    <div class="sections prose">
+      <section id="cover" class="cover active">
+        <h2></h2>
       </section>
-      <section id="{{item.place.name}}">
-        <h3>{{item.name}}, {{item.price}}</h3>
-        <h4>{{item.place.name}}</h4>
-        <h5>{{item.place.address}}</h5>
-        <h5>{{item.place.website}}</h5>
-        <img ng-src="images/{{item.place.image}}" alt="place image" height="150px"><br>
-        <a ng-href="/items/{{item._id}}">See all reviews</a>
-      </section>
+      <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
+        <section id="{{item.place.name}}">
+          <h3>{{item.name}}, {{item.price}}</h3>
+          <h4>{{item.place.name}}</h4>
+          <h5>{{item.place.address}}</h5>
+          <h5>{{item.place.website}}</h5>
+          <img ng-src="images/{{item.place.image}}" alt="place image" height="150px"><br>
+          <a ng-href="/items/{{item._id}}">See all reviews</a>
+        </section>
+      </div>
     </div>
-  </div>
+  </article>
 </div>

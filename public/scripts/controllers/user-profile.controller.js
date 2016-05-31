@@ -26,18 +26,17 @@ function ProfileController ($location, UserService, $http) {
 
       //grabbing the review stars
 
-      var review_arr = response.data.reviews;
+      // var review_arr = response.data.reviews;
       // console.log(review_arr);
 
-      for (var i in review_arr) {
-        if (review_arr[i].rating === 5) {
-          $('#star').prepend('<img id="img" src="star-on.png"');
-        } else if (review_arr[i].rating === 4) {
-          $('.rating').prepend('<img id="img" src="star-off.png"');
-        }
-      }
+      // for (var i in review_arr) {
+      //   if (review_arr[i].rating === 5) {
+      //     $('#star').prepend('<img id="img" src="star-on.png"');
+      //   } else if (review_arr[i].rating === 4) {
+      //     $('.rating').prepend('<img id="img" src="star-off.png"');
+      //   }
+      // }
 
-      $('p').text("asfsd")
 
       // $(document).ready(function() {
       //     console.log("***",review_arr);
