@@ -27,6 +27,7 @@ function UserService($http, $q, $auth){
 
   function setCurrentUser(){
     var user = $auth.getPayload();
+    // console.log(user)
     if (user) {
       console.log("::: User is Logged In! :::", {user: user, token: $auth.getToken()})
     } else {

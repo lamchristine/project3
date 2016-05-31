@@ -1,95 +1,87 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-5 col-md-offset-1">
-      <div class="col-sm-8">{{main.currentUser}}
-        <h3>Hi, {{main.currentUser.first_name}} {{main.currentUser.last_name}}</h3>
-        <hr style="height:3px; width:110%" ng-show="profileCtrl.showEditForm">
-        <hr ng-hide="profileCtrl.showEditForm">
-        <p><strong>Username:</strong> {{main.currentUser.username}}</p>
-        <p><strong>Email:</strong> {{main.currentUser.email}}</p>
-        <p><strong>Joined:</strong> {{main.currentUser.created}}</p>
-        <p><strong>Reviews:</strong> {{main.currentUser.reviews.length || 0}}</p>
-        <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
-      </div>
-      <div class="col-sm-4">
-        <img ng-src="images/{{main.currentUser.avatar}}" alt="category image">
-      </div>
-    </div>
-    <!--end profile form-->
-    <div class="col-md-5">
-      <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-        <h3>Edit Profile</h3>
-        <div class="form-group">
-          <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
+  <div id="user_background">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-1">
+        <h3>Hi, {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</h3>
+        <hr class="thick" ng-show="profileCtrl.showEditForm">
+        <hr style="height:3px; width:180%" ng-hide="profileCtrl.showEditForm">
+        <div id="avatar" class="col-md-3">
+          <img ng-src="images/{{profileCtrl.user.avatar}}" class="img-circle img-responsive" alt="category image">
         </div>
-        <div class="form-group">
-          <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+        <div class="col-md-6 col-md-offset-1">
+          <p><strong>Name:</strong> {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</p>
+          <p><strong>Username:</strong> {{profileCtrl.user.username}}</p>
+          <p><strong>Email:</strong> {{profileCtrl.user.email}}</p>
+          <p><strong>Joined:</strong> {{profileCtrl.user.created}}</p>
+          <p><strong>Reviews:</strong> {{profileCtrl.user.reviews.length || 0}}</p>
+          <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
         </div>
-        <input type="submit" value="Save Profile" class="btn btn-info">
-        <a class="btn btn-danger" ng-click="profileCtrl.showEditForm=false">Cancel</a>
-      </form>
-    </div>
-    <!--end profile form ends-->
-  </div><!--closes profile row-->
-<hr>
-
+      </div>
+      <!--start edit profile form-->
+      <div class="col-md-3">
+        <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
+          <h4>Edit Profile</h4>
+          <div class="form-group">
+            <input type="text" ng-model="profileCtrl.new_profile.first_name" class="form-control" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <input type="text" ng-model="profileCtrl.new_profile.last_name" class="form-control" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+          </div>
+          <input type="submit" value="Save Profile" class="btn btn-info">
+          <a class="btn btn-danger" ng-click="profileCtrl.showEditForm=false">Cancel</a>
+        </form>
+      </div>
+      <!--end profile form ends-->
+    </div><!--closes profile row-->
+  </div>
 
 
   <!--user reviews-->
+<div class="container">
   <div class="row">
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
         <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
       </div>
     </div>
+
+
+
     <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
-      <div id="user_review" class="col-md-4">
-        <!-- <h3>{{review.title}}</h3> -->
-        <h3>
-          <span ng-hide="editing">{{review.title}}</span>
-          <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
-        </h3>
-        <div id="star"></div>
-        <p>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">
+          <div class="card-block">
+            <p> Category: {{review.item.category.name}}</p>
+            <h3>
+              <span ng-hide="editing">{{review.title}}</span>
+              <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
+            </h3>
+            <p><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
+            <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
+            <p class="card-text">
+              <span ng-hide="editing">{{review.content}}Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+              <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
+            </p>
+            <p class="card-text"><small class="text-muted">Created: {{review.created}}</small>
+              <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
+              <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
+            </p>
+            <a class='btn btn-success btn-sm' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
+            <a class="btn btn-danger btn-sm" ng-show="editing" ng-click="editing=false">Cancel</a>
 
-        <!-- <div id="star">{{review.rating}}</div> -->
-        <div class="star">{{review.rating}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- <span ng-hide="editing">{{review.rating}}</span>
-          <input ng-show="editing" ng-model="review.rating" type="text" class="form-control input-md"> -->
-        </p>
-        <p> Category: {{review.item.category.name}}</p>
-        <!-- <p>
-          <span ng-hide="editing">{{review.item.category.name}}</span>
-          <input ng-show="editing" ng-model="review.item.category.name" type="text" class="form-control input-md">
-        </p> -->
 
-        <p> {{review.item.name}}</p>
-        <!-- <p>
-          <span ng-hide="editing">{{review.item.name}}</span>
-          <input ng-show="editing" ng-model="review.item.name" type="text" class="form-control input-md">
-        </p> -->
-        <!-- <p>
-          <span ng-hide="editing">{{review.item.place.name}}</span>
-          <input ng-show="editing" ng-model="review.item.place.name" type="text" class="form-control input-md">
-        </p> -->
-        <p>  {{review.item.place.name}}</p>
 
-        <img ng-src="images/{{review.image}}" alt="category image">
-
-        <a class="btn btn-danger" ng-click="profileCtrl.destroy(review)">Delete Post</a>
-        <a ng-click="editing=true" ng-hide="editing" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-        <a class='btn btn-success' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
     </div>
   </div>
 </div> <!--closes container div-->
-
-<!-- <div class="review_1">{{review.rating}}</div> -->
-
-<!-- <script>
-$(document).ready(function() {
-  var rating = $('#star p').text()
-  console.log("***", rating)
-  $('#star').raty({score: rating });
-})
-</script> -->

@@ -1,3 +1,7 @@
+i {
+  cursor: pointer;
+}
+
 .jumbotron {
   background-image: url(/images/background1.jpeg);
   background-size: cover;
@@ -19,6 +23,23 @@ a.navbar-brand {
 #category_img img{
   height: 200px;
 }
+
+
+/***** User Profile Page ****/
+
+#user_background {
+  background-color: blue;
+  background-image: url(/images/congruent_pentagon.png);
+  height: 350px;
+}
+
+#avatar img {
+  height: 150px;
+}
+/*.card img {
+  width: 100%;
+}*/
+
 
 /*cate show page*/
 
@@ -210,7 +231,6 @@ a.navbar-brand {
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
-
 @media (max-width: 880px) {
 
 	.footer-distributed{
