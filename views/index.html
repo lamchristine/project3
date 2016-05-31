@@ -8,6 +8,9 @@
   <!-- bootstrap css -->
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+  <!-- bootswatch css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/journal/bootstrap.min.css">
+
   <!-- font awesome -->
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -78,34 +81,83 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Browse</a></li>
+          <li><a href="/">Placeholder</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.username}}'s Profile</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
+          <!-- <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.username}}'s Profile</a></li> -->
+          <!-- <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li> -->
+          <!-- links before dropdown go here in li tags -->
+          <li ng-show="main.currentUser.isLoggedIn()" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            {{main.currentUser.username}}<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li ><a href="/profile">Profile</li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
-    </div>
-  </nav>
-  <!--end of nav bar-->
+    </div> <!--closes container-->
+  </nav> <!--end of nav bar-->
 
   <!--start of ng-view-->
-  <div class="container">
     <div class="row">
       <div ng-view></div>
-  </div>
   <!--start of ng-view-->
 
   <!--start of footer-->
-  <div class="navbar navbar-defaul">
-    <div class="container">
-      <p class="navbar-text pull-left">© 2016 - Built By
-           <a href="#" target="_blank" >Christine Lam</a>
-      </p>
-    </div>
-  </div>
+  <footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Cravings</h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="#">Pricing</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+					<a href="#">Contact</a>
+				</p>
+				<p class="footer-company-name">Company Name &copy; 2015</p>
+			</div>
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>21 Revolution Street</span> Paris, France</p>
+				</div>
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+				</div>
+			</div>
+		</footer>
   <!--end of footer-->
 </body>
 </html>

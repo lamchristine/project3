@@ -1,29 +1,46 @@
 <div class="container">
-  <h3>{{main.currentUser.username}}</h3>
-  <hr>
-  <p><strong>Username:</strong> {{main.currentUser.username}}</p>
-  <p><strong>Email:</strong> {{main.currentUser.email}}</p>
-  <p><strong>Joined:</strong> {{main.currentUser.created | date:format:timezone}}</p>
-  <p><strong>Reviews:</strong> {{main.currentUser.reviews.length || 0}}</p>
-  <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
-  <hr>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <div class="col-sm-8">{{main.currentUser}}
+        <h3>Hi, {{main.currentUser.first_name}} {{main.currentUser.last_name}}</h3>
+        <hr style="height:3px; width:110%" ng-show="profileCtrl.showEditForm">
+        <hr ng-hide="profileCtrl.showEditForm">
+        <p><strong>Username:</strong> {{main.currentUser.username}}</p>
+        <p><strong>Email:</strong> {{main.currentUser.email}}</p>
+        <p><strong>Joined:</strong> {{main.currentUser.created}}</p>
+        <p><strong>Reviews:</strong> {{main.currentUser.reviews.length || 0}}</p>
+        <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+      </div>
+      <div class="col-sm-4">
+        <img ng-src="images/{{main.currentUser.avatar}}" alt="category image">
+      </div>
+    </div>
+    <!--end profile form-->
+    <div class="col-md-5">
+      <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
+        <h3>Edit Profile</h3>
+        <div class="form-group">
+          <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+        </div>
+        <input type="submit" value="Save Profile" class="btn btn-info">
+        <a class="btn btn-danger" ng-click="profileCtrl.showEditForm=false">Cancel</a>
+      </form>
+    </div>
+    <!--end profile form ends-->
+  </div><!--closes profile row-->
+<hr>
 
-  <!--end profile form-->
-  <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-    <div class="form-group">
-      <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
-    </div>
-    <input type="submit" value="Save Profile" class="btn btn-block btn-info">
-  </form>
-  <!--end profile form ends-->
+
 
   <!--user reviews-->
   <div class="row">
     <div class="row">
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+      <div class="col-md-4 col-md-offset-4">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+      </div>
     </div>
     <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
       <div id="user_review" class="col-md-4">

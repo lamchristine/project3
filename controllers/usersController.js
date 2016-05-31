@@ -25,6 +25,9 @@ function signup(req, res) {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      avatar: req.body.avatar,
       created: new Date()
     });
     user.save(function (err, result) {
