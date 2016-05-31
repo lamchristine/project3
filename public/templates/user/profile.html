@@ -25,16 +25,21 @@
     <div class="row">
       <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
     </div>
-    <div ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
+    <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
       <div id="user_review" class="col-md-4">
         <!-- <h3>{{review.title}}</h3> -->
         <h3>
           <span ng-hide="editing">{{review.title}}</span>
           <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
         </h3>
+        <div id="star"></div>
         <p>
-          <span ng-hide="editing">{{review.rating}}</span>
-          <input ng-show="editing" ng-model="review.rating" type="text" class="form-control input-md">
+
+        <!-- <div id="star">{{review.rating}}</div> -->
+        <div class="star">{{review.rating}}</div>
+
+          <!-- <span ng-hide="editing">{{review.rating}}</span>
+          <input ng-show="editing" ng-model="review.rating" type="text" class="form-control input-md"> -->
         </p>
         <p> Category: {{review.item.category.name}}</p>
         <!-- <p>
@@ -58,8 +63,16 @@
         <a class="btn btn-danger" ng-click="profileCtrl.destroy(review)">Delete Post</a>
         <a ng-click="editing=true" ng-hide="editing" class="btn btn-default"><i class="fa fa-pencil"></i></a>
         <a class='btn btn-success' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
-
-      </div>
     </div>
   </div>
 </div> <!--closes container div-->
+
+<!-- <div class="review_1">{{review.rating}}</div> -->
+
+<!-- <script>
+$(document).ready(function() {
+  var rating = $('#star p').text()
+  console.log("***", rating)
+  $('#star').raty({score: rating });
+})
+</script> -->
