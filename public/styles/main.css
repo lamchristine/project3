@@ -36,9 +36,18 @@ a.navbar-brand {
 #avatar img {
   height: 150px;
 }
-/*.card img {
+
+.card{
+  border: 1px solid #D3D3D3;
+  margin-bottom: 20px;
+}
+
+.card-block {
+  padding: 20px;
+}
+.card img {
   width: 100%;
-}*/
+}
 
 
 /*cate show page*/

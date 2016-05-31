@@ -17,7 +17,7 @@ function CategoriesShowController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.category = response.data;
-      // console.log(response.data)
+      console.log("**",response.data)
       var places = { type: 'FeatureCollection', features: [{ geometry: { type: "Point", coordinates: [-122.4194, 37.7749] },
   properties: { id: "cover", zoom: 10 }, type: 'Feature' }] };
 

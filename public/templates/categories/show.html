@@ -4,13 +4,19 @@
 
 .navbar {
   position: fixed;
+  top:0;
+  width: 100%;
+}
+
+footer {
+  display:none;
 }
 #map {
     position: fixed;
-    width:50%;
+    width:100%;
     height:100%;
     top:52px;
-    left:0;
+    right:0;
     bottom:0;
 }
 /*#features {
@@ -28,7 +34,7 @@
 
 article {
   position:absolute;
-  top:0;
+  top:10%;
   right:0;
   bottom:0px;
   left:0;
@@ -43,11 +49,15 @@ article {
   }
 .sections {
   background:rgba(255,255,255,0.5);
-  width:240px;
+  width:35%;
+  margin-left: 5%;
   }
 section {
   right:0px;
-  padding:20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top:5%;
+  padding-bottom: 5%;
   color:rgba(0,0,0,0.5);
   -webkit-transition:background 500ms, color 500ms;
           transition:background 500ms, color 500ms;
@@ -56,26 +66,27 @@ section.active {
   background:#fff;
   color:#404040;
   }
+
+  .sections:last-child {
+    border-bottom: none;
+    margin-bottom: 20%;
+}
 </style>
 
 
 
 <div id='map'></div>
 <div class="container">
-  <div id="title" class="col-md-3">
-    <div class="row">
-      <h2>Top Places for {{categoriesShowCtrl.category.name}}</h2>
-    </div>
-    <!--search bar-->
-    <div class="row">
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
-    </div>
-  </div>
+
   <!--items-->
   <article id="narrative">
     <div class="sections prose">
       <section id="cover" class="cover active">
-        <h2></h2>
+        <h2>Find out where to eat {{categoriesShowCtrl.category.name}} in San Francisco </h2>
+        <!--search bar-->
+        <div class="row">
+          <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+        </div>
       </section>
       <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
         <section id="{{item.place.name}}">
