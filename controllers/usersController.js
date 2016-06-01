@@ -45,8 +45,10 @@ function updateCurrentUser(req, res) {
       return res.status(400).send({ message: 'User not found.' });
     }
     user.username = req.body.username || user.username;
-    user.username = req.body.username || user.username;
+    user.username = req.body.last_name || user.last_name;
+    user.username = req.body.first_name || user.first_name;
     user.email = req.body.email || user.email;
+    user.email = req.body.avatar || user.avatar;
     user.save(function(err, result) {
       res.send({ token: auth.createJWT(result) });
     });

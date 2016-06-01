@@ -67,7 +67,7 @@
                 <p class="card-text"><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
                 <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
                 <p class="card-text">
-                  <span ng-hide="editing">{{review.content}}Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+                  <span ng-hide="editing">{{review.content}}</span>
                   <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
                 </p>
                 <p class="card-text"><small class="text-muted">Created: {{review.created}}</small>

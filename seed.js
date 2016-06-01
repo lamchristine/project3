@@ -37,16 +37,17 @@ var users_list = [
       image: "zanze_cheesecake1.jpg",
       item: "New York Cheesecake",
       place: "Zanzes Cheesecake",
+      content: "This is literally the best cheesecake I've ever had in my life! It's super creamy and super light! Remember to call ahead before you go - they run out sometimes."
     },
     {
-      title: "So buttery!",
-      rating: 4.5,
+      title: "Buttery and rich",
+      rating: 4.0,
       likes_counter: 61,
       email: "sarah@jackson.com",
       image: "viva_cheesecake2.jpg",
       item: "Blueberry Cheesecake",
-      place: "Viva La Tarte"
-      // content: "Every program has (at least) two purposes: the one for which it was written, and another for which it wasn't."
+      place: "Viva La Tarte",
+      content: "Definitely one of the better places in SF. Highly recommended if you're in the area."
     },
     {
       title: "AMAZING!",
@@ -55,38 +56,38 @@ var users_list = [
       email: "sarah@jackson.com",
       image: "lafolie_lambchop1.jpg",
       item: "Grilled Lamb Chops",
-      place: "La Folie"
-      // content: "One man's constant is another man's variable."
+      place: "La Folie",
+      content: "My husband and I have been trying to find the best lamb chops in SF and I think this might actually be it. It comes with a steep price tag, but definitely worth it."
     },
     {
-      title: "Decent, but not worth the price",
-      rating: 4.5,
+      title: "Done just right",
+      rating: 4.0,
       likes_counter: 121,
       email: "sarah@jackson.com",
       image: "lafolie_lambchop2.jpg",
       item: "Rosemary Lamb Chops",
-      place: "Wayfare Tavern"
-      // content: "One man's constant is another man's variable."
+      place: "Nopa",
+      content: "I'm really particular about my lamb chops and this was done just the way I like it. It was perfectly cooked and for the price, I would definitely come back."
     },
     {
-      title: "Mind-blown!",
-      rating: 5.0,
+      title: "Not as good as the one in Toronto, and the hunt continues...",
+      rating: 3.0,
       likes_counter: 21,
       email: "jimmy@choo.com",
       image: "smokes_poutine1.jpg",
       item: "Original Poutine",
-      place: "Smokes Poutinerie"
-      // content: "One man's constant is another man's variable."
+      place: "Smokes Poutinerie",
+      content: "Ever since I moved to the States I've been trying to find a good poutine place. I thought Smokes would be it since we have the same chain back in Toronto, but it just wasn't as good. The gravy was hot enough, and the fries were not cripsy enough, it just didn't hit the spot."
     },
     {
       title: "Unremarkable!",
-      rating: 3.0,
+      rating: 2.0,
       likes_counter: 11,
       email: "sarah@jackson.com",
       image: "smokes_poutine2.jpg",
       item: "Smoked Meat Poutine",
-      place: "Zoes"
-      // content: "One man's constant is another man's variable."
+      place:  "Wayfare Tavern",
+      content: "Man they should really restrict people from naming dishes that are not what they are. This supposed poutine was made with cheedar cheese on waffle fries! Come on people, this is not a poutine! Needless to say, definitely not going back!"
     }
   ];
 
@@ -183,13 +184,13 @@ var category_list = [
 
 var items_list = [
   {
-    name: "Blueberry Cheesecake",
+    name: "New York Cheesecake",
     place: "Zanzes Cheesecake",
     category: "Cheesecake",
     price: "$18"
   },
   {
-    name: "New York Cheesecake",
+    name: "Blueberry Cheesecake",
     place: "Viva La Tarte",
     category: "Cheesecake",
     price: "$6"
@@ -226,7 +227,7 @@ var items_list = [
   },
   {
     name: "Original Poutine",
-    place: "Wayfare Tavern",
+    place: "Smokes Poutinerie",
     category: "Poutine",
     price: "$10"
   },
@@ -324,6 +325,7 @@ db.User.remove({}, function(err, users) {
           title: reviewData.title,
           rating: reviewData.rating,
           image: reviewData.image,
+          content: reviewData.content,
           likes_counter: reviewData.likes_counter,
         });
 

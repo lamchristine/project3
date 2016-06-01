@@ -9,6 +9,7 @@ var reviewSchema = new Schema({
   title: String,
   likes_counter: Number,
   image: String,
+  content: String,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   place: { type: Schema.Types.ObjectId, ref: 'Place' },
   category: { type: Schema.Types.ObjectId, ref: 'Category' },
