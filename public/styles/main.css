@@ -1,7 +1,9 @@
+/******* global ******/
 i {
   cursor: pointer;
 }
 
+/***** category index page (home) *****/
 .jumbotron {
   background-image: url(/images/background1.jpeg);
   background-size: cover;
@@ -50,6 +52,15 @@ a.navbar-brand {
   width: 100%;
 }
 
+/****** item show page ****/
+#card img.avatar {
+  height: 35px;
+  width: 35px
+}
+
+.posted_by small{
+  margin-left:15px
+}
 
 /*cate show page*/
 

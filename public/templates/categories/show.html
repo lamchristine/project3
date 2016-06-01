@@ -15,7 +15,7 @@ footer {
     position: fixed;
     width:100%;
     height:100%;
-    top:52px;
+    top:62px;
     right:0;
     bottom:0;
 }
@@ -82,7 +82,7 @@ section.active {
   <article id="narrative">
     <div class="sections prose">
       <section id="cover" class="cover active">
-        <h2>Find out where to eat {{categoriesShowCtrl.category.name}} in San Francisco </h2>
+        <h2>Where to eat {{categoriesShowCtrl.category.name}} in San Francisco? Check out the following! </h2>
         <!--search bar-->
         <div class="row">
           <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
@@ -90,12 +90,11 @@ section.active {
       </section>
       <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
         <section id="{{item.place.name}}">
-          <h3>{{item.name}}, {{item.price}}</h3>
+          <h3><a ng-href="/items/{{item._id}}">{{item.name}}, {{item.price}}</a></h3>
           <h4>{{item.place.name}}</h4>
           <h5>{{item.place.address}}</h5>
           <h5>{{item.place.website}}</h5>
           <img ng-src="images/{{item.place.image}}" alt="place image" height="150px"><br>
-          <a ng-href="/items/{{item._id}}">See all reviews</a>
         </section>
       </div>
     </div>

@@ -53,35 +53,34 @@
 
     <!--ng-repeat for reviews-->
     <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
-
-        <div class="card-columns">
-          <div class="col-md-4">
+      <div class="card-columns">
+        <div class="col-md-4">
           <div id="card">
-          <div class="card">
-            <img class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">
-            <div class="card-block">
-              <p> Category: {{review.item.category.name}}</p>
-              <h3>
-                <span ng-hide="editing">{{review.title}}</span>
-                <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
-              </h3>
-              <p><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
-              <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
-              <p class="card-text">
-                <span ng-hide="editing">{{review.content}}Some quick example text to build on the card title and make up the bulk of the card's content.</span>
-                <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
-              </p>
-              <p class="card-text"><small class="text-muted">Created: {{review.created}}</small>
-                <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
-                <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
-              </p>
-              <a class='btn btn-success btn-sm' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
-              <a class="btn btn-danger btn-sm" ng-show="editing" ng-click="editing=false">Cancel</a>
+            <div class="card">
+              <img class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">
+              <div class="card-block">
+                <p class="card-text"> Category: {{review.item.category.name}}</p>
+                <h3 class="card-text">
+                  <span ng-hide="editing">{{review.title}}</span>
+                  <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
+                </h3>
+                <p class="card-text"><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
+                <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
+                <p class="card-text">
+                  <span ng-hide="editing">{{review.content}}Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+                  <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
+                </p>
+                <p class="card-text"><small class="text-muted">Created: {{review.created}}</small>
+                  <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
+                  <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
+                </p>
+                <a class='btn btn-success btn-sm' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
+                <a class="btn btn-danger btn-sm" ng-show="editing" ng-click="editing=false">Cancel</a>
+              </div>
             </div>
           </div>
-        </div>
-        </div>
-      </div>
+        </div><!--closes col-md-4-->
+      </div><!--closes .card-columns-->
     </div><!--closes ng-repeat-->
   </div><!--closes row div-->
 </div> <!--closes container div-->

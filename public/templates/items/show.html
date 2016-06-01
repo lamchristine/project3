@@ -1,29 +1,41 @@
 <!-- as 'itemsShowCtrl' -->
 <div class="container">
   <div class="row">
-    <h2><strong>Reviews for {{itemsShowCtrl.item.name}} </strong><span><h4>from</h4></span> {{itemsShowCtrl.item.place.name}}</h2>
+    <h2><strong>{{itemsShowCtrl.item.name}}</strong></h2>
+    <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{itemsShowCtrl.item.place.name}}</h4>
     <!-- <p>Category: {{itemsShowCtrl.item.category.name}} -->
-    <p> Address: {{itemsShowCtrl.item.place.address}} </p>
-    <p> Website: {{itemsShowCtrl.item.place.website}} </p>
-    <p> Phone Number: {{itemsShowCtrl.item.place.phone_num}} </p>
-    <p> Item Price: {{itemsShowCtrl.item.price}} </p>
+    <p><strong>Address:</strong> {{itemsShowCtrl.item.place.address}} </p>
+    <p><strong>Website:</strong> {{itemsShowCtrl.item.place.website}} </p>
+    <p><strong>Phone Number:</strong> {{itemsShowCtrl.item.place.phone_num}} </p>
+    <p><strong>Item Price:</strong> {{itemsShowCtrl.item.price}} </p>
   </div>
+  <hr>
 
 
 
   <div class="row">
     <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
-
     <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
-      <div id = "item_review" class=col-md-4>
-        <p> Review Title: {{review.title}} </p>
-        <p> Review Rating: {{review.rating}} </p>
-        <p> Reviewed By: {{review.user.username}} </p>
-        <img ng-src="images/{{review.image}}" alt="category image">
-      </div>
-    </div>
-  </div>
-</div>
+      <div class="card-columns">
+        <div class="col-md-4">
+          <div id="card">
+            <div class="card">
+              <img class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">
+              <div class="card-block">
+                <p class="card-text"><strong>Title:</strong> {{review.title}}</p>
+                <p class="card-text"><strong>Rating:</strong> {{review.rating}} stars</p>
+                <p class="card-text">{{review.content}}Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text posted_by">
+                  <img class="img-circle img-responsive avatar pull-left" ng-src="images/{{review.user.avatar}}" alt="User Avatar"><small class="text-muted">{{review.user.first_name}} {{review.user.last_name}}</small>
+                  <small class="text-muted pull-right">Posted: hrs ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div><!--closes col-md-4-->
+      </div><!--closes .card-columns-->
+    </div><!--closes ng-repeat-->
+  </div><!--closes row-->
 <!-- <div id='map'>
 
 </div>
