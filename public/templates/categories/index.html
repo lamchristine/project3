@@ -6,55 +6,63 @@
   </div>
 </div>
 <!--end of jumbotron-->
-
-<div class="text-center">
-  <h2>View Cravings</h2>
-  <hr>
-</div>
 <div class="container">
-  <div class="row">
-    <div ng-if="home.categories.length">
-      <div ng-repeat="category in home.categories">
-        <div class="col-md-4">
-          <p>
-            <strong><a ng-href="/categories/{{category._id}}">{{category.name}}</a></strong>
-          </p>
-          <p>
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 31 restaurants{{item.places.length}}
-          </p>
-          <div id="category_img" class="col-md-12 col-xs-12 thumbnail">
-            <img ng-src="images/{{category.image}}" alt="category image">
+  <div class="text-center">
+    <h2>View Cravings</h2>
+    <hr>
+  </div>
+    <div class="row">
+      <div ng-if="home.categories.length">
+        <div ng-repeat="category in home.categories">
+          <div class="col-sm-4">
+            <p>
+              <strong><a ng-href="/categories/{{category._id}}">{{category.name}}</a></strong>
+            </p>
+            <p>
+              <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{category.places.length}} locations
+              <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{category.reviews.length}} reviews
+            </p>
+            <img class="img-responsive" ng-src="images/{{category.image}}" alt="category image">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="text-center" ng-show="main.currentUser.isLoggedIn()">
-    <h2>Got Suggestions?  Let's Hear em'
-      <a ng-click="showform=!showform" class="btn btn-info btn-xs" href="javascript:void(0)"><span class="glyphicon glyphicon-plus"></span></a>
-    </h2>
-    <hr>
-  </div>
+    <div class="text-center" ng-show="main.currentUser.isLoggedIn()">
+      <h2>Got Suggestions?  Let's Hear em'<h2>
+        <button type="button" class="btn btn-default" ng-click="showform=!showform" href="javascript:void(0)"><span class="glyphicon glyphicon-plus"></span>Review</button>
+      <hr>
+    </div>
 
   <!--review form-->
   <form ng-show="showform" role="form">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <input ng-model="home.newReview.title" placeholder="Title" type="text" class="form-control input-md">
-        <input ng-model="home.newReview.image" placeholder="Image" type="text" class="form-control input-md">
-
-        <!-- <input ng-model="home.newReview.rating" placeholder="Rating" type="number" class="form-control input-md"> -->
-
-        <div ng-raty="ratyOptions" ng-model="home.newReview.rating"></div>
-
-        <div ng-repeat="category in home.categories">
-          <select ng-model="home.newReview.item">
-            <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place.name}}</option>
-          </select>
+        <p>Select an item to review:</p>
+        <div class="row">
+          <div ng-repeat="category in home.categories">
+            <div class="col-md-3">
+              {{category.name}}
+            </div>
+            <div class="col-md-9">
+              <select ng-model="home.newReview.item">
+                <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <input ng-model="home.newReview.title" placeholder="Review Title" type="text" class="form-control" required="true">
+          </div>
+          <div class="form-group">
+            <input ng-model="home.newReview.image" placeholder="Image" type="text" class="form-control" required="true">
+          </div>
+          <div class="form-group">
+            <textarea ng-model="home.newReview.content" placeholder="Content" class="form-control" required="true"></textarea>
+          </div>
+          <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true">Rating: </div>
+          <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span>Submit</button>
+          <button type="button" class="btn btn-danger" ng-click="showform=false">Cancel</button>
         </div>
-        <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span> Add New Review</button>
       </div>
     </div>
   </form>
-
-</div>
+</div><!--closes container-->
