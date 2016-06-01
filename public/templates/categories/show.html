@@ -62,6 +62,12 @@ section {
   -webkit-transition:background 500ms, color 500ms;
           transition:background 500ms, color 500ms;
   }
+
+section img{
+  height: 150px;
+  width: 150px;
+}
+
 section.active {
   background:#fff;
   color:#404040;
@@ -94,7 +100,7 @@ section.active {
           <h4>{{item.place.name}}</h4>
           <h5>{{item.place.address}}</h5>
           <h5>{{item.place.website}}</h5>
-          <img ng-src="images/{{item.place.image}}" alt="place image" height="150px"><br>
+          <img ng-src="images/{{item.place.image}}" alt="place image"><br>
         </section>
       </div>
     </div>
