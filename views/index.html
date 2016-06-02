@@ -71,7 +71,7 @@
 <body ng-controller="MainController as main">
   <!--start of nav bar-->
   <nav class="navbar navbar-default">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -82,18 +82,23 @@
         <a class="navbar-brand" href="/">Cravings!</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <!--Category dropdown menu-->
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a ng-click="categoriesIndexCtrl.query()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Browse by category<span class="caret"></span>
-            <div ng-repeat="category in categoriesIndexCtrl.categories">
-              {{category.name}}
-            </div>
-            </a>
-            <ul class="dropdown-menu">
-              <li ><a href="/profile">CHANGE ME</li>
-              <li role="separator" class="divider"></li>
-              <li><a href="/logout">Log Out</a></li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
+            <ul class="dropdown-menu" role="menu">
+              <div ng-repeat="category in main.categories">
+                <li><a href="/categories/{{category._id}}">{{category.name}}</a></li>
+              </div>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Item</a>
+            <ul class="dropdown-menu" role="menu">
+              <div ng-repeat="item in main.items">
+                <li><a href="/items/{{item._id}}">{{item.name}}</a></li>
+              </div>
             </ul>
           </li>
         </ul>
@@ -105,9 +110,9 @@
           <!-- links before dropdown go here in li tags -->
           <li ng-show="main.currentUser.isLoggedIn()" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{main.currentUser.username}}<span class="caret"></span>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{main.currentUser.username}}
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" role="menu">
               <li ><a href="/profile">Profile</li>
               <li role="separator" class="divider"></li>
               <li><a href="/logout">Log Out</a></li>

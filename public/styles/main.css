@@ -3,6 +3,19 @@ i {
   cursor: pointer;
 }
 
+/******* navbar *****/
+navbar.container {
+  position: relative;
+  overflow: visible;
+  z-index: 5000;
+}
+
+navbar.dropdown-menu {
+  z-index: 5000;
+
+}
+
+
 /***** category index page (home) *****/
 .jumbotron {
   background-image: url(/images/background1.jpeg);

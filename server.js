@@ -50,6 +50,7 @@ app.get('/api/categories/:id', categoriesCtrl.show);
 
 
 var itemsCtrl = controllers.items;
+app.get('/api/items', itemsCtrl.index);
 app.get('/api/items/:id', itemsCtrl.show);
 app.post('/api/items/:itemId/reviews', auth.ensureAuthenticated, reviewsCtrl.create);
 
