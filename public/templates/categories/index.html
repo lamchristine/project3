@@ -49,34 +49,30 @@
               </select>
             </div>
           </div>
+          <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true">Rating: </div>
           <div class="form-group">
             <input ng-model="home.newReview.title" placeholder="Review Title" type="text" class="form-control" required="true">
           </div>
           <div class="form-group">
-            <input ng-model="home.newReview.image" placeholder="Image" type="text" class="form-control" required="true">
-          </div>
-          <div class="form-group">
             <textarea ng-model="home.newReview.content" placeholder="Content" class="form-control" required="true"></textarea>
           </div>
-          <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true">Rating: </div>
-          <!--********-->
-          <!--photo upload!!-->
-          <input
-              uploadcare-widget
-              ng-model="object.image.info.uuid"
-              data-public-key="YOURKEYHERE"
-              data-tabs="file url"
-              data-images-only="true"
-              data-preview-step="true"
-              data-clearable="true"
-              data-multiple="false"
-              data-crop="400:200"
-              on-upload-complete="onUCUploadComplete(info)"
-              on-widget-ready="onUCWidgetReady(widget)"
-              value="{{ object.image.info.cdnUrl }}"
-             />
-           <!--********-->
-           <!-- ******** -->
+          <div class="form-group">
+            <!--angular-uploadcare widget!-->
+            <input
+                uploadcare-widget
+                ng-model="home.newReview.image"
+                data-public-key="demopublickey"
+                data-tabs="file url"
+                data-images-only="true"
+                data-preview-step="true"
+                data-clearable="true"
+                data-multiple="false"
+                data-crop="200:200"
+                on-upload-complete="onUCUploadComplete(info)"
+                on-widget-ready="onUCWidgetReady(widget)"
+                value="{{home.newReview.image}}"
+               />
+          </div>
           <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span>Submit</button>
           <button type="button" class="btn btn-danger" ng-click="showform=false">Cancel</button>
         </div>
