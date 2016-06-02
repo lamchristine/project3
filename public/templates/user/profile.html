@@ -52,8 +52,9 @@
     </div>
 
     <!--ng-repeat for reviews-->
+    <div class="card-columns">
+
     <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
-      <div class="card-columns">
         <div class="col-md-4">
           <div id="card">
             <div class="card">

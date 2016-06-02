@@ -20,35 +20,6 @@ function index(req, res) {
       res.send(reviews);
     });
 }
-//
-// function create(req, res){
-//   Item
-//     .findById(req.params.itemId)
-//     .populate({
-//       path: 'reviews',
-//       populate: {path: 'user'}
-//     })
-//     .exec(function (err, foundItem) {
-//       // saving the new review in reviews and assigning reference to user id and item id
-//       var new_review = new Review(req.body);
-//       console.log("**req_user**", req.user_id);
-//       new_review.item = foundItem;
-//       new_review.user = req.user_id;
-//       new_review.save(function(err, new_review){
-//         res.send(new_review);
-//       });
-//       //pushing new_review_id to array of reviews in category
-//       var cat_id = foundItem.category;
-//       db.Category.findById(cat_id, function (err, foundCat) {
-//         foundCat.reviews.push(new_review);
-//         foundCat.save();
-//       });
-//       //pushing new_review_id to array of reviews in item
-//       foundItem.reviews.push(new_review);
-//       foundItem.save();
-//     });
-//   }
-
 
 function create(req, res){
   Item
@@ -89,31 +60,6 @@ function create(req, res){
         });
   });
 }
-//
-// //   db.Category.findById(req.params.itemId, function(err, foundCategory){
-//
-//     var new_item = new Item(req.body);
-//       new_item.place = req.body.place;
-//       new_item.category = req.body.category;
-//       new_item.save();
-//     console.log("**new_item***", new_item);
-//
-//     var new_review = new Review(req.body);
-//
-//     //saving the review id in Category
-//     foundCategory.reviews.push(new_review._id);
-//     foundCategory.save();
-//
-//     //saving the new review in reviews and assigning reference to user id and category id
-//     new_review.item = new_item.id;
-//     new_review.user = req.user_id;
-//     new_review.category = req.params.categoryId;
-//     new_review.save(function(err, new_review){
-//
-//       res.send(new_review);
-//     });
-//   });
-// }
 
 
 function show(req, res){
@@ -167,103 +113,10 @@ function destroy(req, res){
       if (err || !review) {
         return res.status(404).send({messsage: 'Failed to delete review.'});
       }
+      console.log("****Removed from db", review)
       res.send(review);
-    })
-    // db.User.update({_id:query.user}, {$pull: {reviews: {_id: query._id} } });
+    });
 }
-      // User
-      //   .findById(query.user)
-      //   // .populate('reviews')
-      //   .exec(function(err, foundUser){
-      //     if (err || !review) {
-      //       console.log(review);
-      //       return res.status(404).send({messsage: 'Failed to update review.'});
-      //     }
-      //        res.status(404).send();
-      //        foundUser.update({_id:review.user}, {$pull: {reviews: {_id: review._id} } });
-      //   });
-
-
-
-
-  //find user
-  // User
-    // .findById(query.user)
-  //   // .populate('reviews')
-    // .exec( function (err, foundUser) {
-  //   // console.log("found USER", foundUser.reviews);
-  //   // console.log("foundUser0", foundUser.reviews[0]._id);
-
-  //   //find the review within the User array of reviews and remove
-  //     for (var i in foundUser.reviews) {
-  //       if(foundUser.reviews[i] === query._id ) {
-  //       // console.log("***foundreview", foundUser.reviews[i]);
-  //         //remove review from array of reviews
-  //         foundUser.reviews.slice(i);
-  //         //save user
-  //         foundUser.save();
-  //         //send back the deleted review
-  //         // res.send(foundUser.reviews[i]);
-  //         // console.log("removed", foundUser);
-  //       }
-  //     }
-  //   });
-    //find review in Review model and remove
-  //   Review
-  //     .findOneAndRemove(query)
-  //     .exec(function(err, review){
-  //       if (err || !review) {
-  //         return res.status(404).send({messsage: 'Failed to delete review.'});
-  //       }
-  //       res.send(review);
-  //     });
-  //  }
-
-  //  foundUser.reviews
-  //     .findOneAndRemove(query)
-  //     .exec(function(err, review){
-  //       if (err || !review) {
-  //         return res.status(404).send({messsage: 'Failed to delete review.'});
-  //       }
-  //       foundUser.save();
-  //      //  res.send(review);
-  //     });
-
-    //   }
-    //   // foundUser.save();
-    // });
-  // }
-
-    // var deleteReview = foundUser.reviews.id(query._id).remove();
-    // foundUser.save(function (err) {
-    //   if (err) {
-    //     return res.status(404).send({messsage: 'Failed to delete review'});
-    //   }
-    //   res.send(deleteReview);
-    // });
-
-    // var correctReview = foundUser.reviews.id(query._id);
-  //   if (correctReview) {
-  //     correctReview.remove();
-  //     //resave the user now that the review is gone
-  //     foundUser.save(function(err, saved) {
-  //       res.send(correctReview);
-  //     });
-  //   } else {
-  //     res.send(404);
-  //   }
-
-  //   Review
-  //     .findOneAndRemove(query)
-  //     .exec(function(err, review){
-  //       if (err || !review) {
-  //         return res.status(404).send({messsage: 'Failed to delete review.'});
-  //       }
-  //       res.send(review);
-  //     });
-  // console.log("*****", foundUser)
-  // foundUser.save();
-  // });
 
 module.exports = {
   index: index,
