@@ -53,9 +53,9 @@
 
     <!--ng-repeat for reviews-->
     <div class="card-columns">
-
     <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
-        <div class="col-md-4">
+
+        <!-- <div class="col-md-4"> -->
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">

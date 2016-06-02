@@ -14,10 +14,16 @@
 
 
   <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+
     <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+  </div>
+  </div>
+    <div class="card-columns">
+
     <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
-      <div class="card-columns">
-        <div class="col-md-4">
+      <!-- <div class="card-columns"> -->
+        <!-- <div class="col-md-4"> -->
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
