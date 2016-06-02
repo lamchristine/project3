@@ -42,9 +42,20 @@ function ProfileController ($location, UserService, $http) {
       console.log("***review1", response)
       console.log("**user.review2", vm.user.reviews)
 
-      var index= vm.user.reviews.indexOf(response.data);
+      review_arr = vm.user.reviews
+      var index;
+      function findInd(){
+        for(var i = 0; i < review_arr.length; i++){
+          if(review_arr[i]._id === response.data._id){
+             return index = i;
+          }
+        }
+      }
       console.log("**deleted_review_id3", index)
       vm.user.reviews.splice(index,1);
+
+      findInd();
+
     }
     function onDeleteError(response) {
       console.log("Error in deleting review", response);
