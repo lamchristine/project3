@@ -1,0 +1,24 @@
+{
+  "name": "angular_auth",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "lamchristine <christine.lam.06@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lamchristine/project3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-uploadcare": "^0.2.0",
+    "ngRaty": "ngraty#*",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}
