@@ -13,7 +13,7 @@ function CategoriesIndexController ($http, $location, $routeParams) {
     $http
       .get('/api/categories')
       .then(function onSuccess(response) {
-        // console.log("*****", response);
+        console.log("*****", response);
         vm.categories = response.data;
       });
   }
