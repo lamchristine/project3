@@ -3,6 +3,7 @@ angular
     'ngRoute',
     'satellizer',
     'ngRaty',
+    'ng-uploadcare',
   ])
   .controller('MainController', MainController)
   // .controller('ReviewsIndexController', ReviewsIndexController)

@@ -59,6 +59,24 @@
             <textarea ng-model="home.newReview.content" placeholder="Content" class="form-control" required="true"></textarea>
           </div>
           <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true">Rating: </div>
+          <!--********-->
+          <!--photo upload!!-->
+          <input
+              uploadcare-widget
+              ng-model="object.image.info.uuid"
+              data-public-key="YOURKEYHERE"
+              data-tabs="file url"
+              data-images-only="true"
+              data-preview-step="true"
+              data-clearable="true"
+              data-multiple="false"
+              data-crop="400:200"
+              on-upload-complete="onUCUploadComplete(info)"
+              on-widget-ready="onUCWidgetReady(widget)"
+              value="{{ object.image.info.cdnUrl }}"
+             />
+           <!--********-->
+           <!-- ******** -->
           <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span>Submit</button>
           <button type="button" class="btn btn-danger" ng-click="showform=false">Cancel</button>
         </div>
