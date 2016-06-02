@@ -66,8 +66,6 @@
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 
-
-
   <title>Cravings</title>
 </head>
 <body ng-controller="MainController as main">
@@ -85,7 +83,16 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Placeholder</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Browse by category<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li ><a href="/profile">{{Profile}}</li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
@@ -95,7 +102,7 @@
           <!-- links before dropdown go here in li tags -->
           <li ng-show="main.currentUser.isLoggedIn()" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{main.currentUser.username}}<span class="caret"></span>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{main.currentUser.username}}<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li ><a href="/profile">Profile</li>
@@ -107,7 +114,6 @@
       </div>
     </div> <!--closes container-->
   </nav> <!--end of nav bar-->
-
   <!--start of ng-view-->
     <div class="row">
       <div ng-view></div>
