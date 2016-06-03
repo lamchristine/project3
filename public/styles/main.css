@@ -3,6 +3,9 @@ i {
   cursor: pointer;
 }
 
+body {
+  background-color: #f6f6f6
+}
 /******* navbar *****/
 navbar.container {
   position: relative;
@@ -12,8 +15,9 @@ navbar.container {
 
 navbar.dropdown-menu {
   z-index: 5000;
-
 }
+
+
 
 
 /***** category index page (home) *****/
