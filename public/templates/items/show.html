@@ -1,15 +1,58 @@
+<style>
+  /*body { margin:0; padding:0; }*/
+  #map{
+    position:absolute;
+    top:30px;
+    /*bottom:0;*/
+    width:100%;
+    height:200px;
+  }
+
+</style>
+
 <!-- as 'itemsShowCtrl' -->
 <div class="container">
   <div class="row">
-    <h2><strong>{{itemsShowCtrl.item.name}}</strong></h2>
-    <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{itemsShowCtrl.item.place.name}}</h4>
-    <!-- <p>Category: {{itemsShowCtrl.item.category.name}} -->
-    <p><strong>Address:</strong> {{itemsShowCtrl.item.place.address}} </p>
-    <p><strong>Website:</strong> {{itemsShowCtrl.item.place.website}} </p>
-    <p><strong>Phone Number:</strong> {{itemsShowCtrl.item.place.phone_num}} </p>
-    <p><strong>Item Price:</strong> {{itemsShowCtrl.item.price}} </p>
+    <div class="col-md-6">
+      <h2><strong>{{itemsShowCtrl.item.name}}</strong></h2>
+      <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{itemsShowCtrl.item.place.name}}</h4>
+      <!-- <p>Category: {{itemsShowCtrl.item.category.name}} -->
+      <p><strong>Address:</strong> {{itemsShowCtrl.item.place.address}} </p>
+      <p><strong>Website:</strong> {{itemsShowCtrl.item.place.website}} </p>
+      <p><strong>Phone Number:</strong> {{itemsShowCtrl.item.place.phone_num}} </p>
+      <p><strong>Item Price:</strong> {{itemsShowCtrl.item.price}} </p>
+    </div>
+    <div class="col-md-6">
+      <div id='map'></div>
+    </div>
   </div>
   <hr>
+<!-- <script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhbTA2IiwiYSI6ImNpb294d25xMzAwMXJ1eG0zdXdtaGtqMmwifQ.baGJ8eoCmGvgnMptSrTGyw';
+var map = L.mapbox.map('map', 'mapbox.streets')
+.setView([37.77699, -122.410523], 13);
+
+L.mapbox.featureLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [37.77699, -122.410523]
+    },
+    properties: {
+      title: 'Peregrine Espresso',
+      description: '1718 14th St NW, Washington, DC',
+      // one can customize markers by adding simplestyle properties
+      // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+      'marker-size': 'large',
+      'marker-color': '#BE9A6B',
+      'marker-symbol': 'icon-halo'
+  }
+}).addTo(map);
+</script> -->
 
 
 
