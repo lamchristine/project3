@@ -1,13 +1,10 @@
 <style>
-  /*body { margin:0; padding:0; }*/
   #map{
-    /*position:absolute;*/
     top:30px;
     margin-bottom: 35px;
     width:100%;
     height:300px;
   }
-
 </style>
 
 <!-- as 'itemsShowCtrl' -->
@@ -16,22 +13,18 @@
     <div class="col-md-6">
       <h2><strong>{{itemsShowCtrl.item.name}}</strong></h2>
       <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{itemsShowCtrl.item.place.name}}</h4>
-      <!-- <p>Category: {{itemsShowCtrl.item.category.name}} -->
       <p><strong>Address:</strong> {{itemsShowCtrl.item.place.address}} </p>
       <p><strong>Website:</strong> {{itemsShowCtrl.item.place.website}} </p>
       <p><strong>Phone Number:</strong> {{itemsShowCtrl.item.place.phone_num}} </p>
       <p><strong>Item Price:</strong> {{itemsShowCtrl.item.price}} </p>
+      <a type="button" class="btn btn-success" ng-href="/"><span class="glyphicon glyphicon-plus"></span> Review</a>
     </div>
     <div class="col-md-6">
       <div id='map'></div>
     </div>
   </div>
 </div>
-
-
 <div class="container">
-
-
   <div id="search_bar" class="row">
     <div class="col-md-6 col-md-offset-3">
       <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
@@ -39,8 +32,6 @@
   </div>
   <div class="card-columns">
     <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: 'created' | filter: searchText">
-      <!-- <div class="card-columns"> -->
-        <!-- <div class="col-md-4"> -->
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
@@ -61,62 +52,3 @@
     </div><!--closes ng-repeat-->
   </div><!--closes row-->
 <!-- <div id='map'>
-
-</div>
-<div class="container">
-  <div class="col-md-6">
-    <div class="row">
-      <h2>{{itemsShowCtrl.item.name}}</H2>
-    </div>
-    <div class="row">
-      <p>filter by:</p>
-    </div> -->
-    <!--insert reviews-->
-
-    <!-- <div ng-repeat="review in itemsShowCtrl.item.reviews">
-      Review Title: {{review.title}}<br>
-      Place Name: {{itemsShowCtrl.item.place.name}}<br>
-      Review Rating: {{review.rating}}<br> -->
-
-
-    <!-- <div ng-repeat="review in itemsShowCtrl.item.reviews">
-      <p><strong>Review Title: </strong>{{review.title}}</p>
-      <p><strong>Rating: </strong>{{review.rating}}</p>
-    </div> -->
-    <!-- Place Name: {{itemsShowCtrl.item.place.name}}<br>
-    Review Title: {{itemsShowCtrl.item.reviews.title}}<br> -->
-
-  <!-- </div>
-</div> -->
-
-
-
-
-
-
-<!-- <div ng-if="itemsShowCtrl.items.length">
-  <div ng-repeat="item in home.items">
-    <div class="col-md-4">
-      <p>
-        <strong><a ng-href="/items/{{item._id}}">{{item.name}}</a></strong>
-      </p>
-      <p>
-        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 31 restaurants{{item.places.length}}
-      </p>
-      <div class="col-md-12 col-xs-12 thumbnail">
-        <img src="images/800x800.png" alt="item image">
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-<!--
-<script>
-  mapboxgl.accessToken = process.env.TOKEN_MAP;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v8'
-    });
-</script> -->
