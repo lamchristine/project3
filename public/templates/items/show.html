@@ -17,7 +17,7 @@
       <p><strong>Website:</strong> {{itemsShowCtrl.item.place.website}} </p>
       <p><strong>Phone Number:</strong> {{itemsShowCtrl.item.place.phone_num}} </p>
       <p><strong>Item Price:</strong> {{itemsShowCtrl.item.price}} </p>
-      <a type="button" class="btn btn-success" ng-href="/"><span class="glyphicon glyphicon-plus"></span> Review</a>
+      <a ng-show="main.currentUser.isLoggedIn()" type="button" class="btn btn-success" ng-href="/"><span class="glyphicon glyphicon-plus"></span> Review</a>
     </div>
     <div class="col-md-6">
       <div id='map'></div>
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="card-columns">
-    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: 'created' | filter: searchText">
+    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
