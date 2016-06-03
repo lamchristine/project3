@@ -11,5 +11,8 @@ MongoDB, Mongoose, AngularJS, Node.js, Express, CSS, HTML, Bootstrap
 #####2. Users will be able to bookmark favorite food items and view them later.   
 #####3. Users will be able to 'like' other users post. 
 
+##ERD
+![ERD Screenshot](public/styles/images/p3_erd.tiff?raw=true "Cravings")
+
 
 
