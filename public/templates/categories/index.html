@@ -36,42 +36,46 @@
   <form ng-show="showform" role="form">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Select an item to review:</p>
+        <h4><strong>Select an item to review:</strong></h4>
         <div class="row">
           <div ng-repeat="category in home.categories">
             <div class="col-md-3">
-              {{category.name}}
+              <strong>{{category.name}}</strong>
             </div>
             <div class="col-md-9">
-              <select ng-model="home.newReview.item">
+              <select class="form-control" ng-model="home.newReview.item">
                 <option value="{{item._id}}" ng-repeat="item in category.items">{{item.name}} from {{item.place.name}}</option>
               </select>
             </div>
           </div>
-          <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true">Rating: </div>
-          <div class="form-group">
-            <input ng-model="home.newReview.title" placeholder="Review Title" type="text" class="form-control" required="true">
-          </div>
-          <div class="form-group">
-            <textarea ng-model="home.newReview.content" placeholder="Content" class="form-control" required="true"></textarea>
-          </div>
-          <div class="form-group">
-            <!--angular-uploadcare widget!-->
-            <input
-                uploadcare-widget
-                ng-model="home.newReview.image"
-                data-public-key="demopublickey"
-                data-tabs="file url"
-                data-images-only="true"
-                data-preview-step="true"
-                data-clearable="true"
-                data-multiple="false"
-                data-crop="200:200"
-                on-upload-complete="onUCUploadComplete(info)"
-                on-widget-ready="onUCWidgetReady(widget)"
-                value="{{home.newReview.image}}"
-               />
-          </div>
+        </div>
+        <div class="form-group">
+          <div ng-raty="ratyOptions" ng-model="home.newReview.rating" required="true"><strong>Rating: </strong></div>
+        </div>
+        <div class="form-group">
+          <input ng-model="home.newReview.title" placeholder="Review Title" type="text" class="form-control" required="true">
+        </div>
+        <div class="form-group">
+          <textarea rows="4" ng-model="home.newReview.content" placeholder="Content" class="form-control" required="true"></textarea>
+        </div>
+        <div class="form-group"><strong>Upload An Image:</strong>
+          <!--angular-uploadcare widget!-->
+          <input
+              uploadcare-widget
+              ng-model="home.newReview.image"
+              data-public-key="demopublickey"
+              data-tabs="file url"
+              data-images-only="true"
+              data-preview-step="true"
+              data-clearable="true"
+              data-multiple="false"
+              data-crop="200:200"
+              on-upload-complete="onUCUploadComplete(info)"
+              on-widget-ready="onUCWidgetReady(widget)"
+              value="{{home.newReview.image}}"
+             />
+        </div>
+        <div class="text-center">
           <button type="button" class="btn btn-success" ng-click="home.createReview()"><span class="glyphicon glyphicon-plus"></span>Submit</button>
           <button type="button" class="btn btn-danger" ng-click="showform=false">Cancel</button>
         </div>
