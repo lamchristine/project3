@@ -52,32 +52,11 @@
     </div>
 
     <!--ng-repeat for reviews-->
-    <div class="card-columns">
-    <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: 'created'| filter: searchText">
-
-        <!-- <div class="col-md-4"> -->
+      <div class="card-columns">
+        <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: 'created'| filter: searchText">
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
-
-          <!-- <img ng-click="editing_photo=true" ng-hide="editing_photo" class="card-img-top img-responsive" ng-src="images/{{review.image}}" alt="Review Photo">
-            <input
-                  ng-show="editing_photo"
-                  uploadcare-widget
-                  ng-model="review.image"
-                  data-public-key="demopublickey"
-                  data-tabs="file url"
-                  data-images-only="true"
-                  data-preview-step="true"
-                  data-clearable="true"
-                  data-multiple="false"
-                  data-crop="200:200"
-                  on-upload-complete="onUCUploadComplete(info)"
-                  on-widget-ready="onUCWidgetReady(widget)"
-                  value="{{review.image}}"
-                 /> -->
-
-
               <div class="card-block">
                 <p class="card-text"> Category: {{review.item.category.name}}</p>
                 <h3 class="card-text">

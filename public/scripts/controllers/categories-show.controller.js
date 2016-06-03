@@ -2,11 +2,7 @@ CategoriesShowController.$inject = ["$location", "$http", "$routeParams"]; // mi
 function CategoriesShowController ($location, $http, $routeParams) {
   var vm = this;
   vm.category = {};
-  vm.items = []
-  // vm.newReview = {};
-  // vm.createReview = createReview;
-
-
+  vm.items = [];
 
   get();
 
@@ -17,7 +13,7 @@ function CategoriesShowController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.category = response.data;
-      console.log("**",response.data)
+      //mapping
       var places = { type: 'FeatureCollection', features: [{ geometry: { type: "Point", coordinates: [-122.4194, 37.7749] },
   properties: { id: "cover", zoom: 10 }, type: 'Feature' }] };
 
@@ -30,7 +26,7 @@ function CategoriesShowController ($location, $http, $routeParams) {
         var places_hash = { geometry: { type: "Point", coordinates: coord_arr },
             properties: { id: loc, zoom: 14 }, type: 'Feature' };
 
-        var features_arr = places["features"]
+        var features_arr = places["features"];
         features_arr.push(places_hash);
       }
       console.log("places***", places);
@@ -97,9 +93,6 @@ function CategoriesShowController ($location, $http, $routeParams) {
         setId(newId);
     }; //map
 
-
-
-
     } //closes onGetSuccess
 
     function onGetError(response){
@@ -107,8 +100,4 @@ function CategoriesShowController ($location, $http, $routeParams) {
       $location.path('/');
     } //closes onGetError
   } //closes get()
-
-
-//mapbox public token//
-
 }; //closes CategoriesShowController
