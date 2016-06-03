@@ -1,11 +1,11 @@
 <style>
   /*body { margin:0; padding:0; }*/
   #map{
-    position:absolute;
+    /*position:absolute;*/
     top:30px;
-    /*bottom:0;*/
+    margin-bottom: 35px;
     width:100%;
-    height:200px;
+    height:300px;
   }
 
 </style>
@@ -27,43 +27,14 @@
     </div>
   </div>
   <hr>
-<!-- <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhbTA2IiwiYSI6ImNpb294d25xMzAwMXJ1eG0zdXdtaGtqMmwifQ.baGJ8eoCmGvgnMptSrTGyw';
-var map = L.mapbox.map('map', 'mapbox.streets')
-.setView([37.77699, -122.410523], 13);
-
-L.mapbox.featureLayer({
-    // this feature is in the GeoJSON format: see geojson.org
-    // for the full specification
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        // x, y is the standard for GeoJSON and many formats
-        coordinates: [37.77699, -122.410523]
-    },
-    properties: {
-      title: 'Peregrine Espresso',
-      description: '1718 14th St NW, Washington, DC',
-      // one can customize markers by adding simplestyle properties
-      // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-      'marker-size': 'large',
-      'marker-color': '#BE9A6B',
-      'marker-symbol': 'icon-halo'
-  }
-}).addTo(map);
-</script> -->
 
 
-
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-
-    <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+  <div id="search_bar" class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+    </div>
   </div>
-  </div>
-    <div class="card-columns">
-
+  <div class="card-columns">
     <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
       <!-- <div class="card-columns"> -->
         <!-- <div class="col-md-4"> -->

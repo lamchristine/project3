@@ -43,6 +43,7 @@ a.navbar-brand {
   background-color: blue;
   background-image: url(/images/congruent_pentagon.png);
   height: 350px;
+  margin-bottom: 35px;
 }
 
 #avatar img {
@@ -60,6 +61,10 @@ a.navbar-brand {
 }
 .card img {
   width: 100%;
+}
+
+#search_bar {
+  margin-bottom: 35px;
 }
 
 /****** item show page ****/
