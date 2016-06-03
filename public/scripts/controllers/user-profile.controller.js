@@ -23,7 +23,9 @@ function ProfileController ($location, UserService, $http) {
 
     function onGetSuccess(response){
       vm.user = response.data;
-      }
+      var created = new Date(response.data.created);
+      response.data.created = (created.getMonth() + 1) + '/' + created.getDate() + '/' +  created.getFullYear();
+    }
 
     function onGetError(response){
       console.log("Error in getting reviews", response);
