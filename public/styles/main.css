@@ -34,17 +34,23 @@ navbar.dropdown-menu {
 }
 .navbar {
   margin-bottom: 0px;
+  padding: 0px;
 }
 a.navbar-brand {
   text-align: center;
 }
+.jumbotron h1{
+  color: #eb6864;
+}
+
+
 
 
 
 /***** User Profile Page ****/
 
 #user_background {
-  background-color: blue;
+  /*background-color: blue;*/
   background-image: url(/images/congruent_pentagon.png);
   height: 350px;
   margin-bottom: 35px;
@@ -81,17 +87,24 @@ a.navbar-brand {
   margin-left:15px
 }
 
+
+
+#item_show {
+  background-image: url(/images/pw_maze_white.png);
+  padding-top:1%;
+  padding-bottom: 3%;
+  margin-bottom: 35px;
+}
+.item_show {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#item_show h2 {
+  color: #EB6864;
+}
+
 /*cate show page*/
-
-/*#map {
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:100%;
-}*/
-
-
-
 
 #item_review img{
   height: 200px;
@@ -100,17 +113,6 @@ a.navbar-brand {
 #user_review img{
   height: 200px;
 }
-
-
-/*#map {
-  min-height: 90%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  bottom:0;
-  left:0;
-}*/
 
 
 #review {

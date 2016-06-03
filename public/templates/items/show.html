@@ -11,8 +11,8 @@
 </style>
 
 <!-- as 'itemsShowCtrl' -->
-<div class="container">
-  <div class="row">
+<div id="item_show">
+  <div class="item_show row">
     <div class="col-md-6">
       <h2><strong>{{itemsShowCtrl.item.name}}</strong></h2>
       <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{itemsShowCtrl.item.place.name}}</h4>
@@ -26,7 +26,10 @@
       <div id='map'></div>
     </div>
   </div>
-  <hr>
+</div>
+
+
+<div class="container">
 
 
   <div id="search_bar" class="row">
