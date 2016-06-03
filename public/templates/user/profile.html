@@ -53,7 +53,7 @@
 
     <!--ng-repeat for reviews-->
     <div class="card-columns">
-    <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
+    <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: 'created'| filter: searchText">
 
         <!-- <div class="col-md-4"> -->
           <div id="card">
@@ -90,7 +90,7 @@
                   <span ng-hide="editing">{{review.content}}</span>
                   <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
                 </p>
-                <p class="card-text"><small class="text-muted">Created: {{review.created}}</small>
+                <p class="card-text"><small class="text-muted">Posted: {{review.created}} ago</small>
                   <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
                   <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
                 </p>

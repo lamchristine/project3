@@ -24,12 +24,7 @@ function CategoriesIndexController ($http, $location, $routeParams) {
       .post('/api/items/' + vm.newReview.item + '/reviews',  vm.newReview) //.method(url, data)
       .then(onCreateSuccess, onCreateError);
       function onCreateSuccess(response) {
-        // console.log("creating new review",response);
-        // vm.category.reviews.push(response.data);
-        // vm.newReview = {};
-        // console.log("*******", response.data);
         $location.path('/items/' + response.data.item._id);
-        // $location.path('/reviews/')
       }
 
       function onCreateError (response) {

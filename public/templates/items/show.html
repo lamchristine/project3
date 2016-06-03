@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="card-columns">
-    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
+    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: 'created' | filter: searchText">
       <!-- <div class="card-columns"> -->
         <!-- <div class="col-md-4"> -->
           <div id="card">
@@ -47,8 +47,9 @@
                 <p class="card-text">{{review.content}}</p>
                 <p class="card-text posted_by">
                   <img class="img-circle img-responsive avatar pull-left" ng-src="images/{{review.user.avatar}}" alt="User Avatar"><small class="text-muted">{{review.user.first_name}} {{review.user.last_name}}</small>
-                  <small class="text-muted pull-right">Posted: hrs ago</small>
                 </p>
+                <br>
+                <p class="card-text"><small class="text-muted pull-left"><em>Posted: {{review.created}} ago</em></small></p>
               </div>
             </div>
           </div>

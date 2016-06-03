@@ -23,8 +23,41 @@ function ProfileController ($location, UserService, $http) {
 
     function onGetSuccess(response){
       vm.user = response.data;
+      //converting user joined date to mm/dd/yy
       var created = new Date(response.data.created);
       response.data.created = (created.getMonth() + 1) + '/' + created.getDate() + '/' +  created.getFullYear();
+
+      //converting time to time ago
+      response.data.reviews.forEach(function(review, i){
+        var date = new Date(review.created);
+        response.data.reviews[i].created = timeSince(date);
+      })
+      //function for converting time
+      function timeSince(date) {
+        var seconds = Math.floor((new Date() - date) / 1000);
+        var interval = Math.floor(seconds / 31536000);
+
+        if (interval > 1) {
+            return interval + " years";
+        }
+        interval = Math.floor(seconds / 2592000);
+        if (interval > 1) {
+            return interval + " months";
+        }
+        interval = Math.floor(seconds / 86400);
+        if (interval > 1) {
+            return interval + " days";
+        }
+        interval = Math.floor(seconds / 3600);
+        if (interval > 1) {
+            return interval + " hours";
+        }
+        interval = Math.floor(seconds / 60);
+        if (interval > 1) {
+            return interval + " minutes";
+        }
+        return Math.floor(seconds) + " seconds";
+      }
     }
 
     function onGetError(response){
