@@ -17,7 +17,10 @@ navbar.dropdown-menu {
   z-index: 5000;
 }
 
-
+.icon {
+  height: 35px;
+  margin-top: -7px;
+}
 
 
 /***** category index page (home) *****/
@@ -41,7 +44,22 @@ a.navbar-brand {
 }
 .jumbotron h1{
   color: #eb6864;
+  text-shadow: 2px 2px 4px #000000;
+  margin-top: 2%;
+  text-align: center;
+  font-weight:900;
+  font-size: 135px;
 }
+
+.jumbotron p{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 35px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+
 
 
 
@@ -50,7 +68,6 @@ a.navbar-brand {
 /***** User Profile Page ****/
 
 #user_background {
-  /*background-color: blue;*/
   background-image: url(/images/congruent_pentagon.png);
   height: 350px;
   margin-bottom: 35px;
