@@ -19,7 +19,6 @@ function CategoriesIndexController ($http, $location, $routeParams) {
   }
 
   function createReview() {
-    // console.log("*****", vm.newReview)
     $http
       .post('/api/items/' + vm.newReview.item + '/reviews',  vm.newReview) //.method(url, data)
       .then(onCreateSuccess, onCreateError);
