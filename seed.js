@@ -7,7 +7,7 @@ var users_list = [
     username: "jsmith",
     password: "abc",
     email: "john@smith.com",
-    avatar: "userprofile.png",
+    avatar: "icon2.png",
   },
   {
     first_name: "Sarah",
@@ -15,7 +15,7 @@ var users_list = [
     username: "sjackson",
     password: "abc",
     email: "sarah@jackson.com",
-    avatar: "userprofile.png",
+    avatar: "cary.jpeg",
   },
   {
     first_name: "Jimmy",
@@ -23,7 +23,7 @@ var users_list = [
     username: "jchoo",
     password: "abc",
     email: "jimmy@choo.com",
-    avatar: "userprofile.png",
+    avatar: "images.jpeg",
   }
 ];
 
@@ -239,6 +239,21 @@ var items_list = [
   }
 ];
 
+
+//creating users
+db.User.remove({}, function(err, users) {
+  console.log('removed all users');
+  db.User.create(users_list, function(err, users){
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('recreated all users');
+    console.log("created", users.length, "users");
+  });
+});
+
+
 db.Place.remove({}, function(err, places) {
   console.log('removed all places');
   db.Place.create(places_list, function(err, places){
@@ -258,10 +273,7 @@ db.Place.remove({}, function(err, places) {
         console.log('recreated all places');
         console.log("created", places.length, "places");
 
-
-
-
-
+        //each item references a place
           db.Item.remove({}, function(err, items){
             console.log('removed all items');
             items_list.forEach(function (itemData) {
@@ -269,15 +281,14 @@ db.Place.remove({}, function(err, places) {
                 name: itemData.name,
                 price: itemData.price
               });
-
-              // db.Review.findOne({item:itemData.name, place: })
-
+              //find Place that contains the item
               db.Place.findOne({name: itemData.place}, function (err, foundPlace) {
                 console.log('found place ' + foundPlace.name + ' for item ' + item.name);
                 if (err) {
                   console.log(err);
                   return;
                 }
+                //assign the foundPlace to the specific item
                 item.place = foundPlace;
                 item.save(function(err, savedItem){
                   if (err) {
@@ -286,13 +297,14 @@ db.Place.remove({}, function(err, places) {
                   console.log('saved ' + savedItem.name + ' from ' + foundPlace.name);
                 });
               });
-
+              //find Category that contains the item
               db.Category.findOne({name: itemData.category}, function (err, foundCategory) {
                 console.log('found category ' + foundCategory.name + ' for item ' + item.name);
                 if (err) {
                   console.log(err);
                   return;
                 }
+                //assign the foundCategory to the specific item
                 item.category = foundCategory;
                 item.save(function(err, savedItem){
                   if (err) {
@@ -308,51 +320,8 @@ db.Place.remove({}, function(err, places) {
     });
   });
 
-db.User.remove({}, function(err, users) {
-  console.log('removed all places');
-  db.User.create(users_list, function(err, users){
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log('recreated all users');
-    console.log("created", users.length, "users");
+//*************run following in the mongo console to complete the seed************////
 
-    db.Review.remove({}, function(err, reviews){
-      console.log('removed all reviews');
-      reviews_list.forEach(function (reviewData) {
-        var review = new db.Review({
-          title: reviewData.title,
-          rating: reviewData.rating,
-          image: reviewData.image,
-          content: reviewData.content,
-          likes_counter: reviewData.likes_counter,
-        });
-
-        db.User.findOne({email: reviewData.email}, function (err, foundUser) {
-          console.log('found user ' + foundUser.email + ' for review ' + review.title);
-          if (err) {
-            console.log(err);
-            return;
-          }
-          review.user = foundUser;
-          review.save(function(err, savedReview){
-            if (err) {
-              return console.log(err);
-            }
-            console.log('saved ' + savedReview.title + ' from ' + foundUser.email);
-          });
-        });
-      });
-    });
-  });
-});
-
-// mongo
-// show dbs
-// use Project3App
-//
-//
 // c = db.categories.findOne({name: "Cheesecake"})
 // p = db.places.findOne({name: "Zanzes Cheesecake" })
 // c.places.push(p._id)
@@ -405,104 +374,12 @@ db.User.remove({}, function(err, users) {
 // p = db.places.findOne({name: "Boulevard"})
 // c.places.push(p._id)
 // db.categories.save(c)
-//
-//
-// ///////////////////////////////////////////
-//
-//
-// c = db.categories.findOne({name: "Cheesecake"})
-// r = db.reviews.findOne({title: "The creamiest cheesecake ever!"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// c = db.categories.findOne({name: "Cheesecake"})
-// r = db.reviews.findOne({title: "So buttery!"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// c = db.categories.findOne({name: "Lamb Chops"})
-// r = db.reviews.findOne({title: "AMAZING!"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// c = db.categories.findOne({name: "Lamb Chops"})
-// r = db.reviews.findOne({title: "Decent, but not worth the price"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// c = db.categories.findOne({name: "Poutine"})
-// r = db.reviews.findOne({title: "Mind-blown!"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// c = db.categories.findOne({name: "Poutine"})
-// r = db.reviews.findOne({title: "Unremarkable!"})
-// c.reviews.push(r._id)
-// db.categories.save(c)
-//
-//
-// ///////////////////////////////////////
-//
-//
-// zanze=db.places.findOne({name:"Zanzes Cheesecake"})
-// viva=db.places.findOne({name:"Viva La Tarte"})
-// genki=db.places.findOne({name:"Genki Crepes"})
-// zoes=db.places.findOne({name:"Zoes"})
-// wayfare=db.places.findOne({name:"Wayfare Tavern"})
-// smokes=db.places.findOne({name:"Smokes Poutinerie"})
-// folie=db.places.findOne({name:"La Folie"})
-// nopa=db.places.findOne({name:"Nopa"})
-// boulevard=db.places.findOne({name:"Boulevard"})
-//
+
+////////////////////////*************************////////////////////////////////////
 //
 // cheesecake = db.categories.findOne({name: "Cheesecake"})
 // poutine = db.categories.findOne({name: "Poutine"})
 // lamb = db.categories.findOne({name: "Lamb Chops"})
-//
-//
-//
-// r = db.reviews.findOne({title:"The creamiest cheesecake ever!"})
-// r.place=zanze
-// r.category=cheesecake
-// db.reviews.save(r)
-//
-//
-// r = db.reviews.findOne({title: "So buttery!"})
-// r.place=viva._id
-// r.category=cheesecake._id
-// db.reviews.save(r)
-//
-//
-// r = db.reviews.findOne({title: "AMAZING!"})
-// r.place=folie._id
-// r.category=lamb._id
-// db.reviews.save(r)
-//
-//
-// r = db.reviews.findOne({title: "Decent, but not worth the price"})
-// r.place=wayfare._id
-// r.category=lamb._id
-// db.reviews.save(r)
-//
-//
-// r = db.reviews.findOne({title: "Mind-blown!"})
-// r.place=smokes._id
-// r.category=poutine._id
-// db.reviews.save(r)
-//
-//
-// r = db.reviews.findOne({title: "Unremarkable!"})
-// r.place=zoes._id
-// r.category=poutine._id
-// db.reviews.save(r)
-//
-//
-// ////////////////////////
 //
 //
 // bc = db.items.findOne({name: "Blueberry Cheesecake"})
@@ -535,7 +412,6 @@ db.User.remove({}, function(err, users) {
 // db.categories.save(lamb)
 //
 //
-//
 // chili = db.items.findOne({name: "Chili Cheese Bacon Poutine"})
 // poutine.items.push(chili._id)
 // db.categories.save(poutine)
@@ -549,76 +425,3 @@ db.User.remove({}, function(err, users) {
 // smoked=db.items.findOne({name: "Smoked Meat Poutine"})
 // poutine.items.push(smoked._id)
 // db.categories.save(poutine)
-//
-//
-//
-//
-// //////////////////////////////////////////
-//
-// r = db.reviews.findOne({title:"The creamiest cheesecake ever!"})
-// ny = db.items.findOne({name: "New York Cheesecake"})
-// sarah=db.users.findOne({first_name: "Sarah"})
-// sarah.reviews.push(r._id)
-// ny.reviews.push(r._id)
-// r.item = ny._id
-// db.reviews.save(r)
-// db.items.save(ny)
-// db.users.save(sarah)
-//
-//
-// r = db.reviews.findOne({title: "So buttery!"})
-// bc = db.items.findOne({name: "Blueberry Cheesecake"})
-// john=db.users.findOne({first_name: "John"})
-// john.reviews.push(r._id)
-// bc.reviews.push(r._id)
-// r.item = bc._id
-// db.reviews.save(r)
-// db.items.save(bc)
-// db.users.save(john)
-//
-//
-// r = db.reviews.findOne({title: "AMAZING!"})
-// grilled = db.items.findOne({name: "Grilled Lamb Chops"})
-// jimmy=db.users.findOne({first_name: "Jimmy"})
-// jimmy.reviews.push(r._id)
-// grilled.reviews.push(r._id)
-// r.item = grilled._id
-// db.reviews.save(r)
-// db.items.save(grilled)
-// db.users.save(jimmy)
-//
-//
-// r = db.reviews.findOne({title: "Decent, but not worth the price"})
-// rosemary= db.items.findOne({name: "Rosemary Lamb Chops"})
-// john=db.users.findOne({first_name: "John"})
-// john.reviews.push(r._id)
-// rosemary.reviews.push(r._id)
-// r.item = rosemary._id
-// db.reviews.save(r)
-// db.items.save(rosemary)
-// db.users.save(john)
-//
-//
-// r = db.reviews.findOne({title: "Mind-blown!"})
-// original = db.items.findOne({name: "Original Poutine"})
-// jimmy=db.users.findOne({first_name: "Jimmy"})
-// jimmy.reviews.push(r._id)
-// original.reviews.push(r._id)
-// r.item = original._id
-// db.reviews.save(r)
-// db.items.save(original)
-// db.users.save(jimmy)
-//
-//
-//
-// r = db.reviews.findOne({title: "Unremarkable!"})
-// smoked=db.items.findOne({name: "Smoked Meat Poutine"})
-// sarah=db.users.findOne({first_name: "Sarah"})
-// sarah.reviews.push(r._id)
-// smoked.reviews.push(r._id)
-// r.item = smoked._id
-// db.reviews.save(r)
-// db.items.save(smoked)
-// db.users.save(sarah)
-//
-//
