@@ -45,21 +45,43 @@ a.navbar-brand {
 .jumbotron h1{
   color: #eb6864;
   text-shadow: 2px 2px 4px #000000;
-  margin-top: 2%;
+  margin-top: 20%;
   text-align: center;
   font-weight:900;
-  font-size: 135px;
+  font-size: 55px;
 }
 
 .jumbotron p{
   text-align: center;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 15px;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
 
+#cat_section {
+  margin-left: 2%;
+  margin-right: 2%;
+}
 
+#cat_section_title h2{
+  font-size: 20px;
+}
+
+@media(min-width:768px) {
+  .jumbotron h1{
+    margin-top: 2%;
+    font-size: 135px;
+  }
+  .jumbotron p{
+    font-size: 35px;
+  }
+
+  #cat_section_title h2{
+    font-size: 32px;
+  }
+
+}
 
 
 
