@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect( 'mongodb://127.0.0.1:27017/Project3App' ||
+mongoose.connect( 'mongodb://localhost/Project3App' ||
                   process.env.MONGOLAB_URI ||
                   process.env.MONGOHQ_URL );
 
