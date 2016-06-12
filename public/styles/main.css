@@ -33,7 +33,7 @@ navbar.dropdown-menu {
   margin-bottom: 0px;
 }
 .jumbotron .container {
-  height: 350px;
+  height: 300px;
 }
 .navbar {
   margin-bottom: 0px;
@@ -45,16 +45,16 @@ a.navbar-brand {
 .jumbotron h1{
   color: #eb6864;
   text-shadow: 2px 2px 4px #000000;
-  margin-top: 10%;
+  margin-top: 25%;
   text-align: center;
   font-weight:900;
-  font-size: 110px;
+  font-size: 60px;
 }
 
 .jumbotron p{
   text-align: center;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 22px;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
@@ -77,9 +77,13 @@ a.navbar-brand {
     font-size: 35px;
   }
 
+  .jumbotron .container {
+    height: 350px;
+  }
   #cat_section_title h2{
     font-size: 32px;
   }
+
 
 }
 
