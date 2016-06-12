@@ -1,43 +1,45 @@
   <div id="user_background">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-1">
-        <h3>Hi, {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</h3>
-        <hr class="thick" ng-show="profileCtrl.showEditForm">
-        <hr style="height:3px; width:180%" ng-hide="profileCtrl.showEditForm">
-        <div id="avatar" class="col-md-3">
-          <img ng-src="images/{{profileCtrl.user.avatar}}" class="img-circle img-responsive" alt="category image">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1 col-xs-6">
+          <h3>Hi, {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</h3>
+          <hr class="thick" ng-show="profileCtrl.showEditForm">
+          <hr style="height:3px; width:180%" ng-hide="profileCtrl.showEditForm">
+          <div id="avatar" class="col-md-4">
+            <img ng-src="images/{{profileCtrl.user.avatar}}" class="img-circle img-responsive" alt="category image">
+          </div>
+          <div class="col-md-6 col-md-offset-1">
+            <p><strong>Name:</strong> {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</p>
+            <p><strong>Username:</strong> {{profileCtrl.user.username}}</p>
+            <p><strong>Email:</strong> {{profileCtrl.user.email}}</p>
+            <p><strong>Joined:</strong> {{profileCtrl.user.created}}</p>
+            <p><strong>Reviews:</strong> {{profileCtrl.user.reviews.length || 0}}</p>
+            <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+          </div>
         </div>
-        <div class="col-md-6 col-md-offset-1">
-          <p><strong>Name:</strong> {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</p>
-          <p><strong>Username:</strong> {{profileCtrl.user.username}}</p>
-          <p><strong>Email:</strong> {{profileCtrl.user.email}}</p>
-          <p><strong>Joined:</strong> {{profileCtrl.user.created}}</p>
-          <p><strong>Reviews:</strong> {{profileCtrl.user.reviews.length || 0}}</p>
-          <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+        <!--start edit profile form-->
+        <div class="col-md-3 col-xs-6">
+          <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
+            <h4>Edit Profile</h4>
+            <div class="form-group">
+              <input type="text" ng-model="profileCtrl.new_profile.first_name" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="profileCtrl.new_profile.last_name" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+            </div>
+            <input type="submit" value="Save Profile" class="btn btn-info">
+            <a class="btn btn-danger" ng-click="profileCtrl.showEditForm=false">Cancel</a>
+          </form>
         </div>
-      </div>
-      <!--start edit profile form-->
-      <div class="col-md-3">
-        <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-          <h4>Edit Profile</h4>
-          <div class="form-group">
-            <input type="text" ng-model="profileCtrl.new_profile.first_name" class="form-control" placeholder="First Name">
-          </div>
-          <div class="form-group">
-            <input type="text" ng-model="profileCtrl.new_profile.last_name" class="form-control" placeholder="Last Name">
-          </div>
-          <div class="form-group">
-            <input type="text" ng-model="profileCtrl.new_profile.username" class="form-control" placeholder="Username">
-          </div>
-          <div class="form-group">
-            <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
-          </div>
-          <input type="submit" value="Save Profile" class="btn btn-info">
-          <a class="btn btn-danger" ng-click="profileCtrl.showEditForm=false">Cancel</a>
-        </form>
-      </div>
-      <!--end profile form ends-->
-    </div><!--closes profile row-->
+        <!--end profile form ends-->
+      </div><!--closes profile row-->
+    </div>
   </div>
 
 

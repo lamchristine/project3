@@ -45,16 +45,16 @@ a.navbar-brand {
 .jumbotron h1{
   color: #eb6864;
   text-shadow: 2px 2px 4px #000000;
-  margin-top: 20%;
+  margin-top: 10%;
   text-align: center;
   font-weight:900;
-  font-size: 55px;
+  font-size: 110px;
 }
 
 .jumbotron p{
   text-align: center;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 25px;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
@@ -65,7 +65,7 @@ a.navbar-brand {
 }
 
 #cat_section_title h2{
-  font-size: 20px;
+  font-size: 30px;
 }
 
 @media(min-width:768px) {
@@ -91,7 +91,7 @@ a.navbar-brand {
 
 #user_background {
   background-image: url(/images/congruent_pentagon.png);
-  height: 350px;
+  height: 470px;
   margin-bottom: 35px;
 }
 
@@ -114,6 +114,12 @@ a.navbar-brand {
 
 #search_bar {
   margin-bottom: 35px;
+}
+
+@media(min-width:768px) {
+  #user_background {
+    height: 350px;
+  }
 }
 
 /****** item show page ****/
