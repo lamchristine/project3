@@ -2,6 +2,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-1 col-xs-6">
+          <div class="container">
+
           <h3>Hi, {{profileCtrl.user.first_name}} {{profileCtrl.user.last_name}}</h3>
           <hr class="thick" ng-show="profileCtrl.showEditForm">
           <hr style="height:3px; width:180%" ng-hide="profileCtrl.showEditForm">
@@ -16,6 +18,7 @@
             <p><strong>Reviews:</strong> {{profileCtrl.user.reviews.length || 0}}</p>
             <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
           </div>
+        </div>
         </div>
         <!--start edit profile form-->
         <div class="col-md-3 col-xs-6">
@@ -39,8 +42,8 @@
         </div>
         <!--end profile form ends-->
       </div><!--closes profile row-->
-    </div>
-  </div>
+    </div><!--closes profile container-->
+  </div><!--closes profile user_background-->
 
 
 <!--user reviews-->
@@ -48,40 +51,44 @@
   <div class="row">
     <!--search bar-->
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+      <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+          <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+        </div>
       </div>
     </div>
 
     <!--ng-repeat for reviews-->
-      <div class="card-columns">
-        <div  ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
-          <div id="card">
-            <div class="card">
-              <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
-              <div class="card-block">
-                <p class="card-text"> Category: {{review.item.category.name}}</p>
-                <h3 class="card-text">
-                  <span ng-hide="editing">{{review.title}}</span>
-                  <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
-                </h3>
-                <p class="card-text"><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
-                <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
-                <p class="card-text">
-                  <span ng-hide="editing">{{review.content}}</span>
-                  <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
-                </p>
-                <p class="card-text"><small class="text-muted">Posted: {{review.created}} ago</small>
-                  <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
-                  <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
-                </p>
-                <a class='btn btn-success btn-sm' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
-                <a class="btn btn-danger btn-sm" ng-show="editing" ng-click="editing=false">Cancel</a>
+      <div class="container">
+        <div class="card-columns">
+          <div ng-repeat="review in profileCtrl.user.reviews | orderBy: '-created'| filter: searchText">
+            <div id="card">
+              <div class="card">
+                <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
+                <div class="card-block">
+                  <p class="card-text"> Category: {{review.item.category.name}}</p>
+                  <h3 class="card-text">
+                    <span ng-hide="editing">{{review.title}}</span>
+                    <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
+                  </h3>
+                  <p class="card-text"><strong>{{review.item.name}}</strong> from {{review.item.place.name}}</p>
+                  <div class="star"><p><strong>Rating:</strong> {{review.rating}} stars</p></div>
+                  <p class="card-text">
+                    <span ng-hide="editing">{{review.content}}</span>
+                    <input ng-show="editing" ng-model="review.content" type="text" class="form-control input-md">
+                  </p>
+                  <p class="card-text"><small class="text-muted">Posted: {{review.created}} ago</small>
+                    <a ng-click="profileCtrl.destroy(review)"><i class="fa fa-trash-o pull-right"></i></a>
+                    <a ng-click="editing=true" ng-hide="editing"><i class="fa fa-pencil pull-right"></i></a>
+                  </p>
+                  <a class='btn btn-success btn-sm' ng-show="editing" ng-click="profileCtrl.edit(review); editing = false">Save Changes</a>
+                  <a class="btn btn-danger btn-sm" ng-show="editing" ng-click="editing=false">Cancel</a>
+                </div>
               </div>
             </div>
-          </div>
-        </div><!--closes col-md-4-->
-      </div><!--closes .card-columns-->
-    </div><!--closes ng-repeat-->
-  </div><!--closes row div-->
-</div> <!--closes container div-->
+          </div><!--closes ng-repeat-->
+        </div><!--closes .card-columns-->
+      </div><!--closes container div-->
+    </div><!--closes row div-->
+  </div><!--closes container div-->
+ <!--closes container div-->
