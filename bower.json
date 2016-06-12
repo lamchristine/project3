@@ -17,8 +17,8 @@
   ],
   "dependencies": {
     "angular-uploadcare": "^0.2.0",
-    "ngRaty": "*",
-    "jquery": "^3.0.0",
+    "ngRaty": "ngraty#*",
+    "jquery": "^2.2.4",
     "bootstrap": "^3.3.6"
   }
 }
