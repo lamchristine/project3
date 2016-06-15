@@ -12,6 +12,9 @@
     <input type="submit" value="Log In" class="btn btn-block btn-info">
   </form>
   <br>
-  <p class="text-muted">Don't have an account? <a href="/signup">Sign up here.</a></p>
+  <p class="text-muted">Don't have an account? <a href="/signup">Sign up here</a></p>
+  <p class="text-muted">Or try using <a href="#" ng-click="guest_login = !guest_login">Guest Account</a></p>
+  <p class="text-muted" ng-show="guest_login">Email: john@smith.com</p>
+  <p class="text-muted" ng-show="guest_login">Password: abc</p>
 </div>
 </div>
