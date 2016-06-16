@@ -136,8 +136,6 @@ a.navbar-brand {
   margin-left:15px
 }
 
-
-
 #item_show {
   background-image: url(/images/pw_maze_white.png);
   padding-top:1%;
@@ -152,6 +150,13 @@ a.navbar-brand {
 #item_show h2 {
   color: #EB6864;
 }
+.card {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
 
 /*cate show page*/
 
@@ -162,6 +167,13 @@ a.navbar-brand {
 #user_review img{
   height: 200px;
 }
+
+
+/*@media(min-width:768px) {
+  .card img {
+      width: 100%;
+  }
+}*/
 
 
 #review {

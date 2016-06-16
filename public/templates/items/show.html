@@ -25,18 +25,21 @@
   </div>
 </div>
 <div class="container">
-  <div id="search_bar" class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+  <div class="container">
+    <div id="search_bar" class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search User">
+      </div>
     </div>
   </div>
-  <div class="card-columns">
-    <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
+    <div class="container">
+      <div class="card-columns">
+        <div ng-repeat= "review in itemsShowCtrl.item.reviews | orderBy: '-created' | filter: searchText">
           <div id="card">
             <div class="card">
               <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
               <div class="card-block">
-                <p class="card-text"><strong>Title:</strong> {{review.title}}</p>
+                <h3 class="card-text">{{review.title}}</h3>
                 <p class="card-text"><strong>Rating:</strong> {{review.rating}} stars</p>
                 <p class="card-text">{{review.content}}</p>
                 <p class="card-text posted_by">
@@ -47,8 +50,8 @@
               </div>
             </div>
           </div>
-        </div><!--closes col-md-4-->
+        </div><!--closes ng-repeat-->
       </div><!--closes .card-columns-->
-    </div><!--closes ng-repeat-->
-  </div><!--closes row-->
+    </div><!--closes container-->
+  </div><!--closes container-->
 <!-- <div id='map'>

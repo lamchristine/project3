@@ -50,11 +50,9 @@
 <div class="container">
   <div class="row">
     <!--search bar-->
-    <div class="row">
-      <div class="container">
-        <div class="col-md-6 col-md-offset-3">
-          <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
-        </div>
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
       </div>
     </div>
 
@@ -66,7 +64,7 @@
               <div class="card">
                 <img class="card-img-top img-responsive" ng-src="{{review.image}}" alt="Review Photo">
                 <div class="card-block">
-                  <p class="card-text"> Category: {{review.item.category.name}}</p>
+                  <p class="card-text">Category: <em>{{review.item.category.name}}</em></p>
                   <h3 class="card-text">
                     <span ng-hide="editing">{{review.title}}</span>
                     <input ng-show="editing" ng-model="review.title" type="text" class="form-control input-md">
