@@ -4,7 +4,9 @@ i {
 }
 
 body {
-  background-color: #f6f6f6
+  background-color: #f6f6f6;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 /******* navbar *****/
 navbar.container {
