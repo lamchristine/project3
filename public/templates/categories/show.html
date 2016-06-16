@@ -88,6 +88,11 @@ section.active {
     margin-bottom: 50%;
 }
 
+#narrative .form-control {
+  font-size: 7px;
+  height: 20px;
+}
+
 @media(min-width:768px) {
   article h2 {
     font-size: 32px;
@@ -108,8 +113,11 @@ section.active {
   .sections:last-child {
     border-bottom: none;
     margin-bottom: 20%;
-}
-
+  }
+  #narrative .form-control {
+    font-size: 15px;
+    height: 39px;
+  }
 }
 </style>
 
@@ -123,16 +131,18 @@ section.active {
       <section id="cover" class="cover active">
         <h2>Where to eat {{categoriesShowCtrl.category.name}} in San Francisco? Check out the following! </h2>
         <!--search bar-->
-        <div class="row">
-          <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
-        </div>
+        <!-- <div class="row"> -->
+          <!-- <div class="container"> -->
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Search by Keyword"><br>
+          <!-- </div> -->
+        <!-- </div> -->
       </section>
       <div ng-repeat="item in categoriesShowCtrl.category.items  | orderBy: '-created'| filter: searchText">
         <section id="{{item.place.name}}">
           <h3><a ng-href="/items/{{item._id}}">{{item.name}}, {{item.price}}</a></h3>
           <h4>{{item.place.name}}</h4>
           <h5>{{item.place.address}}</h5>
-          <h5>{{item.place.website}}</h5>
+          <h5><a ng-href="{{item.place.website}}">Website</a></h5>
           <img ng-src="images/{{item.place.image}}" alt="place image"><br>
         </section>
       </div>
